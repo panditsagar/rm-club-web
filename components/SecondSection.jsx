@@ -56,7 +56,7 @@ export default function SecondSection() {
               />
 
               {/* OVERLAY */}
-              <div className="absolute inset-0 bg-gradient-to-b from-[#080618]/20 via-transparent to-[#080618]/95 pointer-events-none" />
+              <div className="absolute inset-0 bg-linear-to-b from-[#080618]/20 via-transparent to-[#080618]/95 pointer-events-none" />
 
               {/* CONTENT */}
               <div className="absolute inset-0 flex flex-col justify-end p-6 pb-10 pointer-events-none">

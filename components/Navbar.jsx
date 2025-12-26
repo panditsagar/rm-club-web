@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Navbar() {
  
   return (
-    <nav className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-350 z-[100] flex items-center justify-between px-10 mt-8 py-3 rounded-2xl text-white bg-black/30 backdrop-blur-md">
+    <nav className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-350 z-100 flex items-center justify-between px-10 mt-8 py-3 rounded-2xl text-white bg-black/30 backdrop-blur-md">
       {/* 1. LEFT LOGO ICON */}
       <div className="flex items-center cursor-pointer">
         <div className="w-13 h-13 relative">
@@ -48,7 +48,7 @@ export default function Navbar() {
             className="relative group hover:text-white transition-colors cursor-pointer"
           >
             Offerings
-            <span className="absolute -bottom-1 left-0 w-full h-[1px] bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            <span className="absolute -bottom-1 left-0 w-full h-1px bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
           </Link>
 
           <Link
@@ -56,7 +56,7 @@ export default function Navbar() {
             className="relative group hover:text-white transition-colors cursor-pointer"
           >
             Portfolio
-            <span className="absolute -bottom-1 left-0 w-full h-[1px] bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            <span className="absolute -bottom-1 left-0 w-full h-px bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
           </Link>
 
           <Link
@@ -64,7 +64,7 @@ export default function Navbar() {
             className="relative group hover:text-white transition-colors cursor-pointer"
           >
             About
-            <span className="absolute -bottom-1 left-0 w-full h-[1px] bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            <span className="absolute -bottom-1 left-0 w-full h-px bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
           </Link>
 
           <Link
@@ -72,7 +72,7 @@ export default function Navbar() {
             className="relative group hover:text-white transition-colors cursor-pointer"
           >
             Insights
-            <span className="absolute -bottom-1 left-0 w-full h-[1px] bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            <span className="absolute -bottom-1 left-0 w-full h-px bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
           </Link>
         </div>
 
@@ -82,7 +82,7 @@ export default function Navbar() {
           className="relative px-4 cursor-pointer py-2 bg-[#0A2549] text-[#1EA1F7] font-normal rounded-md text-[1.3rem] overflow-hidden group"
         >
           <span className="relative z-10">Contact</span>
-          <span className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out"></span>
+          <span className="absolute top-0 left-0 w-full h-full bg-linear-to-r from-transparent via-white/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out"></span>
         </Link>
       </div>
     </nav>
