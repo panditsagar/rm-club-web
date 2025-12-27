@@ -27,7 +27,7 @@ export default function SecondSection() {
   ];
 
   return (
-    <section className="relative z-30 w-full  pb-44 lg:pb-84  overflow-hidden">
+    <section className="relative z-40 w-full  pb-44 lg:pb-84  overflow-hidden">
       {/* CENTER WRAPPER */}
       <div className="max-w-350 mx-auto  ">
         {/* H1 */}
@@ -36,7 +36,7 @@ export default function SecondSection() {
         </h1>
 
         {/* GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="relative z-50 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {items.map((item, i) => (
             <div
               key={i}
@@ -44,7 +44,7 @@ export default function SecondSection() {
                 relative h-[430px] lg:h-[430px] w-full
                 border border-[#1D98E9] overflow-hidden
                 bg-[#080618]/60 backdrop-blur-sm
-                 transition-all duration-500 ease-out group
+                 transition-all duration-500 ease-out group  
                 ${item.offset}
               `}
             >

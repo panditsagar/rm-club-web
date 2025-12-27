@@ -35,6 +35,18 @@ body {
   -ms-overflow-style: none;
 }
 
+.offerings__visual-svg .logo-img {
+  transform-box: fill-box;      /* IMPORTANT for SVG */
+  transform-origin: center;     /* IMPORTANT for SVG */
+  transition: transform 0.8s ease;
+  will-change: transform;
+}
+
+.offerings__visual-svg:hover .logo-img {
+  transform: scale(1.2);
+}
+
+
 /* ================= HERO STYLES REMOVED (Now using Tailwind in Herosection.jsx) ================= */
 
 /* ================= RESPONSIVE ================= */
@@ -44,4 +56,17 @@ body {
 
 @media (max-width: 640px) {
   /* Removed padding adjustments */
+}
+
+@keyframes marquee {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.hover-pause:hover .animate-marquee {
+  animation-play-state: paused;
 }
