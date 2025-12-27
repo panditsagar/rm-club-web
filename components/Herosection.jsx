@@ -1,24 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Spline from "@splinetool/react-spline";
 import Link from "next/link";
 import { FaArrowDown } from "react-icons/fa6";
 
 export default function App() {
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    const onScroll = () => {
-      const scrollY = window.scrollY;
-      const max = window.innerHeight;
-      const p = Math.min(scrollY / max, 1);
-      setProgress(p);
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   return (
     <>
