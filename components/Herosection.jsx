@@ -24,29 +24,20 @@ export default function App() {
     <>
       <section className="relative h-screen w-full overflow-hidden bg-[#080618]">
         {/* SPLINE BACKGROUND */}
-        <div className="absolute inset-0 pointer-events-none transition-opacity duration-150 ease-linear">
-          {progress < 0.9 && (
-            <Spline scene="https://prod.spline.design/DBCGWGemx6OSZ2Xf/scene.splinecode" />
-          )}
+        <div className="fixed inset-0 pointer-events-none transition-opacity duration-150 ease-linear z-0">
+          <Spline scene="https://prod.spline.design/DBCGWGemx6OSZ2Xf/scene.splinecode" />
         </div>
 
         {/* GRADIENT OVERLAY (Simulating the blue waves if Spline doesn't fully cover or for mood) */}
         <div
-          className="absolute inset-0 pointer-events-none"
+          className="fixed inset-0 pointer-events-none z-0"
           style={{
             background:
               "radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.1) 0%, rgba(8, 6, 24, 0.4) 100%)",
-            opacity: 1 - progress,
           }}
         />
 
-        {/* FADE OUT LAYER ON SCROLL */}
-        <div
-          className="absolute inset-0 bg-[#080618] pointer-events-none transition-opacity duration-150 ease-linear"
-          style={{
-            opacity: progress,
-          }}
-        />
+
 
         {/* CONTENT */}
         <div className="relative z-50 h-full flex flex-col justify-center px-8 md:px-20   pt-34">
@@ -74,7 +65,7 @@ export default function App() {
         </div>
 
         {/* BOTTOM FADE */}
-        <div className="absolute bottom-0 left-0 w-full h-32 bg-linear-to-t from-[#080618] to-transparent z-20 pointer-events-none" />
+        <div className="fixed bottom-0 left-0 w-full h-32 bg-linear-to-t from-[#080618] to-transparent z-20 pointer-events-none" />
       </section>
     </>
   );

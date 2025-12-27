@@ -27,9 +27,9 @@ export default function SecondSection() {
   ];
 
   return (
-    <section className="relative w-full  pb-44 lg:pb-84 bg-[#080618] overflow-hidden">
+    <section className="relative z-30 w-full  pb-44 lg:pb-84  overflow-hidden">
       {/* CENTER WRAPPER */}
-      <div className="max-w-350 mx-auto px-6">
+      <div className="max-w-350 mx-auto  ">
         {/* H1 */}
         <h1 className=" max-w-2xl ml-auto text-white text-end lg:text-[4.5rem] tracking-tight leading-none font-switzer">
           We envision a transformative decade ahead
@@ -44,8 +44,7 @@ export default function SecondSection() {
                 relative h-[430px] lg:h-[430px] w-full
                 border border-[#1D98E9] overflow-hidden
                 bg-[#080618]/60 backdrop-blur-sm
-                hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(56,189,248,0.2)]
-                transition-all duration-500 ease-out group
+                 transition-all duration-500 ease-out group
                 ${item.offset}
               `}
             >
