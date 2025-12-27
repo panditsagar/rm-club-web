@@ -52,7 +52,7 @@ export default function FourthSection() {
     {
       id: "carta",
       content: (
-        <span className="text-white font-mono text-2xl opacity-60 border p-1 border-white/20">
+        <span className="text-white font-mono text-2xl opacity-60  ">
           carta
         </span>
       ),
@@ -66,9 +66,9 @@ export default function FourthSection() {
   const carouselItems = [...logos, ...logos];
 
   return (
-    <section className="relative w-full bg-[#080618] py-20 overflow-hidden pb-100">
+    <section className="relative w-full bg-[#080618] py-20 overflow-hidden pb-50">
       <div className="w-full">
-        <h2 className="text-white pl-20 text-start text-5xl lg:text-[4.5rem] tracking-tight font-light mb-20">
+        <h2 className="text-white pl-20 text-start text-5xl lg:text-[4.5rem] tracking-tight leading-none font-switzer mb-20">
           Featured in
         </h2>
 
@@ -93,7 +93,7 @@ export default function FourthSection() {
                 <BlueSquare className="-bottom-1 -left-1" />
 
                 {/* DIAGONAL LINE AND TOOLTIP CONTAINER */}
-                <div className="absolute top-[65%] left-1/2 w-[400px] pointer-events-none z-50 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out translate-y-2 group-hover:translate-y-0">
+                <div className="absolute top-[65%] left-1/2 w-[400px] pointer-events-none z-50 opacity-0 group-hover:opacity-100 transition-all duration-700 ease-out translate-y-2 group-hover:translate-y-0">
                   {/* The SVG Line */}
                   <svg
                     className="absolute top-0 left-0 w-full h-[100px] overflow-visible"
@@ -157,7 +157,7 @@ export default function FourthSection() {
 function BlueSquare({ className = "" }) {
   return (
     <div
-      className={`absolute w-2 h-2 bg-[#1FA5FD] z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${className}`}
+      className={`absolute w-2 h-2 bg-[#1FA5FD] z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-700 ${className}`}
     />
   );
 }

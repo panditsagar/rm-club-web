@@ -15,13 +15,7 @@ export default function App() {
         </div>
 
         {/* GRADIENT OVERLAY (Simulating the blue waves if Spline doesn't fully cover or for mood) */}
-        <div
-          className="fixed inset-0 pointer-events-none z-0"
-          style={{
-            background:
-              "radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.1) 0%, rgba(8, 6, 24, 0.4) 100%)",
-          }}
-        />
+        
 
 
 
@@ -51,8 +45,7 @@ export default function App() {
         </div>
 
         {/* BOTTOM FADE */}
-        <div className="fixed bottom-0 left-0 w-full h-32 bg-linear-to-t from-[#080618] to-transparent z-20 pointer-events-none" />
-      </section>
+       </section>
     </>
   );
 }

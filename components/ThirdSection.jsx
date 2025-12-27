@@ -62,7 +62,7 @@ export default function ThirdSection() {
                   <path
                     d="M272.3 750.861H272.073L271.923 751.032L264.545 759.5L0.5 759.5V488.778L9.01716 478.883L9.13821 478.743V478.557L9.13823 272.301V272.074L8.96669 271.924L0.5 264.547V0.500022L271.22 0.500009L281.116 9.01816L281.257 9.13921H281.443L487.698 9.1392H487.926L488.075 8.96767L495.454 0.5L759.499 0.500009V271.221L750.982 281.116L750.861 281.257V281.443V487.698V487.926L751.032 488.075L759.499 495.453V759.5H488.779L478.882 750.982L478.742 750.861H478.556H272.3Z"
                     stroke="white"
-                    stroke-opacity="0.2"
+                    strokeOpacity="0.2"
                   ></path>
                   <rect
                     x="160.531"
@@ -70,28 +70,28 @@ export default function ThirdSection() {
                     width="438.937"
                     height="438.937"
                     stroke="white"
-                    stroke-opacity="0.2"
-                    stroke-width="1.06265"
+                    strokeOpacity="0.2"
+                    strokeWidth="1.06265"
                   ></rect>
                   <path
                     d="M1 1L161 161"
                     stroke="white"
-                    stroke-opacity="0.2"
+                    strokeOpacity="0.2"
                   ></path>
                   <path
                     d="M1 759L161 599"
                     stroke="white"
-                    stroke-opacity="0.2"
+                    strokeOpacity="0.2"
                   ></path>
                   <path
                     d="M599 161L759 1"
                     stroke="white"
-                    stroke-opacity="0.2"
+                    strokeOpacity="0.2"
                   ></path>
                   <path
                     d="M599 599L759 759"
                     stroke="white"
-                    stroke-opacity="0.2"
+                    strokeOpacity="0.2"
                   ></path>
                   <path
                     d="M281 10H488"
@@ -130,12 +130,12 @@ export default function ThirdSection() {
                       y2="10"
                       gradientUnits="userSpaceOnUse"
                     >
-                      <stop stop-color="#002FFF" stop-opacity="0"></stop>
-                      <stop offset="0.5" stop-color="#002FFF"></stop>
+                      <stop stopColor="#002FFF" stopOpacity="0"></stop>
+                      <stop offset="0.5" stopColor="#002FFF"></stop>
                       <stop
                         offset="1"
-                        stop-color="#002FFF"
-                        stop-opacity="0"
+                        stopColor="#002FFF"
+                        stopOpacity="0"
                       ></stop>
                     </linearGradient>
                     <linearGradient
@@ -146,12 +146,12 @@ export default function ThirdSection() {
                       y2="272"
                       gradientUnits="userSpaceOnUse"
                     >
-                      <stop stop-color="#002FFF" stop-opacity="0"></stop>
-                      <stop offset="0.5" stop-color="#002FFF"></stop>
+                      <stop stopColor="#002FFF" stopOpacity="0"></stop>
+                      <stop offset="0.5" stopColor="#002FFF"></stop>
                       <stop
                         offset="1"
-                        stop-color="#002FFF"
-                        stop-opacity="0"
+                        stopColor="#002FFF"
+                        stopOpacity="0"
                       ></stop>
                     </linearGradient>
                     <linearGradient
@@ -162,12 +162,12 @@ export default function ThirdSection() {
                       y2="750"
                       gradientUnits="userSpaceOnUse"
                     >
-                      <stop stop-color="#002FFF" stop-opacity="0"></stop>
-                      <stop offset="0.5" stop-color="#002FFF"></stop>
+                      <stop stopColor="#002FFF" stopOpacity="0"></stop>
+                      <stop offset="0.5" stopColor="#002FFF"></stop>
                       <stop
                         offset="1"
-                        stop-color="#002FFF"
-                        stop-opacity="0"
+                        stopColor="#002FFF"
+                        stopOpacity="0"
                       ></stop>
                     </linearGradient>
                     <linearGradient
@@ -178,12 +178,12 @@ export default function ThirdSection() {
                       y2="488"
                       gradientUnits="userSpaceOnUse"
                     >
-                      <stop stop-color="#002FFF" stop-opacity="0"></stop>
-                      <stop offset="0.5" stop-color="#002FFF"></stop>
+                      <stop stopColor="#002FFF" stopOpacity="0"></stop>
+                      <stop offset="0.5" stopColor="#002FFF"></stop>
                       <stop
                         offset="1"
-                        stop-color="#002FFF"
-                        stop-opacity="0"
+                        stopColor="#002FFF"
+                        stopOpacity="0"
                       ></stop>
                     </linearGradient>
                     <linearGradient
@@ -194,8 +194,8 @@ export default function ThirdSection() {
                       y2="504"
                       gradientUnits="userSpaceOnUse"
                     >
-                      <stop stop-color="#1FA5FD"></stop>
-                      <stop offset="1" stop-color="#3C0ED5"></stop>
+                      <stop stopColor="#1FA5FD"></stop>
+                      <stop offset="1" stopColor="#3C0ED5"></stop>
                     </linearGradient>
                   </defs>
                 </svg>

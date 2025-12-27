@@ -20,6 +20,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className="font-author antialiased">
         <SmoothScroll>
+          
           <Navbar />
           {children}
         </SmoothScroll>
