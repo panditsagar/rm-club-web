@@ -16,9 +16,6 @@ export default function App() {
 
         {/* GRADIENT OVERLAY (Simulating the blue waves if Spline doesn't fully cover or for mood) */}
         
-
-
-
         {/* CONTENT */}
         <div className="max-w-[1400px] mx-auto relative z-50 h-full flex flex-col justify-center     ">
           <h1

@@ -118,13 +118,13 @@ export default function FifthSection() {
             // Increased xPos from 95% to 110% to create a gap
             xPos = "103%";
             scale = 0.85;
-            opacity = 0.5;
+            opacity = 0.7;
             zIndex = 5;
           } else if (offset === -1) {
             // Increased xPos from -95% to -110% to create a gap
             xPos = "-103%";
             scale = 0.85;
-            opacity = 0.5;
+            opacity = 0.7;
             zIndex = 5;
           } else {
             xPos = "0%";
