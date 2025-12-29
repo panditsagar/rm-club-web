@@ -20,7 +20,7 @@ export default function App() {
 
 
         {/* CONTENT */}
-        <div className="max-w-[1400px] mx-auto relative z-50 h-full flex flex-col justify-center    pt-34">
+        <div className="max-w-[1400px] mx-auto relative z-50 h-full flex flex-col justify-center     ">
           <h1
             className="font-switzer text-5xl md:text-7xl lg:text-[6.65rem] font-normal tracking-tight leading-none capitalize
  text-[#ECF5FF] max-w-4xl"
