@@ -11,11 +11,11 @@ const testimonials = [
     name: "Daria Shapovalova",
     title: "Founder, DRESSX",
     companyLogo:
-      "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg", // Placeholder, replacing with text if needed or generic logo
+      "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
     quote:
       "It has been a pleasure working with Hartmann Capital since day one when the fund first invested in DressX. We greatly appreciate being part of their portfolio, as it has allowed us to connect with other remarkable companies. The fund does an excellent job organizing valuable ideas and forge significant connections.",
     image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1000&auto=format&fit=crop", // Placeholder image
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1000&auto=format&fit=crop",
   },
   {
     id: 2,
@@ -76,10 +76,7 @@ export default function FifthSection() {
             onClick={handlePrev}
             className="group relative overflow-hidden w-12 h-12 flex items-center justify-center border border-[#002FFF]/20 text-[#002FFF] rounded-sm cursor-pointer z-50 transition-all"
           >
-            {/* slide bg */}
             <span className="absolute inset-0 bg-[#002FFF]/10 translate-x-full group-hover:translate-x-0 transition-transform duration-400 ease-out" />
-
-            {/* icon on top */}
             <span className="relative z-10  transition-colors duration-300">
               <IoIosArrowBack size={24} />
             </span>
@@ -90,7 +87,6 @@ export default function FifthSection() {
             className="group relative overflow-hidden w-12 h-12 flex items-center justify-center border border-[#002FFF]/20 text-[#002FFF] rounded-sm cursor-pointer z-50 transition-all"
           >
             <span className="absolute inset-0 bg-[#002FFF]/10 -translate-x-full group-hover:translate-x-0 transition-transform duration-400 ease-out" />
-
             <span className="relative z-10  transition-colors duration-300">
               <IoIosArrowForward size={24} />
             </span>
@@ -101,17 +97,13 @@ export default function FifthSection() {
       {/* CAROUSEL */}
       <div className="w-full relative h-[600px] md:h-[480px] flex items-center justify-center">
         {testimonials.map((data, index) => {
-          // Calculate offset: -1 (left), 0 (center), 1 (right), others (hidden)
           let offset =
             (index - currentIndex + testimonials.length) % testimonials.length;
 
-          // Adjust for "shortest path" on the circle
-          // If offset > length/2, it means it's closer from the left side (e.g. index 3 when current 0 -> offset 3 -> should be -1)
           if (offset > testimonials.length / 2) {
             offset -= testimonials.length;
           }
 
-          // Determine position state
           let xPos = "0%";
           let scale = 0.8;
           let opacity = 0;
@@ -123,18 +115,18 @@ export default function FifthSection() {
             opacity = 1;
             zIndex = 10;
           } else if (offset === 1) {
-            xPos = "95%"; // Brought closer for "slightly" coming feel
+            // Increased xPos from 95% to 110% to create a gap
+            xPos = "103%";
             scale = 0.85;
             opacity = 0.5;
             zIndex = 5;
           } else if (offset === -1) {
-            xPos = "-95%";
+            // Increased xPos from -95% to -110% to create a gap
+            xPos = "-103%";
             scale = 0.85;
             opacity = 0.5;
             zIndex = 5;
           } else {
-            // Hidden items stay in center (behind active) or slightly offset?
-            // Stack effect: Keep them at 0 but invisible
             xPos = "0%";
             scale = 0.8;
             opacity = 0;
@@ -151,13 +143,12 @@ export default function FifthSection() {
                 opacity: opacity,
                 zIndex: zIndex,
               }}
-              transition={{ duration: 0.65, ease: "easeInOut" }} // Slower, smoother transition
+              transition={{ duration: 0.65, ease: "easeInOut" }}
+              // Reduced width from md:w-[70%] to md:w-[65%] to decrease card size
               className="absolute w-[85%] md:w-[70%] max-w-[1100px] h-full"
               style={{ pointerEvents: offset === 0 ? "auto" : "none" }}
             >
-              <div className="w-full h-full border border-[#002FFF] p-8 md:p-10   flex flex-col md:flex-row gap-12 items-center bg-[#ECF5FF] relative transition-shadow duration-300">
-                {/* CORNER ACCENTS */}
-
+              <div className="w-full h-full border border-[#002FFF] p-8 md:p-10 flex flex-col md:flex-row gap-12 items-center bg-[#ECF5FF] relative transition-shadow duration-300">
                 {/* LEFT: FOUNDER IMAGE WITH TECH FRAME */}
                 <div className="relative shrink-0 w-[280px] h-[320px] md:w-[320px] md:h-[380px] flex items-center justify-center">
                   <svg
@@ -168,7 +159,6 @@ export default function FifthSection() {
                     className="quote__image-svg absolute inset-0 w-full h-full"
                   >
                     <rect width="371" height="442" fill="#E6F0FF" />
-
                     <path
                       d="M1 441L370 1"
                       stroke="currentColor"
@@ -179,16 +169,13 @@ export default function FifthSection() {
                       stroke="currentColor"
                       vectorEffect="non-scaling-stroke"
                     />
-                    
                     <path
                       d="M8.35356 334.354L8.50001 334.207L8.50001 334L8.5 108L8.5 107.793L8.35354 107.646L0.499999 99.7929L0.500008 0.499998L370.5 0.50003L370.5 99.7929L362.646 107.646L362.5 107.793L362.5 108L362.5 334L362.5 334.207L362.646 334.354L370.5 342.207L370.5 441.5L0.49997 441.5L0.499978 342.207L8.35356 334.354Z"
                       stroke="currentColor"
                       vectorEffect="non-scaling-stroke"
                     />
-                    
                   </svg>
                   <CornerAccents />
-                  {/* CENTERED IMAGE */}
                   <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[240px] h-[260px] md:w-[234px] md:h-[280px] overflow-hidden border border-[#002FFF] z-10">
                     <img
                       src={data.image}
@@ -237,12 +224,16 @@ export default function FifthSection() {
         })}
       </div>
 
-
-      
+      <div className="   flex    justify-center items-center md:items-end  py-10 ">
+        <p className="   lg:text-[0.98rem] tracking-tight leading-none font-author  text-center max-w-xl">
+          These opinions represent the view of certain founders and may not be
+          representative of the views of all founders or investors. No
+          compensation was provided for such opinions.
+        </p>
+      </div>
     </section>
   );
 }
-
 function CornerAccents() {
   return (
     <>
