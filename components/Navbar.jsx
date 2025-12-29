@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <nav className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-350 z-100 flex items-center justify-between px-10 mt-8 py-3 rounded-2xl text-white bg-black/30 backdrop-blur-md">
+    <nav className="relative w-full max-w-350 z-100 flex items-center justify-between px-10 mt-8 py-3 rounded-2xl text-white bg-black/30 backdrop-blur-md mx-auto">
       {/* 1. LEFT LOGO ICON */}
       <div className="flex items-center cursor-pointer">
         <div className="w-13 h-13 relative">
