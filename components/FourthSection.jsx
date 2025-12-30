@@ -8,7 +8,7 @@ export default function FourthSection() {
     {
       id: "coindesk",
       content: (
-        <span className="text-white font-bold text-2xl opacity-60">
+        <span className="text-white font-bold text-4xl opacity-60">
           CoinDesk
         </span>
       ),
@@ -19,7 +19,7 @@ export default function FourthSection() {
     {
       id: "barrons",
       content: (
-        <span className="text-white font-serif text-2xl opacity-60">
+        <span className="text-white font-serif text-4xl opacity-60">
           BARRON'S
         </span>
       ),
@@ -30,7 +30,7 @@ export default function FourthSection() {
     {
       id: "cryptoslate",
       content: (
-        <span className="text-white font-bold text-2xl opacity-60">
+        <span className="text-white font-bold text-4xl opacity-60">
           CryptoSlate
         </span>
       ),
@@ -41,7 +41,7 @@ export default function FourthSection() {
     {
       id: "blockworks",
       content: (
-        <span className="text-white font-bold text-2xl opacity-60">
+        <span className="text-white font-bold text-4xl opacity-60">
           Blockworks
         </span>
       ),
@@ -52,7 +52,7 @@ export default function FourthSection() {
     {
       id: "carta",
       content: (
-        <span className="text-white font-mono text-2xl opacity-60  ">
+        <span className="text-white font-mono text-4xl opacity-60  ">
           carta
         </span>
       ),

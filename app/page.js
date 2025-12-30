@@ -8,7 +8,10 @@ import FifthSection from "@/components/FifthSection";
 import SixSection from "@/components/SixSection";
 import SevenSection from "@/components/SevenSection";
 import CTASection from "@/components/CTASection";
- export default function Home() {
+import PortfolioGrid1 from "@/components/PortfolioGrid1";
+import PortfolioGrid2 from "@/components/PortfolioGrid2";
+
+export default function Home() {
   return (
     <>
       <HeroSection />
@@ -17,6 +20,8 @@ import CTASection from "@/components/CTASection";
         <SecondSection />
         <ThirdSection />
         <FourthSection />
+        <PortfolioGrid1 />
+        <PortfolioGrid2 />
         <FifthSection />
         <SixSection />
         <SevenSection />
