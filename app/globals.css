@@ -90,7 +90,7 @@ body {
 
 .pixel-unit {
   opacity: 0;
-  background-color: #002FFF; /* Using your theme's blue */
+  background-color: #a3b2f3; /* Using your theme's blue */
 }
 
 .pixel-unit.animate {

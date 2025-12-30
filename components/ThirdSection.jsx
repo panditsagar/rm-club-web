@@ -4,25 +4,7 @@ import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa6";
 
 export default function ThirdSection() {
-  // Data for the "V" visualization bars (height percentages)
-  // Mirroring the left side to create a V shape
-  const bars = [
-    40,
-    60,
-    45,
-    70,
-    50,
-    80,
-    60,
-    100, // Left side
-    60,
-    80,
-    50,
-    70,
-    45,
-    60,
-    40, // Right side (approximate mirror)
-  ];
+ 
 
   return (
     <section className="relative z-30 w-full min-h-screen bg-[#080618] flex items-center justify-center py-20 px-6 md:px-20">
