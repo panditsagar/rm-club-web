@@ -76,15 +76,17 @@ const PortfolioGrid = () => {
         {/* Right Side - Tunnel / Perspective Link */}
         <div className="relative w-full aspect-square overflow-hidden cursor-pointer group  border-t md:border-t-0 border-[#002FFF]/60">
           {/* 1. Background Image Layer */}
-          <div className="absolute inset-0 z-0">
-            <img
-              src="https://cdn.prod.website-files.com/66c31377d57fee80e2d1cf4d/66c839455cd3d844d5574bfd_pp-bg.webp" // Replace with your actual image path
-              alt="Abstract Portfolio Background"
-              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-            />
-            {/* Optional: Subtle overlay to ensure text readability if the image is too bright */}
-            <div className="absolute inset-0 bg-white/10" />
-          </div>
+       <div className="absolute inset-0 z-0">
+  <img
+    src="https://cdn.prod.website-files.com/66c31377d57fee80e2d1cf4d/66c839455cd3d844d5574bfd_pp-bg.webp"
+    alt="Abstract Portfolio Background"
+    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+  />
+
+  {/* ECF5FF overlay */}
+  <div className="absolute inset-0 bg-[#ECF5FF]/60" />
+</div>
+
 
           {/* 2. The Tunnel/Grid Effect (Lines) */}
           <div className="absolute inset-0 flex items-start justify-start m-6 z-10">
