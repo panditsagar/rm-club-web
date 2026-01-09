@@ -1,25 +1,25 @@
 export default function SecondSection() {
   const items = [
     {
-      title: "AI accelerates work and redefines play",
+      title: "Building Sustainable Businesses",
       image:
         "https://cdn.prod.website-files.com/66c31377d57fee80e2d1cf4d/68b9df69b83b4dad5d745a1f_aihuman.webp",
       offset: "translate-y-0",
     },
     {
-      title: "AR and BCI augment human capability",
+      title: "Shaping Real Assets",
       image:
         "https://cdn.prod.website-files.com/66c31377d57fee80e2d1cf4d/68b9dbb19112e693130577bf_AR.webp",
       offset: "translate-y-0 lg:translate-y-25",
     },
     {
-      title: "Tokenization transforms global capital markets",
+      title: "Powering Voice and Culture",
       image:
         "https://cdn.prod.website-files.com/66c31377d57fee80e2d1cf4d/68b9dc8ad98f94a36e734e31_tokens2.webp",
       offset: "translate-y-0 lg:translate-y-50",
     },
     {
-      title: "Longevity redefines how long and well we live",
+      title: "Strengthnening ommunities",
       image:
         "https://cdn.prod.website-files.com/66c31377d57fee80e2d1cf4d/68b9ddaf98a015e1b6b6edd6_helix.webp",
       offset: "translate-y-0 lg:translate-y-75",

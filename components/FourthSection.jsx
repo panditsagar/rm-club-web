@@ -4,63 +4,63 @@ import { motion } from "framer-motion";
 import { FiArrowUpRight } from "react-icons/fi"; // Matching the Source icon style
 
 export default function FourthSection() {
-  const logos = [
-    {
-      id: "coindesk",
-      content: (
-        <span className="text-white font-bold text-4xl opacity-60">
-          CoinDesk
-        </span>
-      ),
-      quote:
-        "Felix Hartmann, the managing partner of Hartmann Capital and an author, thinks that “ETH gas fees will not lead to an ‘ETH Killer’” eating the network’s lunch, so to say.",
-      source: "Source",
-    },
-    {
-      id: "barrons",
-      content: (
-        <span className="text-white font-serif text-4xl opacity-60">
-          BARRON'S
-        </span>
-      ),
-      quote:
-        "Insights into the digital asset market have proven invaluable for understanding the long-term trajectory of Web3.",
-      source: "Source",
-    },
-    {
-      id: "cryptoslate",
-      content: (
-        <span className="text-white font-bold text-4xl opacity-60">
-          CryptoSlate
-        </span>
-      ),
-      quote:
-        "Hartmann Capital's thesis on the intersection of gaming and DeFi provides a unique perspective on the next billion users.",
-      source: "Source",
-    },
-    {
-      id: "blockworks",
-      content: (
-        <span className="text-white font-bold text-4xl opacity-60">
-          Blockworks
-        </span>
-      ),
-      quote:
-        "The move towards modular blockchains represents a fundamental shift in how we scale decentralized systems.",
-      source: "Source",
-    },
-    {
-      id: "carta",
-      content: (
-        <span className="text-white font-mono text-4xl opacity-60  ">
-          carta
-        </span>
-      ),
-      quote:
-        "Bridge the gap between traditional equity management and the future of tokenized assets.",
-      source: "Source",
-    },
-  ];
+const logos = [
+  {
+    id: "coindesk",
+    content: (
+      <span className="text-white font-bold text-4xl opacity-60">
+        News and media
+      </span>
+    ),
+    quote:
+      "Through Jansanket, RM Club supports local journalism and community-focused reporting that amplifies regional voices and public awareness.",
+    source: "RM Club Ecosystem",
+  },
+  {
+    id: "barrons",
+    content: (
+      <span className="text-white font-bold text-4xl opacity-60">
+        Hospitality
+      </span>
+    ),
+    quote:
+      "City View Restaurant & Bar represents RM Club’s approach to hospitality—bringing people together through food, experience, and community.",
+    source: "RM Club Ecosystem",
+  },
+  {
+    id: "cryptoslate",
+    content: (
+      <span className="text-white font-bold text-4xl opacity-60">
+        Travel
+      </span>
+    ),
+    quote:
+      "RM Trek focuses on curated travel and exploration, creating meaningful experiences that connect people with places and culture.",
+    source: "RM Club Ecosystem",
+  },
+  {
+    id: "blockworks",
+    content: (
+      <span className="text-white font-bold text-4xl opacity-60">
+        Music
+      </span>
+    ),
+    quote:
+      "Beatz of Melody supports independent artists and creative production, fostering authentic sound and sustainable creative expression.",
+    source: "RM Club Ecosystem",
+  },
+  {
+    id: "carta",
+    content: (
+      <span className="text-white font-bold text-4xl opacity-60">
+        Education
+      </span>
+    ),
+    quote:
+      "Jawa Poonp reflects RM Club’s commitment to education and welfare initiatives focused on access, learning, and long-term social impact.",
+    source: "RM Club Ecosystem",
+  },
+];
 
   // Duplicate for marquee effect
   const carouselItems = [...logos, ...logos];
@@ -69,7 +69,7 @@ export default function FourthSection() {
     <section className="relative w-full bg-[#080618] py-20 overflow-hidden pb-50">
       <div className="w-full">
         <h2 className="text-white pl-20 text-start text-5xl lg:text-[4.5rem] tracking-tight leading-none font-switzer mb-20">
-          Featured in
+          Engaging across 
         </h2>
 
         {/* CAROUSEL TRACK */}

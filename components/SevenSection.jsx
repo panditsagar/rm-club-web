@@ -11,51 +11,48 @@ import {
 const insights = [
   {
     id: 1,
-    tag: "AI",
-    title: "The AI Revolution Reshaping Gaming | Q3 2025 Report",
+    tag: "Venture Update",
+    title: "Jansanket: Strengthening Local Voices",
     image:
       "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
     link: "#",
   },
   {
     id: 2,
-    tag: "Investment Memo",
-    title:
-      "AI’s New Interface: Smart Glasses, the Shift Beyond Screens, and Why We...",
+    tag: "Venture Story",
+    title: "City View Restaurant: Hospitality as Community",
     image:
       "https://cdn.prod.website-files.com/66c71da082e3d64d93782c96/68af1b2d6542fc97e4e73b5a_Untitled%20design%20-%202025-08-27T103924.097.avif",
     link: "#",
   },
   {
     id: 3,
-    tag: "Investment Memo",
-    title: "PlaySafe ID: The Identity Infrastructure for Games",
+    tag: "Ecosystem Insight",
+    title: "Building Across Sectors: Lessons from RM Club",
     image:
       "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800",
     link: "#",
   },
   {
     id: 4,
-    tag: "Frontier Tech",
-    title:
-      "The Rise of Autonomous Game Agents and the Future of Player Economies",
+    tag: "Venture Update",
+    title: "RM Trek: Curated Experiences and a New Way to Explore",
     image:
       "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&q=80&w=800",
     link: "#",
   },
   {
     id: 5,
-    tag: "Market Insight",
-    title:
-      "Why Infrastructure, Not Content, Will Capture the Next Gaming Upside",
+    tag: "Venture Story",
+    title: "Beatz of Melody: A Home for Independent Sound and Creativity",
     image:
       "https://cdn.prod.website-files.com/66c71da082e3d64d93782c96/680a2e3b0307cfadb0273229_Untitled%20design%20-%202025-04-24T082723.304.avif",
     link: "#",
   },
   {
     id: 6,
-    tag: "Investment Memo",
-    title: "From Wallets to Identity: The Missing Layer in Web3 Gaming",
+    tag: "Venture Update",
+    title: "Reparkle: Real Estate Initiatives Built for Long-Term Value",
     image:
       "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80&w=800",
     link: "#",
@@ -169,8 +166,8 @@ export default function SevenSection() {
         style={{ maxWidth: `${CARD_WIDTH * 3 + GAP * 2}px` }}
         className="mx-auto flex justify-between items-end mb-16 px-4"
       >
-        <h2 className="text-start lg:text-[4.5rem] tracking-tight leading-none font-switzer max-w-xl">
-          Explore our latest news & insights
+        <h2 className="text-start lg:text-[4.0rem] tracking-tight leading-none font-switzer max-w-xl">
+          Updates from the RM Club Ecosytem
         </h2>
 
         <div className="flex gap-2">

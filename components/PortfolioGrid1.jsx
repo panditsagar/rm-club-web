@@ -47,21 +47,21 @@ const PortfolioGrid = () => {
             hoveredIndex={hoveredIndex}
             setHoveredIndex={setHoveredIndex}
             icon={<FaDove className="text-3xl mb-2" />}
-            name="ORCHID"
+            name="Reparkle"
           />
           <LogoItem
             index={1}
             hoveredIndex={hoveredIndex}
             setHoveredIndex={setHoveredIndex}
             icon={<FaMicrophone className="text-2xl mb-2" />}
-            name="respeecher"
+            name="RM trek"
           />
           <LogoItem
             index={2}
             hoveredIndex={hoveredIndex}
             setHoveredIndex={setHoveredIndex}
             icon={<FaShapes className="text-2xl mb-2" />}
-            name="nunu.ai"
+            name="Jansanket"
             badge="Fund II" // Example badge
           />
           <LogoItem
@@ -69,7 +69,7 @@ const PortfolioGrid = () => {
             hoveredIndex={hoveredIndex}
             setHoveredIndex={setHoveredIndex}
             icon={<FaSquare className="text-2xl mb-2" />}
-            name="Neuma"
+            name="RM Shop"
           />
         </div>
 

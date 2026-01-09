@@ -5,7 +5,6 @@ import Link from "next/link";
 import { FaArrowDown } from "react-icons/fa6";
 
 export default function App() {
-
   return (
     <>
       <section className="relative h-screen w-full overflow-hidden bg-[#080618]">
@@ -15,7 +14,7 @@ export default function App() {
         </div>
 
         {/* GRADIENT OVERLAY (Simulating the blue waves if Spline doesn't fully cover or for mood) */}
-        
+
         {/* CONTENT */}
         <div className="max-w-[1400px] mx-auto relative z-50 h-full flex flex-col justify-center mt-[-30px]    ">
           <h1
@@ -26,8 +25,8 @@ export default function App() {
           </h1>
 
           <p className="mt-14 text-lg md:text-[1.65rem] text-white max-w-xl leading-[1.1] tracking-wide font-normal">
-            Hartmann Capital is the institutional <br />
-            gateway to early-stage frontier tech.
+            Building long-term value across
+            businesses, communities, and real-world enterprises.
           </p>
 
           <Link
@@ -36,13 +35,13 @@ export default function App() {
           >
             Discover more
             <span className="transform group-hover:translate-y-1 transition-transform">
-              <FaArrowDown  size={18} />
+              <FaArrowDown size={18} />
             </span>
           </Link>
         </div>
 
         {/* BOTTOM FADE */}
-       </section>
+      </section>
     </>
   );
 }

@@ -46,10 +46,10 @@ export default function Footer() {
                 General Inquiries
               </span>
               <a
-                href="mailto:hq@hartmanncapital.com"
+                href="mailto:connect@rmclub.in"
                 className="text-lg hover:text-white transition-colors border-b border-white/90 hover:border-white w-fit"
               >
-                hq@hartmanncapital.com
+                connect@rmclub.in
               </a>
             </div>
 
@@ -59,23 +59,23 @@ export default function Footer() {
                 Press
               </span>
               <a
-                href="mailto:press@hartmanncapital.com"
+                href="mailto:media@rmclub.in"
                 className="text-lg hover:text-white transition-colors border-b border-white/90 hover:border-white   w-fit"
               >
-                press@hartmanncapital.com
+                media@rmclub.in
               </a>
             </div>
 
             {/* Our Investors */}
             <div className="flex flex-col gap-2">
                <span className="bg-[#1A1A2A] text-white text-sm px-2 py-1 uppercase tracking-wider w-fit ">
-                Our Investors
+                Partnerships
               </span>
               <a
-                href="mailto:invest@hartmanncapital.com"
+                href="mailto:partners@rmclub.in"
                 className="text-lg hover:text-white transition-colors border-b border-white/90 hover:border-white   w-fit"
               >
-                invest@hartmanncapital.com
+                partners@rmclub.in
               </a>
             </div>
           </div>
@@ -86,23 +86,14 @@ export default function Footer() {
           {/* Disclaimer Text */}
           <div className="max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8 text-md text-white/80 leading-[1.1]">
             <p>
-              This website is a general communication for informational purposes
-              only and is not and should not be construed as advice or a
-              recommendation concerning any security or other asset, or an offer
-              to sell, or the solicitation of an offer to buy, any security,
-              product, service of Hartmann Capital (together with its
-              subsidiaries and affiliates, "Hartmann") or any fund for which
-              Hartmann Capital serves as investment manager or general partner,
-              whether existing or contemplated.
+            RM Club is a multi-venture ecosystem bringing together independent businesses, community initiatives, and collaborative projects across media, hospitality, real estate, travel, education, and commerce.
+            We focus on building sustainable, real-world ventures guided by long-term thinking, shared values, and responsible growth. Each initiative operates independently while benefiting from collective experience and ecosystem support.
+
             </p>
             <p>
-              for which an offer can be made only by such fund's confidential
-              private placement memorandum and in compliance with applicable
-              law. Hartmann Capital is not registered as an investment adviser
-              with the U.S. Securities and Exchange Commission. Hartmann Capital
-              is federally exempt under the Investment Company Act, Section 3
-              (c)(1) Rule 506 (c), therefore, is not required to register with
-              the SEC or any state regulatory agency.
+             This website is intended for general informational purposes only. It does not constitute financial, legal, or investment advice, nor an offer or solicitation of any kind.
+
+References to ventures, initiatives, or activities are descriptive in nature and should not be interpreted as guarantees, recommendations, or invitations to participate in financial arrangements. Engagements, partnerships, or collaborations are subject to independent discussion and mutual agreement.
             </p>
           </div>
 
@@ -148,8 +139,8 @@ export default function Footer() {
 
           {/* Credits */}
           <div className="flex gap-4 text-white/90">
-            <span>Design by Dylan</span>
-            <span>Code by Dennis</span>
+            <span>Designed by Triplehash</span>
+            {/* <span>Code by Dennis</span> */}
           </div>
         </div>
       </div>

@@ -13,7 +13,7 @@ export default function ThirdSection() {
 
       <div className="max-w-[1400px] w-full flex flex-col">
         <h1 className="max-w-lg mb-16 text-white text-start lg:text-[4.5rem] tracking-tight leading-none font-switzer">
-          Discover our future-proof funds
+          Discover our Venture Ecosystem
         </h1>
         <div className="    grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center">
           {/* LEFT COLUMN - TECH CARD */}
@@ -190,17 +190,16 @@ export default function ThirdSection() {
           {/* RIGHT COLUMN - TEXT CONTENT */}
           <div className="flex flex-col justify-center text-left">
             <h2 className="   text-white lg:text-[4.5rem] tracking-tight leading-none font-switzer mb-8">
-              Hartmann <br />
+              Rm Club <br />
               Ventures
             </h2>
 
             <p className=" text-lg md:text-[1.35rem] text-white/90 max-w-xl leading-[1.1] tracking-wide font-normal mb-10">
-              Hartmann Ventures invests at the frontier of technology, backing
-              founders building the next era of human capability. Our core
-              theses span Generative AI, Brain-Computer Interfaces, XR & Spatial
-              Computing, Programmable Biology, and Robotics transformations that
-              will redefine how we work, create, connect, and build in the
-              decades ahead.
+             RM Club brings together a diverse set of operating ventures across business, real estate, media, culture, hospitality, education, and community initiatives.
+
+Rather than focusing on a single industry, the ecosystem is designed to build real-world enterprises that generate long-term value, employment, and impact.
+
+Each venture operates independently while benefiting from shared strategy, governance, and collective experience within the RM Club network.
             </p>
 
             <button
