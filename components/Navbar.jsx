@@ -42,7 +42,7 @@ export default function Navbar() {
             href="#"
             className="relative group hover:text-white transition-colors cursor-pointer"
           >
-            Offerings
+            Services
             <span className="absolute -bottom-1 left-0 w-full h-1px bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
           </Link>
 
@@ -55,7 +55,7 @@ export default function Navbar() {
           </Link>
 
           <Link
-            href="#"
+            href="/about"
             className="relative group hover:text-white transition-colors cursor-pointer"
           >
             About
@@ -66,7 +66,7 @@ export default function Navbar() {
             href="#"
             className="relative group hover:text-white transition-colors cursor-pointer"
           >
-            Insights
+            Team
             <span className="absolute -bottom-1 left-0 w-full h-px bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
           </Link>
         </div>
