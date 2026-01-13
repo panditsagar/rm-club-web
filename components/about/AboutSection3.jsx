@@ -122,20 +122,27 @@ const AboutSection3 = () => {
 
     if (!hasEntered) {
         // Entrance State
-        if (position === 0) return { zIndex: 30, x: 0, y: 100, scale: 0.8, opacity: 0, rotate: 0, filter: "blur(10px)" };
-        if (position === 1) return { zIndex: 10, x: "50vw", y: 0, scale: 0.8, opacity: 0, rotate: 10, filter: "blur(5px)" };
-        if (position === 2) return { zIndex: 10, x: "-50vw", y: 0, scale: 0.8, opacity: 0, rotate: -10, filter: "blur(5px)" };
+        if (position === 0) return { zIndex: 30, x: 0, y: 100, scale: 0.8, opacity: 0, rotate: 0, rotateY: 0, filter: "blur(10px)" };
+        if (position === 1) return { zIndex: 10, x: "50vw", y: 0, scale: 0.8, opacity: 0, rotate: 10, rotateY: 45, filter: "blur(5px)" };
+        if (position === 2) return { zIndex: 10, x: "-50vw", y: 0, scale: 0.8, opacity: 0, rotate: -10, rotateY: -45, filter: "blur(5px)" };
     }
 
-    // Normal State
+    // Normal State with 3D effect
+    // To make it look like a 3D cycle:
+    // Center: Face forward, z=0
+    // Right (1): Moved right, pushed back (z < 0), rotated inward facing left (rotateY < 0)
+    // Left (2): Moved left, pushed back (z < 0), rotated inward facing right (rotateY > 0)
+    
     if (position === 0) {
       return {
         zIndex: 30,
         x: 0,
         y: 0,
+        z: 0,
         scale: 1,
         opacity: 1,
         rotate: 0,
+        rotateY: 0, // Face forward
         filter: "blur(0px)",
       };
     } else if (position === 1) {
@@ -143,26 +150,30 @@ const AboutSection3 = () => {
         zIndex: 10,
         x: xOffset, 
         y: 0,
+        z: -100, // Push back
         scale: 1, 
-        opacity: 0.4, 
-        rotate: 8,
-        filter: "blur(0px)", 
+        opacity: 0.6, 
+        rotate: 0, // Reset incidental z-rotation or keep subtle
+        rotateY: -45, // Face inward to center (right card faces left)
+        filter: "blur(2px)", 
       };
     } else { // position === 2 (Left)
       return {
         zIndex: 10,
         x: -xOffset,
         y: 0,
+        z: -100, // Push back
         scale: 1, 
-        opacity: 0.4, 
-        rotate: -8,
-        filter: "blur(0px)", 
+        opacity: 0.6, 
+        rotate: 0, 
+        rotateY: 45, // Face inward to center (left card faces right)
+        filter: "blur(2px)", 
       };
     }
   };
 
   return (
-    <section className="relative w-full bg-[#080618] pb-20 px-6 min-h-screen flex flex-col items-center justify-center z-20 overflow-hidden">
+    <section className="relative w-full bg-[#080618] pb-20 px-6 min-h-screen flex flex-col items-center justify-center z-20">
         
       {/* Background Glow similar to original if needed, or subtle */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#2D68FF] opacity-[0.03] rounded-full blur-[100px] pointer-events-none" />
@@ -188,126 +199,134 @@ const AboutSection3 = () => {
         </div>
 
         {/* Stacked Card Container */}
-        <motion.div 
-            className="relative w-full max-w-[650px] flex items-center justify-center pt-10 h-[700px]"
-            onViewportEnter={() => setHasEntered(true)}
-            viewport={{ amount: 0.3, once: true }}
-        > 
-          {/* We render ALL cards mapped */}
-          {cards.map((card, index) => {
-             const props = getCardProps(index);
-             const isActive = index === activeIndex;
+        <div className="w-full flex justify-center overflow-x-clip py-10">
+            <motion.div 
+                className="relative w-full max-w-[650px] flex items-center justify-center h-[700px]"
+                // Add perspective to container for 3D effect
+                style={{ perspective: "1000px" }}
+                onViewportEnter={() => setHasEntered(true)}
+                viewport={{ amount: 0.3, once: true }}
+            > 
+            {/* We render ALL cards mapped */}
+            {cards.map((card, index) => {
+                const props = getCardProps(index);
+                const isActive = index === activeIndex;
 
-             return (
-               <motion.div
-                 key={card.id}
-                 onClick={() => handleCardClick(index)}
-                 initial={false}
-                 animate={{
-                    zIndex: props.zIndex,
-                    x: props.x,
-                    y: props.y, // Added y
-                    scale: props.scale,
-                    opacity: props.opacity,
-                    rotate: props.rotate,
-                    filter: props.filter
-                 }}
-                 transition={{ 
-                    duration: hasEntered ? 0.8 : 1.2, // Slower on entrance
-                    ease: "easeOut",
-                    delay: hasEntered ? 0 : 0.2 // Small delay on entrance
-                 }}
-                 className={`absolute w-[90%] md:w-[550px] h-[600px] bg-[#0E0C1F] rounded-[40px] p-8 md:p-10 border border-[#2D68FF] shadow-2xl cursor-pointer overflow-hidden ${isActive ? 'pointer-events-auto' : 'pointer-events-auto'}`}
-               >
-                 {/* Background Decorative Text - Only show on active or all? Original had it on main card */}
-                 <div className="absolute top-10 right-[-20px] opacity-[0.03] select-none pointer-events-none">
-                    <h4 className="text-[12rem] font-bold leading-none">RM</h4>
-                 </div>
-
-                 <div className="relative z-10 flex flex-col h-full justify-between">
-                    {/* TOP SECTION */}
-                    <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-8">
-                        <div className="max-w-[450px]">
-                            <p className="text-[#2D68FF] font-mono text-sm tracking-[0.3em] uppercase mb-2">
-                                {card.subtitle}
-                            </p>
-                            <h3 className="text-4xl md:text-4xl font-switzer font-medium text-white leading-[1] tracking-tight">
-                                {card.title}
-                            </h3>
-                        </div>
-
-                        {/* Side Badge */}
-                        <div className="hidden md:block border-l border-white/10 pl-6 py-2">
-                            <p className="text-white/40 text-xs uppercase tracking-widest leading-loose">
-                                {card.sideBadge}
-                            </p>
-                        </div>
+                return (
+                <motion.div
+                    key={card.id}
+                    onClick={() => handleCardClick(index)}
+                    initial={false}
+                    animate={{
+                        zIndex: props.zIndex,
+                        x: props.x,
+                        y: props.y, 
+                        z: props.z, // Added z
+                        scale: props.scale,
+                        opacity: props.opacity,
+                        rotate: props.rotate,
+                        rotateY: props.rotateY, // Added rotateY
+                        filter: props.filter
+                    }}
+                    transition={{ 
+                        duration: hasEntered ? 0.8 : 1.2, // Slower on entrance
+                        ease: "easeOut",
+                        delay: hasEntered ? 0 : 0.2 // Small delay on entrance
+                    }}
+                    className={`absolute w-[90%] md:w-[550px] h-[600px] bg-[#0E0C1F] rounded-[40px] p-8 md:p-10 border border-[#2D68FF] shadow-2xl cursor-pointer overflow-hidden ${isActive ? 'pointer-events-auto' : 'pointer-events-auto'}`}
+                >
+                    {/* Background Decorative Text - Only show on active or all? Original had it on main card */}
+                    <div className="absolute top-10 right-[-20px] opacity-[0.03] select-none pointer-events-none">
+                        <h4 className="text-[12rem] font-bold leading-none">RM</h4>
                     </div>
 
-                    {/* MIDDLE SECTION */}
-                    <div className="mb-8">
-                        <p className="text-xl md:text-2xl text-gray-300 leading-[1.2] font-light">
-                            {card.middleText}
-                        </p>
-                    </div>
+                    <div className="relative z-10 flex flex-col h-full justify-between">
+                        {/* TOP SECTION */}
+                        <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-8">
+                            <div className="max-w-[450px]">
+                                <p className="text-[#2D68FF] font-mono text-sm tracking-[0.3em] uppercase mb-2">
+                                    {card.subtitle}
+                                </p>
+                                <h3 className="text-4xl md:text-4xl font-switzer font-medium text-white leading-[1] tracking-tight">
+                                    {card.title}
+                                </h3>
+                            </div>
 
-                    {/* BOTTOM SECTION */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-end">
-                        <div className="space-y-4">
-                            <p className="text-sm text-gray-500 max-w-[280px] leading-relaxed">
-                                {card.footerText}
-                            </p>
-                            {/* Decorative dashes */}
-                            <div className="flex gap-2">
-                                <div className="h-1 w-8 bg-[#2D68FF]" />
-                                <div className="h-1 w-2 bg-white/20" />
-                                <div className="h-1 w-2 bg-white/20" />
+                            {/* Side Badge */}
+                            <div className="hidden md:block border-l border-white/10 pl-6 py-2">
+                                <p className="text-white/40 text-xs uppercase tracking-widest leading-loose">
+                                    {card.sideBadge}
+                                </p>
                             </div>
                         </div>
 
-                        <button
-                            className="
-                            relative
-                            inline-flex items-center gap-2
-                            w-fit
-                            px-3 py-2.5
-                            bg-[#0A2549]
-                            text-[#1EA1F7]
-                            text-[1.1rem]
-                            overflow-hidden
-                            cursor-pointer
-                            group
-                            "
-                        >
-                            <span className="relative z-10">{card.buttonText}</span>
-                            <span className="bg-[#080618] p-1.5">
-                                <FaArrowRight size={14} className="relative z-10" />
-                            </span>
-                             {/* SHIMMER OVERLAY */}
-                            <span
+                        {/* MIDDLE SECTION */}
+                        <div className="mb-8">
+                            <p className="text-xl md:text-2xl text-gray-300 leading-[1.2] font-light">
+                                {card.middleText}
+                            </p>
+                        </div>
+
+                        {/* BOTTOM SECTION */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-end">
+                            <div className="space-y-4">
+                                <p className="text-sm text-gray-500 max-w-[280px] leading-relaxed">
+                                    {card.footerText}
+                                </p>
+                                {/* Decorative dashes */}
+                                <div className="flex gap-2">
+                                    <div className="h-1 w-8 bg-[#2D68FF]" />
+                                    <div className="h-1 w-2 bg-white/20" />
+                                    <div className="h-1 w-2 bg-white/20" />
+                                </div>
+                            </div>
+
+                            <button
                                 className="
-                                absolute inset-0
-                                bg-gradient-to-r
-                                from-transparent
-                                via-white/15
-                                to-transparent
-                                -translate-x-full
-                                group-hover:translate-x-full
-                                transition-transform
-                                duration-700
-                                ease-in-out
+                                relative
+                                inline-flex items-center gap-2
+                                w-fit
+                                px-3 py-2.5
+                                bg-[#0A2549]
+                                text-[#1EA1F7]
+                                text-[1.1rem]
+                                overflow-hidden
+                                cursor-pointer
+                                group
                                 "
-                            />
-                        </button>
+                            >
+                                <span className="relative z-10">{card.buttonText}</span>
+                                <span className="bg-[#080618] p-1.5">
+                                    <FaArrowRight size={14} className="relative z-10" />
+                                </span>
+                                {/* SHIMMER OVERLAY */}
+                                <span
+                                    className="
+                                    absolute inset-0
+                                    bg-gradient-to-r
+                                    from-transparent
+                                    via-white/15
+                                    to-transparent
+                                    -translate-x-full
+                                    group-hover:translate-x-full
+                                    transition-transform
+                                    duration-700
+                                    ease-in-out
+                                    "
+                                />
+                            </button>
+                        </div>
                     </div>
-                 </div>
-               </motion.div>
-             );
-          })}
-        </motion.div>
+                </motion.div>
+                );
+            })}
+            </motion.div>
+        </div>
       </div>
- 
-     </section>
+
+       {/* Bottom Gradient Blend */}
+       <div className="absolute bottom-0 z-30 left-0 w-full h-[200px] bg-gradient-to-b from-[#080618] to-transparent translate-y-full pointer-events-none" />
+    </section>
   );
 };
 
