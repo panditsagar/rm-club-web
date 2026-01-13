@@ -10,6 +10,8 @@ export const metadata = {
 import SmoothScroll from "@/components/SmoothScroll";
 
 
+import CustomCursor from "@/components/ui/CustomCursor";
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -20,6 +22,7 @@ export default function RootLayout({ children }) {
         ></link>
       </head>
       <body className="font-author antialiased">
+        <CustomCursor />
         <SmoothScroll>
           
           <Navbar />
