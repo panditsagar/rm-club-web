@@ -39,21 +39,12 @@ export default function Navbar() {
       <div className="flex items-center gap-8">
         <div className="flex items-center gap-6 text-[1.3rem] font-normal text-white">
           <Link
-            href="#"
+            href="/"
             className="relative group hover:text-white transition-colors cursor-pointer"
           >
-            Services
-            <span className="absolute -bottom-1 left-0 w-full h-1px bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-          </Link>
-
-          <Link
-            href="#"
-            className="relative group hover:text-white transition-colors cursor-pointer"
-          >
-            Portfolio
+            Home
             <span className="absolute -bottom-1 left-0 w-full h-px bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
           </Link>
-
           <Link
             href="/about"
             className="relative group hover:text-white transition-colors cursor-pointer"
@@ -63,10 +54,18 @@ export default function Navbar() {
           </Link>
 
           <Link
-            href="#"
+            href="/team"
             className="relative group hover:text-white transition-colors cursor-pointer"
           >
             Team
+            <span className="absolute -bottom-1 left-0 w-full h-px bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+          </Link>
+
+          <Link
+            href="#"
+            className="relative group hover:text-white transition-colors cursor-pointer"
+          >
+            Explor RM Club
             <span className="absolute -bottom-1 left-0 w-full h-px bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
           </Link>
         </div>

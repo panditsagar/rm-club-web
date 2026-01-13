@@ -73,6 +73,7 @@ const AboutSection2 = () => {
       <div className="absolute top-0 z-50 left-0 w-full h-[150px] -translate-y-full bg-gradient-to-t from-[#080618] to-transparent pointer-events-none" />
 
       <div className="max-w-6xl mx-auto relative">
+        
         {/* Central Line */}
         <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-[1px] bg-gray-800 hidden md:block">
           <motion.div
