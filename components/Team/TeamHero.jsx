@@ -29,10 +29,11 @@ export default function App() {
         {/* CONTENT */}
         <div className="max-w-[1400px] mx-auto relative z-50 h-full flex flex-col justify-center mt-[-30px] px-6">
           <h1
-            className="font-switzer text-5xl md:text-7xl lg:text-[6rem] font-normal tracking-tight leading-none capitalize
- text-[#ECF5FF] max-w-4xl"
+            className="font-switzer text-5xl md:text-7xl lg:text-[6rem] font-normal max-w-7xl tracking-tight leading-none capitalize
+ text-[#ECF5FF]  "
           >
-            Every Step Forward Begins With the Team{" "}
+            Every Step Forward Begins With the Team That Builds the Future of{" "}
+
             <div className="inline-block relative h-[1.1em] align-bottom overflow-hidden">
               <AnimatePresence mode="wait">
                 <motion.span
@@ -50,8 +51,8 @@ export default function App() {
             </div>
           </h1>
 
-          <p className="mt-14 text-lg md:text-[1.65rem] text-white max-w-sm leading-[1.1] tracking-wide font-normal">
-            A collective of thinkers, makers, and doers moving technology ahead.
+          <p className="mt-14 text-lg md:text-[1.65rem] text-white  leading-[1.1] tracking-wide font-normal">
+            A collective of researchers, builders, and operators turning signals into scalable outcomes.
           </p>
         </div>
       </section>

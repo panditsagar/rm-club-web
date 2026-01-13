@@ -72,7 +72,7 @@ export default function Navbar() {
 
         {/* 4. CONTACT BUTTON */}
         <Link
-          href="#"
+          href="/contact"
           className="relative px-4 cursor-pointer py-2 bg-[#0A2549] text-[#1EA1F7] font-normal rounded-md text-[1.3rem] overflow-hidden group"
         >
           <span className="relative z-10">Contact</span>
