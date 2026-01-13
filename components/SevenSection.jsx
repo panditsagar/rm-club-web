@@ -166,7 +166,7 @@ export default function SevenSection() {
         style={{ maxWidth: `${CARD_WIDTH * 3 + GAP * 2}px` }}
         className="mx-auto flex justify-between items-end mb-16 px-4"
       >
-        <h2 className="text-start lg:text-[4.0rem] tracking-tight leading-none font-switzer max-w-xl">
+        <h2 className="text-start lg:text-[4.0rem] tracking-tight leading-[1.1] font-jakarta font-medium max-w-xl">
           Updates from the RM Club Ecosytem
         </h2>
 

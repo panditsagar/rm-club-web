@@ -18,7 +18,7 @@ export default function App() {
         <div className="max-w-[1400px] mx-auto relative z-50 w-full px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center mt-20 lg:mt-0">
           {/* Left Side: Text */}
           <div className="flex flex-col justify-start">
-            <h1 className="font-switzer text-5xl md:text-7xl lg:text-[6rem] font-normal mt-[-40px] tracking-tight leading-none capitalize text-[#ECF5FF]">
+            <h1 className="font-jakarta text-5xl md:text-7xl lg:text-[5.4rem] font-bold mt-[-40px] tracking-tight leading-none capitalize text-[#ECF5FF]">
               Chat with the team{" "}
             </h1>
 

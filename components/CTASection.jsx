@@ -10,7 +10,7 @@ export default function CTASection() {
     
       <div className="max-w-[1400px] mx-auto px-4 relative z-10 flex flex-col md:flex-row justify-between items-end gap-8">
         {/* Left Text */}
-        <h2 className="text-start lg:text-[4.5rem] tracking-tight leading-none font-switzer max-w-xl">
+        <h2 className="text-start lg:text-[4.5rem] tracking-tight leading-none font-jakarta font-medium max-w-xl">
           Learn more about our offerings{" "}
         </h2>
 

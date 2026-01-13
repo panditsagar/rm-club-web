@@ -102,7 +102,7 @@ const PortfolioGrid = () => {
 
               {/* Bottom Section: Typography */}
               <div className="text-[#002FFF]">
-                <h3 className="text-4xl md:text-7xl font-switzer font-normal leading-[0.86] tracking-tight">
+                <h3 className="text-4xl md:text-6xl font-jakarta font-medium leading-[0.86] tracking-tight">
                   Our
                   <br />
                   portfolio

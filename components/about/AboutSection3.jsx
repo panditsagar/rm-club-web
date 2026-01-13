@@ -221,7 +221,7 @@ const AboutSection3 = () => {
 
       {/* Header Section */}
       <div className="w-full max-w-[1400px] mx-auto overflow-x-clip py-10 flex flex-col items-center">
-        <h1 className=" max-w-2xl ml-auto text-white text-end lg:text-[4.5rem] tracking-tight leading-none font-switzer ">
+        <h1 className=" max-w-2xl ml-auto text-white text-end lg:text-[4.5rem] tracking-tight leading-none font-jakarta font-medium">
           We envision a transformative decade ahead
         </h1>
 

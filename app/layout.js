@@ -9,7 +9,6 @@ export const metadata = {
 
 import SmoothScroll from "@/components/SmoothScroll";
 
-
 import CustomCursor from "@/components/ui/CustomCursor";
 
 export default function RootLayout({ children }) {
@@ -17,14 +16,13 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link
-          href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600,700,800&f[]=author@300,400,500,600,700&f[]=bespoke-stencil@400,500&display=swap"
+          href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600,700,800&f[]=author@300,400,500,600,700&f[]=bespoke-stencil@400,500&f[]=plus-jakarta-sans@300,400,500,600,700,800&display=swap"
           rel="stylesheet"
         ></link>
       </head>
       <body className="font-author antialiased">
         <CustomCursor />
         <SmoothScroll>
-          
           <Navbar />
           {children}
           <Footer />

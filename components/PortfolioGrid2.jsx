@@ -56,7 +56,7 @@ const PortfolioGrid = () => {
               </div>
 
               <div className="text-[#002FFF]">
-                <h3 className="text-xl md:text-5xl font-switzer font-normal leading-[0.9] tracking-tight">
+                <h3 className="text-xl md:text-5xl font-jakarta font-medium leading-[0.9] tracking-tight">
                   View our
                   <br />
                   portfolio

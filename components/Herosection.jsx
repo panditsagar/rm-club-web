@@ -18,15 +18,15 @@ export default function App() {
         {/* CONTENT */}
         <div className="max-w-[1400px] mx-auto relative z-50 h-full flex flex-col justify-center mt-[-30px]    ">
           <h1
-            className="font-switzer text-5xl md:text-7xl lg:text-[6.65rem] font-normal tracking-tight leading-none capitalize
- text-[#ECF5FF] max-w-4xl"
+            className="font-jakarta text-5xl md:text-7xl lg:text-[5.6rem] font-bold tracking-tight leading-none capitalize
+ text-[#ECF5FF] max-w-3xl"
           >
             The future belongs to those who invest in it
           </h1>
 
           <p className="mt-14 text-lg md:text-[1.65rem] text-white max-w-xl leading-[1.1] tracking-wide font-normal">
-            Building long-term value across
-            businesses, communities, and real-world enterprises.
+            Building long-term value across businesses, communities, and
+            real-world enterprises.
           </p>
 
           <Link

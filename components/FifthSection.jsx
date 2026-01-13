@@ -66,7 +66,7 @@ export default function FifthSection() {
     <section className="relative w-full bg-[#ECF5FF] py-20 overflow-hidden text-[#002FFF]">
       {/* HEADER */}
       <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-start md:items-end mb-20 px-4  gap-8">
-        <h2 className="  text-start lg:text-[4.5rem] tracking-tight leading-none font-switzer max-w-2xl">
+        <h2 className="  text-start lg:text-[4.5rem] tracking-tight leading-none font-jakarta font-medium max-w-2xl">
           Founders that <br /> believe in us
         </h2>
 

@@ -34,7 +34,7 @@ export default function App() {
         {/* CONTENT */}
         <div className="max-w-[1400px] mx-auto relative z-50 h-full flex flex-col justify-center mt-[-30px] px-6">
           <h1
-            className="font-switzer text-5xl md:text-7xl lg:text-[5.8rem] font-normal tracking-tight leading-none capitalize
+            className="font-jakarta text-5xl md:text-7xl lg:text-[5.4rem] font-bold tracking-tight leading-none capitalize
  text-[#ECF5FF] max-w-5xl"
           >
             Every decade, new technologies emerge that redefine{" "}

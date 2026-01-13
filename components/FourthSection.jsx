@@ -68,7 +68,7 @@ const logos = [
   return (
     <section className="relative w-full bg-[#080618] py-20 overflow-hidden pb-50">
       <div className="w-full">
-        <h2 className="text-white pl-20 text-start text-5xl lg:text-[4.5rem] tracking-tight leading-none font-switzer mb-20">
+        <h2 className="text-white pl-20 text-start text-5xl lg:text-[4.5rem] tracking-tight leading-none font-jakarta font-medium mb-20">
           Engaging across 
         </h2>
 

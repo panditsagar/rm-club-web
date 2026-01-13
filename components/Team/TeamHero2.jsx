@@ -285,7 +285,7 @@ export default function TeamSection() {
       <div className="absolute bottom-0 z-50 left-0 w-full h-[150px] translate-y-full bg-gradient-to-b from-[#080618] to-transparent pointer-events-none" />
 
       <div className="max-w-[1400px] mx-auto px-6 mb-16 flex justify-between items-end">
-        <h2 className="text-start lg:text-[4.5rem] tracking-tight leading-none font-switzer max-w-xl">
+        <h2 className="text-start lg:text-[4.5rem] tracking-tight leading-none font-jakarta font-medium max-w-xl">
           Meet the Minds Behind Our Innovation
         </h2>
       </div>

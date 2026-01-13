@@ -31,7 +31,7 @@ export default function SecondSection() {
       {/* CENTER WRAPPER */}
       <div className="max-w-350 mx-auto  ">
         {/* H1 */}
-        <h1 className=" max-w-2xl ml-auto text-white text-end lg:text-[4.5rem] tracking-tight leading-none font-switzer">
+        <h1 className=" max-w-2xl ml-auto text-white text-end lg:text-[4.5rem] tracking-tight leading-none font-jakarta font-medium">
           We envision a transformative decade ahead
         </h1>
 
