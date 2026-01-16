@@ -1,12 +1,12 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
- 
+
 import { useParams } from "next/navigation";
 import { companiesData } from "@/lib/constants";
 import HeroSection1 from "@/components/company-detail/HeroSection1";
 import Section2 from "@/components/company-detail/Section2";
- 
+import CTASection from "@/components/CTASection";
 
 export default function App() {
   const { id } = useParams();
@@ -22,11 +22,12 @@ export default function App() {
   }
 
   return (
-    <div>
+    <div className="bg-[#020108]">
       <HeroSection1 company={company} />
       {/* ================= CONTENT ================= */}
-      <section className="content">
-         <Section2  company={company}/>
+      <section className="relative z-20">
+        <Section2 company={company} />
+        <CTASection />
       </section>
     </div>
   );
