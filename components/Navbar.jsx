@@ -87,7 +87,7 @@ export default function Navbar() {
                 <div className="bg-[#EEF6FF] rounded-sm p-4 shadow-xl">
                   {companies.map((item) => (
                     <Link key={item.id} href={`/company/${item.id}`} className="flex items-center justify-between px-4 py-4 rounded-md group/item hover:bg-white/80 transition-all">
-                      <span className="text-[#0F172A] text-[1.2rem] font-medium">{item.name}</span>
+                      <span className="text-[#0F172A] text-[1.2rem] font-medium font-author">{item.name}</span>
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="#0F172A" className="w-5 h-5 transform group-hover/item:translate-x-1 transition-transform">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                       </svg>

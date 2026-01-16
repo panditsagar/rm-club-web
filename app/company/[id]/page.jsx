@@ -7,6 +7,8 @@ import { companiesData } from "@/lib/constants";
 import HeroSection1 from "@/components/company-detail/HeroSection1";
 import Section2 from "@/components/company-detail/Section2";
 import CTASection from "@/components/CTASection";
+import Section3 from "@/components/company-detail/Section3";
+import FounderSection from "@/components/company-detail/FounderSection";
 
 export default function App() {
   const { id } = useParams();
@@ -22,13 +24,15 @@ export default function App() {
   }
 
   return (
-    <div className="bg-[#020108]">
+    <div >
       <HeroSection1 company={company} />
       {/* ================= CONTENT ================= */}
-      <section className="relative z-20">
-        <Section2 company={company} />
-        <CTASection />
+      <section className="relative z-20 bg-[#080618]">
+        <Section2 company={company}  />
+        <Section3 />
+        <FounderSection/>
       </section>
+         <CTASection />
     </div>
   );
 }
