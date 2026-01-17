@@ -15,13 +15,19 @@ export default function Preloader() {
       setLogoState("white");
     }, 1200);
 
-    // 3. After total 3000ms, finish loading
+    // 3. After 2400ms, fade out the White Logo
+    const logoExitTimer = setTimeout(() => {
+      setLogoState("exit"); // New state to hide logo
+    }, 2400);
+
+    // 4. After 3200ms, finish loading (Background fade)
     const totalTimer = setTimeout(() => {
       setIsLoading(false);
-    }, 3000);
+    }, 3200);
 
     return () => {
       clearTimeout(logoTimer);
+      clearTimeout(logoExitTimer);
       clearTimeout(totalTimer);
     };
   }, []);
@@ -37,7 +43,7 @@ export default function Preloader() {
         >
           <div className="relative w-32 h-32 md:w-48 md:h-48 flex items-center justify-center pointer-events-auto">
             <AnimatePresence>
-              {logoState === "blue" ? (
+              {logoState === "blue" && (
                 <motion.div
                   key="blue-logo"
                   initial={{ opacity: 0, scale: 0.8, filter: "blur(10px)" }}
@@ -54,11 +60,13 @@ export default function Preloader() {
                     priority
                   />
                 </motion.div>
-              ) : (
+              )}
+              {logoState === "white" && (
                 <motion.div
                   key="white-logo"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
+                  exit={{ opacity: 0, scale: 0.95, filter: "blur(5px)" }} // Fade out with slight shrink
                   transition={{ duration: 0.8, ease: "easeInOut" }}
                   className="absolute inset-0 flex items-center justify-center"
                 >
@@ -74,6 +82,8 @@ export default function Preloader() {
             </AnimatePresence>
           </div>
         </motion.div>
+    
+          
       )}
     </AnimatePresence>
   );
