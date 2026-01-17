@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import { BsArrowUpRight } from "react-icons/bs";
 import { FaDove, FaMicrophone, FaShapes, FaSquare } from "react-icons/fa";
+import Link from "next/link";
+
 
 const PortfolioGrid = () => {
   // State to track which cell is hovered (0, 1, 2, 3) or null
@@ -48,6 +50,7 @@ const PortfolioGrid = () => {
             setHoveredIndex={setHoveredIndex}
             icon={<FaDove className="text-3xl mb-2" />}
             name="Reparkle"
+             href="/company/reparkle"
           />
           <LogoItem
             index={1}
@@ -55,7 +58,7 @@ const PortfolioGrid = () => {
             setHoveredIndex={setHoveredIndex}
             icon={<FaMicrophone className="text-2xl mb-2" />}
             name="RM trek"
-          />
+           />
           <LogoItem
             index={2}
             hoveredIndex={hoveredIndex}
@@ -63,30 +66,30 @@ const PortfolioGrid = () => {
             icon={<FaShapes className="text-2xl mb-2" />}
             name="Jansanket"
             badge="Fund II" // Example badge
-          />
+           />
           <LogoItem
             index={3}
             hoveredIndex={hoveredIndex}
             setHoveredIndex={setHoveredIndex}
             icon={<FaSquare className="text-2xl mb-2" />}
             name="RM Shop"
+
           />
         </div>
 
         {/* Right Side - Tunnel / Perspective Link */}
         <div className="relative w-full aspect-square overflow-hidden cursor-pointer group  border-t md:border-t-0 border-[#002FFF]/60">
           {/* 1. Background Image Layer */}
-       <div className="absolute inset-0 z-0">
-  <img
-    src="https://cdn.prod.website-files.com/66c31377d57fee80e2d1cf4d/66c839455cd3d844d5574bfd_pp-bg.webp"
-    alt="Abstract Portfolio Background"
-    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-  />
+          <div className="absolute inset-0 z-0">
+            <img
+              src="https://cdn.prod.website-files.com/66c31377d57fee80e2d1cf4d/66c839455cd3d844d5574bfd_pp-bg.webp"
+              alt="Abstract Portfolio Background"
+              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+            />
 
-  {/* ECF5FF overlay */}
-  <div className="absolute inset-0 bg-[#ECF5FF]/60" />
-</div>
-
+            {/* ECF5FF overlay */}
+            <div className="absolute inset-0 bg-[#ECF5FF]/60" />
+          </div>
 
           {/* 2. The Tunnel/Grid Effect (Lines) */}
           <div className="absolute inset-0 flex items-start justify-start m-6 z-10">
@@ -129,6 +132,7 @@ const LogoItem = ({
   hoveredIndex,
   setHoveredIndex,
   badge,
+    href
 }) => {
   const isHovered = hoveredIndex === index;
   // Determine borders based on index to replicate grid lines
@@ -142,6 +146,7 @@ const LogoItem = ({
     `;
 
   return (
+    
     <div
       className={`relative flex flex-col cursor-pointer items-center justify-center ${borderClasses} p-8 overflow-visible transition-all duration-300 group`}
       onMouseEnter={() => setHoveredIndex(index)}
@@ -171,7 +176,9 @@ const LogoItem = ({
           isHovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
         }`}
       >
+       <Link href={href || "#"}>
         <BsArrowUpRight className="text-4xl" />
+        </Link>
       </div>
       <div className="absolute -top-1 -left-1 w-2 h-2 bg-[#002FFF] z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       <div className="absolute -top-1 -right-1 w-2 h-2 bg-[#002FFF] z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

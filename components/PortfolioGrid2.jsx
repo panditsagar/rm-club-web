@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { BsArrowUpRight } from "react-icons/bs";
 import { FaDove, FaMicrophone, FaShapes, FaSquare } from "react-icons/fa";
+import Link from "next/link";
 
 const PortfolioGrid = () => {
   // State to track which cell is hovered (0, 1, 2, 3) or null
@@ -83,6 +84,7 @@ const PortfolioGrid = () => {
             setHoveredIndex={setHoveredIndex}
             icon={<FaDove className="text-3xl mb-2" />}
             name="City View "
+            href="/company/city-view"
           />
           <LogoItem
             index={1}
@@ -90,6 +92,7 @@ const PortfolioGrid = () => {
             setHoveredIndex={setHoveredIndex}
             icon={<FaMicrophone className="text-2xl mb-2" />}
             name="Beatz of Melody"
+            href="/company/beatz-melody"
           />
           <LogoItem
             index={2}
@@ -98,6 +101,7 @@ const PortfolioGrid = () => {
             icon={<FaShapes className="text-2xl mb-2" />}
             name="Jawa Poonp"
             badge="Fund II" // Example badge
+            href="/company/jawa-poonp"
           />
           <LogoItem
             index={3}
@@ -105,6 +109,7 @@ const PortfolioGrid = () => {
             setHoveredIndex={setHoveredIndex}
             icon={<FaSquare className="text-2xl mb-2" />}
             name="IPDC"
+            href="/company/ipdc"
           />
         </div>
 
@@ -121,6 +126,7 @@ const LogoItem = ({
   hoveredIndex,
   setHoveredIndex,
   badge,
+  href,
 }) => {
   const isHovered = hoveredIndex === index;
   // Determine borders based on index to replicate grid lines
@@ -163,7 +169,9 @@ const LogoItem = ({
           isHovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
         }`}
       >
+        <Link href={href || "#"}>
         <BsArrowUpRight className="text-4xl" />
+        </Link>
       </div>
       <div className="absolute -top-1 -left-1 w-2 h-2 bg-[#002FFF] z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       <div className="absolute -top-1 -right-1 w-2 h-2 bg-[#002FFF] z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
