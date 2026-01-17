@@ -9,6 +9,7 @@ import Section2 from "@/components/company-detail/Section2";
 import CTASection from "@/components/CTASection";
 import Section3 from "@/components/company-detail/Section3";
 import FounderSection from "@/components/company-detail/FounderSection";
+import GallerySection from "@/components/company-detail/GallerySection";
 
 export default function App() {
   const { id } = useParams();
@@ -31,6 +32,7 @@ export default function App() {
         <Section2 company={company}  />
         <Section3 />
         <FounderSection/>
+        <GallerySection company={company} />
       </section>
          <CTASection />
     </div>
