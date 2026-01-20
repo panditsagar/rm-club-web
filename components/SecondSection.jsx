@@ -3,25 +3,25 @@ export default function SecondSection() {
     {
       title: "Building Sustainable Businesses",
       image:
-        "https://cdn.prod.website-files.com/66c31377d57fee80e2d1cf4d/68b9df69b83b4dad5d745a1f_aihuman.webp",
+        "/heroimage1.png",
       offset: "translate-y-0",
     },
     {
       title: "Shaping Real Assets",
       image:
-        "https://cdn.prod.website-files.com/66c31377d57fee80e2d1cf4d/68b9dbb19112e693130577bf_AR.webp",
+        "/heroimage4.png",
       offset: "translate-y-0 lg:translate-y-25",
     },
     {
       title: "Powering Voice and Culture",
       image:
-        "https://cdn.prod.website-files.com/66c31377d57fee80e2d1cf4d/68b9dc8ad98f94a36e734e31_tokens2.webp",
+        "/heroimage2.png",
       offset: "translate-y-0 lg:translate-y-50",
     },
     {
-      title: "Strengthnening ommunities",
+      title: "Strengthnening Communities",
       image:
-        "https://cdn.prod.website-files.com/66c31377d57fee80e2d1cf4d/68b9ddaf98a015e1b6b6edd6_helix.webp",
+        "/heroimage3.png",
       offset: "translate-y-0 lg:translate-y-75",
     },
   ];

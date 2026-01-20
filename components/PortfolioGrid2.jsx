@@ -101,15 +101,15 @@ const PortfolioGrid = () => {
             icon={<FaShapes className="text-2xl mb-2" />}
             name="Jawa Poonp"
             badge="Fund II" // Example badge
-            href="/company/jawa-poonp"
+            href="/company/jawa-poonp" 
           />
+
           <LogoItem
             index={3}
             hoveredIndex={hoveredIndex}
             setHoveredIndex={setHoveredIndex}
             icon={<FaSquare className="text-2xl mb-2" />}
-            name="IPDC"
-            href="/company/ipdc"
+            name="RM Shop"
           />
         </div>
 
@@ -170,7 +170,7 @@ const LogoItem = ({
         }`}
       >
         <Link href={href || "#"}>
-        <BsArrowUpRight className="text-4xl" />
+          <BsArrowUpRight className="text-4xl" />
         </Link>
       </div>
       <div className="absolute -top-1 -left-1 w-2 h-2 bg-[#002FFF] z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
