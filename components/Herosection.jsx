@@ -3,6 +3,8 @@
 import Spline from "@splinetool/react-spline";
 import Link from "next/link";
 import { FaArrowDown } from "react-icons/fa6";
+import TextType from "./ui/TextType";
+ 
 
 export default function App() {
   return (
@@ -21,7 +23,21 @@ export default function App() {
             className="font-jakarta text-5xl md:text-7xl lg:text-[5.6rem] font-bold tracking-tight leading-none capitalize
  text-[#ECF5FF] max-w-3xl"
           >
-            The future belongs to those who invest in it
+            {/* The future belongs to those who invest in it */}
+           
+
+<TextType 
+  text={["The future belongs to those who invest in it."]}
+  typingSpeed={120}
+  pauseDuration={1500}
+  showCursor
+  cursorCharacter="_"
+   deletingSpeed={120}
+  variableSpeedEnabled={false}
+  variableSpeedMin={60}
+  variableSpeedMax={120}
+  cursorBlinkDuration={0.5}
+/>
           </h1>
 
           <p className="mt-14 text-lg md:text-[1.65rem] text-white max-w-xl leading-[1.1] tracking-wide font-normal">
