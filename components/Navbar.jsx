@@ -19,7 +19,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="relative w-[95%] lg:max-w-[1400px] z-[100] flex items-center justify-between px-6 lg:px-10 mt-8 py-3 rounded-2xl text-white bg-black/30 backdrop-blur-md mx-auto">
+      <nav className="relative w-[95%] lg:max-w-[1400px] z-[100] flex items-center justify-between px-6 lg:px-10 mt-8 py-3 rounded-2xl text-white bg-white/4 md:bg-black/30 backdrop-blur-xl  mx-auto shadow-lg transition-all duration-300">
         {/* 1. LEFT LOGO */}
         <div className="flex items-center cursor-pointer">
           <Link href="/" className="w-10 h-10 lg:w-13 lg:h-13 relative block">
@@ -115,19 +115,21 @@ export default function Navbar() {
 
       {/* 5. MOBILE MENU OVERLAY */}
       <div
-        className={`fixed inset-0 z-[90] bg-black/95 backdrop-blur-lg flex flex-col items-center justify-center gap-6 text-white transition-all duration-500 lg:hidden ${
-          isMobileMenuOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-full pointer-events-none"
+        className={`fixed inset-0 z-[90] bg-[#080618]/98 backdrop-blur-xl flex flex-col items-center justify-center gap-6 mt-20 text-white transition-all duration-500 lg:hidden ${
+          isMobileMenuOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-4 pointer-events-none"
         }`}
       >
-        <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="text-2xl font-medium">Home</Link>
-        <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-2xl font-medium">About</Link>
-        <Link href="/team" onClick={() => setIsMobileMenuOpen(false)} className="text-2xl font-medium">Team</Link>
+        {/* Background Glow */}
+       
+        <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="text-2xl font-author font-medium hover:text-[#1EA1F7] transition-colors">Home</Link>
+        <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-2xl font-author font-medium hover:text-[#1EA1F7] transition-colors">About</Link>
+        <Link href="/team" onClick={() => setIsMobileMenuOpen(false)} className="text-2xl font-author font-medium hover:text-[#1EA1F7] transition-colors">Team</Link>
 
         {/* Mobile Dropdown */}
         <div className="flex flex-col items-center w-full">
           <button
             onClick={() => setIsMobileDropdownOpen(!isMobileDropdownOpen)}
-            className="text-2xl font-medium flex items-center gap-2"
+            className="text-2xl font-author font-medium flex items-center gap-3 hover:text-[#1EA1F7] transition-colors"
           >
             Explore RM Club
             <svg
@@ -136,19 +138,19 @@ export default function Navbar() {
               viewBox="0 0 24 24"
               strokeWidth={2}
               stroke="currentColor"
-              className={`w-5 h-5 transition-transform ${isMobileDropdownOpen ? "rotate-180" : ""}`}
+              className={`w-6 h-6 transition-transform duration-300 ${isMobileDropdownOpen ? "rotate-180 text-[#1EA1F7]" : ""}`}
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
             </svg>
           </button>
           
-          <div className={`flex flex-col items-center gap-3 overflow-hidden transition-all duration-300 ${isMobileDropdownOpen ? "max-h-[400px] mt-4 opacity-100" : "max-h-0 opacity-0"}`}>
+          <div className={`flex flex-col items-center gap-4 overflow-hidden transition-all duration-500 ease-in-out ${isMobileDropdownOpen ? "max-h-[500px] mt-6 opacity-100" : "max-h-0 opacity-0"}`}>
             {companies.map((company) => (
               <Link
                 key={company.id}
                 href={`/company/${company.id}`}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-lg text-gray-400 hover:text-white"
+                className="text-xl text-gray-400 hover:text-white font-author tracking-wide"
               >
                 {company.name}
               </Link>

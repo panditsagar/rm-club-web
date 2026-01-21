@@ -24,9 +24,9 @@ export default function App({ company }) {
   };
 
   return (
-    <section className="relative   w-full overflow-hidden bg-[#020108] font-jakarta">
+    <section className="relative   w-full overflow-hidden bg-[#080618] font-jakarta">
       {/* 1. HIGH-END SPLINE BACKGROUND */}
-      <div className="fixed inset-0 z-0 scale-110">
+      <div className="fixed inset-0 pointer-events-none transition-opacity duration-150 ease-linear z-0 hidden md:block">
         <Spline scene="https://prod.spline.design/DBCGWGemx6OSZ2Xf/scene.splinecode" />
         {/* Dark Vignette Overlay to make text pop */}
        </div>
