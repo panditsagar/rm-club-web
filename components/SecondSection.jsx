@@ -27,11 +27,11 @@ export default function SecondSection() {
   ];
 
   return (
-    <section className="relative z-40 w-full  pb-44 lg:pb-84  overflow-hidden">
+    <section className="relative z-40 w-full  pb-20 md:pb-44 lg:pb-84  overflow-hidden">
       {/* CENTER WRAPPER */}
-      <div className="max-w-350 mx-auto  ">
+      <div className="max-w-350 mx-auto px-5 md:px-10 lg:px-0">
         {/* H1 */}
-        <h1 className=" max-w-2xl ml-auto text-white text-end lg:text-[4.5rem] tracking-tight leading-none font-jakarta font-medium">
+        <h1 className=" max-w-2xl ml-auto mb-16 sm:mb-0 text-white text-left lg:text-end text-4xl md:text-6xl lg:text-[4.5rem] tracking-tight leading-none font-jakarta font-medium">
           We envision a transformative decade ahead
         </h1>
 
@@ -41,7 +41,7 @@ export default function SecondSection() {
             <div
               key={i}
               className={`
-                relative h-[430px] lg:h-[430px] w-full
+                relative h-[470px] lg:h-[430px] w-full
                 border border-[#1D98E9] overflow-hidden
                 bg-[#080618]/60 backdrop-blur-sm
                  transition-all duration-500 ease-out group  
