@@ -90,8 +90,7 @@ const ContactSection4 = () => {
           ))}
         </div>
       </div>
-      <div className="absolute bottom-0 z-30 left-0 w-full h-[200px] bg-gradient-to-b from-[#080618] to-transparent translate-y-full pointer-events-none" />
-    </section>
+     </section>
   );
 };
 

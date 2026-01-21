@@ -7,6 +7,9 @@ import { FiArrowUpRight } from "react-icons/fi";
 export default function CTASection() {
   return (
     <section className="relative w-full px-30  z-40  py-22 pb-30 overflow-hidden  ">
+      {/* Top Gradient Blend (from SevenSection) */}
+      <div className="absolute top-0 left-0 w-full h-[80px] bg-gradient-to-b from-[#080618] to-transparent z-50 pointer-events-none" />
+          
     
       <div className="max-w-[1400px] mx-auto px-4 relative z-10 flex flex-col md:flex-row justify-between items-end gap-8">
         {/* Left Text */}

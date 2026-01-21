@@ -56,9 +56,7 @@ export default function GallerySection({ company }) {
 
   return (
     <section ref={container} className="relative h-[300vh] bg-[#080618] pb-40">
-       {/* Bottom Gradient Blend */}
-       <div className="absolute bottom-0 z-40 left-0 w-full h-[200px] bg-gradient-to-b from-[#080618] to-transparent translate-y-full pointer-events-none" />
-
+     
       <div className="sticky top-0 h-screen w-full   flex items-center justify-center">
         
         {/* --- SCATTERED IMAGES --- */}

@@ -281,9 +281,7 @@ export default function TeamSection() {
   return (
     <section className="relative w-full bg-[#080618] pt-20 pb-30 overflow-x-clip text-white z-20">
       <div className="absolute top-0 z-50 left-0 w-full h-[150px] -translate-y-full bg-gradient-to-t from-[#080618] to-transparent pointer-events-none" />
-      {/* Bottom Gradient Blend */}
-      <div className="absolute bottom-0 z-50 left-0 w-full h-[150px] translate-y-full bg-gradient-to-b from-[#080618] to-transparent pointer-events-none" />
-
+    
       <div className="max-w-[1400px] mx-auto px-6 mb-16 flex justify-between items-end">
         <h2 className="text-start lg:text-[4.5rem] tracking-tight leading-none font-jakarta font-medium max-w-xl">
           Meet the Minds Behind Our Innovation
