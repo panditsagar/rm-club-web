@@ -1,11 +1,10 @@
 "use client";
 
-import React, { useState, useRef, useCallback } from "react";
+import React, { useState, useRef, useCallback, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import {
   IoIosArrowBack,
   IoIosArrowForward,
-  IoMdArrowForward,
 } from "react-icons/io";
 
 const insights = [
@@ -59,26 +58,28 @@ const insights = [
   },
 ];
 
+// Doubling data for the loop effect
 const loopedInsights = [...insights, ...insights];
+
+// Constants for Desktop layout
 const CARD_WIDTH = 450;
 const GAP = 38;
 const TOTAL_WIDTH = CARD_WIDTH + GAP;
 
 function InsightCard({ item }) {
   return (
-    <div className="group flex flex-col cursor-pointer shrink-0 w-[450px] relative group">
+    <div className="group flex flex-col cursor-pointer shrink-0 w-[85vw] md:w-[400px] lg:w-[450px] relative">
       {/* Main Container with Blue Corner Markers */}
-      <div className="relative flex flex-col h-full border border-white/20 p-4  bg-[#080618] transition-colors duration-300">
+      <div className="relative flex flex-col h-full border border-white/20 p-4 bg-[#080618] transition-colors duration-300">
+        
         {/* Blue Corner Markers - Visible ONLY on Hover */}
         <div className="absolute -top-1 -left-1 w-2 h-2 bg-[#002FFF] z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
         <div className="absolute -top-1 -right-1 w-2 h-2 bg-[#002FFF] z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
         <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-[#002FFF] z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
         <div className="absolute -bottom-1 -right-1 w-2 h-2 bg-[#002FFF] z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
-        {/* Border that turns blue on hover */}
-
         {/* IMAGE AREA */}
-        <div className="relative w-full aspect-[16/10] overflow-hidden bg-zinc-900 mb-6  ">
+        <div className="relative w-full aspect-[16/10] overflow-hidden bg-zinc-900 mb-6">
           <img
             src={item.image}
             alt={item.title}
@@ -89,29 +90,29 @@ function InsightCard({ item }) {
         {/* CONTENT AREA */}
         <div className="flex flex-col flex-grow">
           {/* Tag */}
-          <div className="mb-6">
-            <span className="bg-[#101426] text-[#002FFF] px-3 py-2 text-sm font-normal font-author uppercase tracking-wider  ">
+          <div className="mb-4 lg:mb-6">
+            <span className="bg-[#101426] text-[#002FFF] px-3 py-2 text-xs lg:text-sm font-normal font-author uppercase tracking-wider">
               {item.tag}
             </span>
           </div>
 
-          {/* Title */}
-          <h3 className="text-[2.45rem] leading-[0.9] font-normal text-white font-author mb-6 line-clamp-3">
+          {/* Title - Responsive Text Size */}
+          <h3 className="text-2xl md:text-4xl lg:text-[2.45rem] leading-[1.1] lg:leading-[0.9] font-normal text-white font-author mb-4 lg:mb-6 line-clamp-3">
             {item.title}
           </h3>
 
           <div className="mt-auto">
-            <span className="relative pb-0.5 inline-block font-author text-lg font-medium text-gray-400 cursor-pointer">
+            <span className="relative pb-0.5 inline-block font-author text-base lg:text-lg font-medium text-gray-400 cursor-pointer">
               Read more
               <span
                 className="
-        absolute left-0 bottom-1
-        w-full h-px bg-white
-        transform scale-x-0
-        group-hover:scale-x-100
-        transition-transform duration-300
-        origin-left  
-      "
+                  absolute left-0 bottom-1
+                  w-full h-px bg-white
+                  transform scale-x-0
+                  group-hover:scale-x-100
+                  transition-transform duration-300
+                  origin-left  
+                "
               />
             </span>
           </div>
@@ -125,16 +126,27 @@ export default function SevenSection() {
   const controls = useAnimation();
   const [index, setIndex] = useState(0);
   const isTransitioning = useRef(false);
+  const [isDesktop, setIsDesktop] = useState(true);
 
-  // Maximum visible cards at once is roughly 3
-  const maxIndex = insights.length - 1;
+  // Check for desktop size to toggle between Animation (Desktop) and Scroll (Mobile)
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+    
+    // Initial check
+    handleResize();
+    
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const slideTo = useCallback(
     async (newIndex) => {
       if (isTransitioning.current) return;
       isTransitioning.current = true;
 
-      // Simple handling for infinite-like loop effect using the doubled array
+      // Logic handles the "infinite" loop feeling
       await controls.start({
         x: -newIndex * TOTAL_WIDTH,
         transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
@@ -158,19 +170,21 @@ export default function SevenSection() {
   );
 
   return (
-    <section className="relative w-full z-30 bg-[#080618] py-10 pb-30 text-white">
+    <section className="relative w-full z-30 bg-[#080618] py-10 pb-30 text-white overflow-hidden">
       {/* Bottom Gradient Blend */}
-      <div className="absolute bottom-0 z-30 left-0 w-full h-[200px] bg-linear-to-b from-[#080618] to-transparent translate-y-full pointer-events-none" />
+      <div className="absolute bottom-0 z-30 left-0 w-full h-[200px] bg-gradient-to-b from-[#080618] to-transparent translate-y-full pointer-events-none" />
 
+      {/* HEADER SECTION */}
       <div
-        style={{ maxWidth: `${CARD_WIDTH * 3 + GAP * 2}px` }}
-        className="mx-auto flex justify-between items-end mb-16 px-4"
+        style={isDesktop ? { maxWidth: `${CARD_WIDTH * 3 + GAP * 2}px` } : {}}
+        className="mx-auto flex flex-col lg:flex-row lg:justify-between lg:items-end mb-8 lg:mb-16 px-4 w-full"
       >
-        <h2 className="text-start lg:text-[4.0rem] tracking-tight leading-[1.1] font-jakarta font-medium max-w-xl">
-          Updates from the RM Club Ecosytem
+        <h2 className="text-start text-4xl md:text-5xl lg:text-[4.0rem] tracking-tight leading-[1.1] font-jakarta font-medium max-w-xl mb-6 lg:mb-0">
+          Updates from the RM Club Ecosystem
         </h2>
 
-        <div className="flex gap-2">
+        {/* Navigation Buttons - Hidden on Mobile, Visible on Desktop */}
+        <div className="hidden lg:flex gap-2">
           <button
             onClick={() => slideTo(index - 1)}
             className="group relative cursor-pointer overflow-hidden w-12 h-12 flex items-center justify-center border border-[#002FFF]/20 text-[#002FFF] rounded-sm z-50"
@@ -188,13 +202,15 @@ export default function SevenSection() {
         </div>
       </div>
 
+      {/* CAROUSEL SECTION */}
       <div
-        className="mx-auto overflow-visible"
-        style={{ width: `${CARD_WIDTH * 3 + GAP * 2}px` }}
+        className={`mx-auto ${isDesktop ? "overflow-visible" : "overflow-x-auto snap-x snap-mandatory px-4 scrollbar-hide"}`}
+        style={isDesktop ? { width: `${CARD_WIDTH * 3 + GAP * 2}px` } : { width: "100%" }}
       >
         <motion.div
-          animate={controls}
-          initial={{ x: 0 }}
+          // Only apply Framer Motion x-transform on Desktop
+          animate={isDesktop ? controls : undefined}
+          initial={isDesktop ? { x: 0 } : undefined}
           style={{ gap: `${GAP}px` }}
           className="flex flex-nowrap items-stretch py-4"
         >

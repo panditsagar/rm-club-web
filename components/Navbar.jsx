@@ -157,12 +157,15 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Contact Button */}
-        <Link
-          href="/contact"
-          onClick={() => setIsMobileMenuOpen(false)}
-          className="mt-4 px-10 py-3 bg-[#1EA1F7] text-black font-bold rounded-xl text-xl"
-        >
-          Get Started
+             <Link href="/contact" className="relative group  ">
+          <div className="absolute -top-0.5 left-1/2 -translate-x-1/2 w-24 h-11 bg-blue-500/60 blur-[10px] rounded-full pointer-events-none" />
+          <div className="relative p-[1.2px] rounded-xl overflow-hidden bg-gradient-to-br from-white via-zinc-800 to-blue-500">
+            <div className="relative px-8 py-2.5 bg-[#050505] rounded-[11px] flex items-center justify-center overflow-hidden">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-[1px] bg-orange-400/40 blur-[1px]" />
+              <span className="relative z-10 text-[1.2rem] text-[#1EA1F7] font-normal">Get In Touch</span>
+              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+            </div>
+          </div>
         </Link>
       </div>
     </>
