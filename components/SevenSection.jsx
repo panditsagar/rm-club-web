@@ -170,9 +170,9 @@ export default function SevenSection() {
   );
 
   return (
-    <section className="relative w-full z-30 bg-[#080618] py-10 pb-30 text-white overflow-hidden">
+    <section className="relative w-full z-30 bg-[#080618] py-10 pb-30 text-white">
       {/* Bottom Gradient Blend */}
-      <div className="absolute bottom-0 z-30 left-0 w-full h-[200px] bg-gradient-to-b from-[#080618] to-transparent translate-y-full pointer-events-none" />
+      <div className="absolute bottom-0 z-30 left-0 w-full h-[100px] bg-gradient-to-b from-[#080618] to-transparent translate-y-full pointer-events-none" />
 
       {/* HEADER SECTION */}
       <div
