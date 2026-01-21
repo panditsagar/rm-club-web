@@ -19,7 +19,7 @@ export default function App() {
         {/* CONTENT */}
         <div className="max-w-[1400px] mx-auto relative z-50 h-full flex flex-col justify-center mt-[-80px] sm:mt-0  px-5 md:px-0">
           <h1
-            className="font-jakarta text-4xl md:text-7xl lg:text-[5.6rem] font-bold tracking-tight leading-[1.1] sm:leading-none capitalize
+            className="font-jakarta text-[2.6rem] md:text-7xl lg:text-[5.6rem] font-bold tracking-tight leading-[1.1] sm:leading-none capitalize
  text-[#ECF5FF]  max-w-3xl"
           >
             {/* The future belongs to those who invest in it */}
