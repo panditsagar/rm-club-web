@@ -213,7 +213,7 @@ export default function TeamSection() {
         style={{ maxWidth: `${CARD_WIDTH * 3 + GAP * 2}px` }}
         className="mx-auto flex justify-between items-end mb-16 px-4"
       >
-        <h2 className="text-start lg:text-[4.5rem] tracking-tight leading-none font-jakarta font-medium">Team</h2>
+        <h2 className="text-start text-[2.5rem] md:text-5xl lg:text-[4.0rem] tracking-tight leading-[1.1] font-jakarta font-medium max-w-xl mb-6 lg:mb-0">Team</h2>
 
         <div className="flex gap-2">
           <button onClick={() => slideTo(index - 1)} className="group relative cursor-pointer overflow-hidden w-12 h-12 flex items-center justify-center border border-[#002FFF]/20 text-[#002FFF] rounded-sm z-50">

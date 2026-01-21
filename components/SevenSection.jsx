@@ -169,7 +169,7 @@ export default function SevenSection() {
   );
 
   return (
-    <section className="relative w-full z-30 bg-[#080618] py-10 pb-30 text-white overflow-hidden">
+    <section className="relative w-full z-30 bg-[#080618] py-10 pb-20 text-white overflow-hidden">
     
       {/* HEADER SECTION */}
       <div
@@ -178,7 +178,7 @@ export default function SevenSection() {
         className="mx-auto flex flex-col lg:flex-row lg:justify-between lg:items-end mb-8 lg:mb-16 px-4 w-full"
       >
         {/* UPDATED: Responsive font size */}
-        <h2 className="text-start text-4xl md:text-5xl lg:text-[4.0rem] tracking-tight leading-[1.1] font-jakarta font-medium max-w-xl mb-6 lg:mb-0">
+        <h2 className="text-start text-[2.5rem] md:text-5xl lg:text-[4.0rem] tracking-tight leading-[1.1] font-jakarta font-medium max-w-xl mb-6 lg:mb-0">
           Updates from the RM Club Ecosystem
         </h2>
 

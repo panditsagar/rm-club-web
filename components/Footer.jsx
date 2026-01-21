@@ -8,7 +8,7 @@ import { FaXTwitter } from "react-icons/fa6";
 
 export default function Footer() {
   return (
-    <footer className="relative z-50 bg-[#080618] text-[#fff] m-10 p-10 rounded-md font-author">
+    <footer className="relative z-50 bg-[#080618] text-[#fff] m-5  pt-5 md:m-10 md:p-10 rounded-md font-author">
       <div className=" ">
         {/* TOP ROW: LOGO + CONTACT INFO */}
         <div className="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-8  mb-12">
@@ -39,7 +39,7 @@ export default function Footer() {
           </div>
 
           {/* CONTACT COLUMNS */}
-          <div className="flex flex-col md:flex-row gap-12 lg:gap-44">
+          <div className="flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-44">
             {/* General Inquiries */}
             <div className="flex flex-col gap-2">
               <span className="bg-[#1A1A2A] text-white text-sm px-2 py-1 uppercase tracking-wider w-fit ">
@@ -118,13 +118,13 @@ References to ventures, initiatives, or activities are descriptive in nature and
         </div>
 
         {/* BOTTOM ROW: LINKS + CREDITS */}
-        <div className="flex flex-col lg:flex-row justify-between items-center text-white/90 gap-8 text-md font-medium  ">
+        <div className="flex flex-col lg:flex-row justify-between items-center text-white/90 gap-8 text-sm md:text-md font-medium  ">
           {/* Links */}
           <div className="flex flex-wrap gap-8">
             <FooterLink href="#">Offerings</FooterLink>
             <FooterLink href="#">Portfolio</FooterLink>
             <FooterLink href="#">About</FooterLink>
-            <FooterLink href="#">News & Insights</FooterLink>
+        
             <FooterLink href="#">Contact</FooterLink>
           </div>
 
