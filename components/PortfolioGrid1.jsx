@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BsArrowUpRight } from "react-icons/bs";
 import { FaDove, FaMicrophone, FaShapes, FaSquare } from "react-icons/fa";
 import Link from "next/link";
@@ -8,11 +8,30 @@ const PortfolioGrid = () => {
   // State to track which cell is hovered (0, 1, 2, 3) or null
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
-  // Dynamic styles for the grid based on hovered index
+  // State to track if we are on desktop to enable grid hover effects
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const checkIsDesktop = () => {
+      setIsDesktop(window.innerWidth >= 768);
+    };
+    
+    // Initial check
+    checkIsDesktop();
+    
+    // Listener
+    window.addEventListener("resize", checkIsDesktop);
+    return () => window.removeEventListener("resize", checkIsDesktop);
+  }, []);
+
+  // Dynamic styles for the grid based on hovered index (Desktop only)
   // Default: 1fr 1fr
   // Active col 0: 1.5fr 1fr
   // Active col 1: 1fr 1.5fr
   const getGridStyles = () => {
+    // Disable dynamic grid sizing on mobile
+    if (!isDesktop) return {};
+
     const base = "1fr 1fr";
     const expanded = "2fr 1fr";
     const shrunk = "1fr 2fr";
@@ -33,11 +52,11 @@ const PortfolioGrid = () => {
   };
 
   return (
-    <section className="relative z-30 w-full bg-[#ECF5FF] font-switzer  px-20 pt-20">
+    <section className="relative z-30 w-full bg-[#ECF5FF] font-switzer px-5 pt-10 md:px-20 md:pt-20">
       <div className="grid grid-cols-1 md:grid-cols-2 border border-b-0 border-[#002FFF]/60">
         {/* Left Side - Interactive Logo Grid */}
         <div
-          className="grid h-[500px] md:h-auto transition-all duration-500 ease-out border-r border-[#002FFF]/60"
+          className="grid grid-cols-2 h-auto md:h-auto transition-all duration-500 ease-out border-r-0 md:border-r border-[#002FFF]/60"
           style={{
             ...getGridStyles(),
           }}
@@ -93,7 +112,7 @@ const PortfolioGrid = () => {
           {/* 2. The Tunnel/Grid Effect (Lines) */}
           <div className="absolute inset-0 flex items-start justify-start m-6 z-10">
             {/* 3. The Inner Box (Now Transparent) */}
-            <div className="relative w-1/3 h-1/3 md:w-1/2 md:h-1/2 border border-[#002FFF]/40 flex flex-col justify-between p-6  transition-all duration-700 bg-white/5 backdrop-blur-[2px] group-hover:bg-white/10">
+            <div className="relative w-1/2 h-1/2 md:w-1/2 md:h-1/2 border border-[#002FFF]/40 flex flex-col justify-between p-5  transition-all duration-700 bg-white/5 backdrop-blur-[2px] group-hover:bg-white/10">
               {/* Top Section: Number and Arrow */}
               <div className="flex justify-between items-start text-[#002FFF]">
                 <span className="text-sm md:text-xl font-medium opacity-70">
@@ -104,7 +123,7 @@ const PortfolioGrid = () => {
 
               {/* Bottom Section: Typography */}
               <div className="text-[#002FFF]">
-                <h3 className="text-4xl md:text-6xl font-jakarta font-medium leading-[0.86] tracking-tight">
+                <h3 className="text-3xl md:text-6xl font-jakarta font-medium leading-[0.86] tracking-tight">
                   Our
                   <br />
                   portfolio
@@ -146,7 +165,7 @@ const LogoItem = ({
 
   return (
     <div
-      className={`relative flex flex-col cursor-pointer items-center justify-center ${borderClasses} p-8 overflow-visible transition-all duration-300 group`}
+      className={`relative flex flex-col cursor-pointer items-center justify-center ${borderClasses} p-4 md:p-8 overflow-visible transition-all duration-300 group aspect-square md:aspect-auto`}
       onMouseEnter={() => setHoveredIndex(index)}
     >
       {/* Background Hover Highlight */}
@@ -159,7 +178,7 @@ const LogoItem = ({
       {/* Content */}
       <div
         className={`relative z-10 flex flex-col items-center justify-center gap-3 text-[#002FFF] transition-transform duration-500 ${
-          isHovered ? "scale-110" : "scale-100"
+          isHovered ? "md:scale-110" : "scale-100"
         }`}
       >
         {icon}

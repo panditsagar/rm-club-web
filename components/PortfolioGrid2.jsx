@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BsArrowUpRight } from "react-icons/bs";
 import { FaDove, FaMicrophone, FaShapes, FaSquare } from "react-icons/fa";
 import Link from "next/link";
@@ -8,11 +8,30 @@ const PortfolioGrid = () => {
   // State to track which cell is hovered (0, 1, 2, 3) or null
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
+  // State to track if we are on desktop to enable grid hover effects
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const checkIsDesktop = () => {
+      setIsDesktop(window.innerWidth >= 768);
+    };
+
+    // Initial check
+    checkIsDesktop();
+
+    // Listener
+    window.addEventListener("resize", checkIsDesktop);
+    return () => window.removeEventListener("resize", checkIsDesktop);
+  }, []);
+
   // Dynamic styles for the grid based on hovered index
   // Default: 1fr 1fr
   // Active col 0: 1.5fr 1fr
   // Active col 1: 1fr 1.5fr
   const getGridStyles = () => {
+    // Disable dynamic grid sizing on mobile
+    if (!isDesktop) return {};
+
     const base = "1fr 1fr";
     const expanded = "2fr 1fr";
     const shrunk = "1fr 2fr";
@@ -33,9 +52,9 @@ const PortfolioGrid = () => {
   };
 
   return (
-    <section className="relative z-30 w-full bg-[#ECF5FF] font-switzer px-20 pb-20">
+    <section className="relative z-30 w-full bg-[#ECF5FF] font-switzer px-5  md:px-20 md:pb-20">
       <div className="grid grid-cols-1 md:grid-cols-2 border border-b-0 border-[#002FFF]/60">
-        <div className="relative w-full aspect-square overflow-hidden  cursor-pointer border-t md:border-t-0 border-b border-[#002FFF]/60">
+        <div className="relative w-full aspect-square overflow-hidden  cursor-pointer  md:border-t-0 border-b border-[#002FFF]/60">
           {/* The Tunnel Effect */}
           <div className="absolute inset-0 flex items-center justify-center">
             {/* Outer Lines (connecting corners) */}
@@ -72,7 +91,7 @@ const PortfolioGrid = () => {
         </div>
         {/* Left Side - Interactive Logo Grid */}
         <div
-          className="grid h-[500px] md:h-auto transition-all duration-500 ease-out  border-l border-b border-[#002FFF]/60"
+          className="grid grid-cols-2 h-auto md:h-auto transition-all duration-500 ease-out  border-l-0 md:border-l border-b border-[#002FFF]/60"
           style={{
             ...getGridStyles(),
           }}
@@ -141,7 +160,7 @@ const LogoItem = ({
 
   return (
     <div
-      className={`relative flex flex-col cursor-pointer items-center justify-center ${borderClasses} p-8 overflow-visible transition-all duration-300 group`}
+      className={`relative flex flex-col cursor-pointer items-center justify-center ${borderClasses} p-4 md:p-8 overflow-visible transition-all duration-300 group aspect-square md:aspect-auto`}
       onMouseEnter={() => setHoveredIndex(index)}
     >
       {/* Background Hover Highlight */}
@@ -154,7 +173,7 @@ const LogoItem = ({
       {/* Content */}
       <div
         className={`relative z-10 flex flex-col items-center justify-center gap-3 text-[#002FFF] transition-transform duration-500 ${
-          isHovered ? "scale-110" : "scale-100"
+          isHovered ? "md:scale-110" : "scale-100"
         }`}
       >
         {icon}
