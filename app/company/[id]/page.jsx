@@ -30,8 +30,8 @@ export default function App() {
       {/* ================= CONTENT ================= */}
       <section className="relative z-20 bg-[#080618]">
         <Section2 company={company}  />
-        <Section3 />
-        <FounderSection/>
+        <Section3 company={company} />
+        <FounderSection company={company} />
         <GallerySection company={company} />
       </section>
          <CTASection />

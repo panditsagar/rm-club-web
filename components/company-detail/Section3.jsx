@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa6";
 
-export default function ThirdSection() {
- 
+export default function ThirdSection({ company }) {
+ const { ecosystemSection } = company;
 
   return (
     <section className="relative z-30 w-full min-h-screen bg-[#080618] flex items-center justify-center py-20 pb-50 px-6 md:px-20">
@@ -92,7 +92,7 @@ export default function ThirdSection() {
                   <g className="logo-zoom">
                     <image
                       className="logo-img"
-                      href="/logo2.png"
+                      href={ecosystemSection.logo}
                       x="280"
                       y="280"
                       width="202"
@@ -187,18 +187,14 @@ export default function ThirdSection() {
 
           {/* RIGHT COLUMN - TEXT CONTENT */}
           <div className="flex flex-col justify-center text-left">
-            <h2 className="   text-white lg:text-[4.5rem] tracking-tight leading-none font-jakarta font-medium mb-8">
-              Rm Club <br />
-              Ventures
+            <h2 className="   text-white lg:text-[4.5rem] tracking-tight leading-none font-jakarta font-medium mb-8 max-w-md">
+             {ecosystemSection.title}
             </h2>
 
             <p className=" text-lg md:text-[1.35rem] text-white/90 max-w-xl leading-[1.1] tracking-wide font-normal mb-10">
-             RM Club brings together a diverse set of operating ventures across business, real estate, media, culture, hospitality, education, and community initiatives.
-
-Rather than focusing on a single industry, the ecosystem is designed to build real-world enterprises that generate long-term value, employment, and impact.
-
-Each venture operates independently while benefiting from shared strategy, governance, and collective experience within the RM Club network.
-            </p>
+              {ecosystemSection.description}
+ 
+             </p>
 
             <button
               className="
@@ -215,9 +211,9 @@ Each venture operates independently while benefiting from shared strategy, gover
     group
   "
             >
-              <span className="relative z-10">Learn more</span>
+              <span className="relative z-10">{ecosystemSection.buttonText}</span>
 
-              <span className="bg-[#080618] p-1.5">
+              <span className=" ">
                 <FaArrowRight size={14} className="relative z-10  " />
               </span>
 

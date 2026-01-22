@@ -3,14 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const ceoData = {
-  name: "Sagar Pandit",
-  title: " CEO & Founder of Rm Club",
-  quote:
-    "At Rm Club, we don’t just build websites and apps  we craft digital experiences that connect, inspire, and drive results. Every product we create is designed to make a meaningful impact.",
-  imageUrl: "/sagar.png",
-};
-
+ 
  
 
 const fadeInUp = {
@@ -26,7 +19,7 @@ const fadeInUp = {
   }),
 };
 
-export default function TeamSection() {
+export default function TeamSection({ company }) {
   return (
     <section className="bg-[#080618] py-10 h-screen">
       <div className="max-w-7xl mx-auto px-6 md:px-10 ">
@@ -43,7 +36,7 @@ export default function TeamSection() {
           >
             <Image src="/comma.svg" alt="" width={0} height={0} sizes="100vw" className="h-14 w-auto" />
             <p className="text-2xl text-white font-medium leading-[1] font-author">
-              {ceoData.quote}
+              {company.founder.quote}
             </p>
           </motion.div>
 
@@ -57,8 +50,8 @@ export default function TeamSection() {
             className="relative w-1/3 lg:col-span-1 order-first lg:order-none"
           >
             <Image
-              src={ceoData.imageUrl}
-              alt={ceoData.name}
+              src={company.founder.imageUrl}
+              alt={company.founder.name}
               width={400}
               height={500}
               className="mx-auto scale-120 [mask-image:linear-gradient(to_bottom,white_80%,transparent_100%)] [mask-repeat:no-repeat] [mask-size:100%_100%] bg-[#080618]"
@@ -75,10 +68,10 @@ export default function TeamSection() {
             className="lg:col-span-1 w-1/3 text-center lg:text-left"
           >
             <h2 className="text-4xl md:text-5xl font-extrabold text-white font-jakarta">
-              {ceoData.name}
+              {company.founder.name}
             </h2>
             <p className="text-[#002FFF]  text-2xl font-[500] mt-4 font-author">
-              {ceoData.title}
+              {company.founder.title}
             </p>
           </motion.div>
         </div>

@@ -2,16 +2,7 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-const Card = ({
-  i,
-  title,
-  description,
-  src,
-  color,
-  progress,
-  range,
-  targetScale,
-}) => {
+const Card = ({ i, title, description, src, progress, range, targetScale }) => {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
@@ -85,7 +76,7 @@ export default function Section2({ company }) {
     offset: ["start start", "end end"],
   });
 
-  if (!company || !company.story) return null;
+  if (!company || !company.features) return null;
 
   return (
     <div ref={container} className="relative mt-[20vh] mb-[20vh] ">
@@ -93,25 +84,18 @@ export default function Section2({ company }) {
       <h2 className="text-end lg:text-[4.5rem] tracking-tight leading-none font-jakarta font-medium mr-20 max-w-lg m-auto">
         Our Core Value Offerings
       </h2>
+      {company.features.map((feature, i) => {
+        const targetScale = 1 - (company.features.length - i) * 0.05;
 
-      {company.story.map((storyItem, i) => {
-        const targetScale = 1 - (company.story.length - i) * 0.05;
-        // Use gallery image if available, loop if not enough images
-        const imageSrc =
-          company.gallery && company.gallery.length > 0
-            ? company.gallery[i % company.gallery.length]
-            : null;
+    
 
         return (
           <Card
             key={i}
             i={i}
-            title={storyItem} // Using the story sentence as the title/headline
-            description={`Part ${i + 1} of our journey. ${
-              company.name
-            } continues to strive for excellence in every step.`} // Generating some description text
-            src={imageSrc}
-            color={company.themeColor}
+            title={feature.title}
+            description={feature.description}
+            src={feature.image}
             progress={scrollYProgress}
             range={[i * 0.25, 1]}
             targetScale={targetScale}

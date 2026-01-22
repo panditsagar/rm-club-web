@@ -72,7 +72,7 @@ export default function App({ company }) {
         {/* CTA BUTTON: Interactive and Glowy */}
         <motion.div variants={itemVars} className="mt-6">
           <button
-            style={{ "--theme-color": company.themeColor || "#1EA1F7" }}
+             
             className="group relative px-10 py-4 bg-white text-black font-bold rounded-full overflow-hidden transition-all duration-300  cursor-pointer"
           >
             <span className="relative z-10 flex items-center gap-2 text-lg">
