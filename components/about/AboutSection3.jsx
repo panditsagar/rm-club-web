@@ -109,12 +109,12 @@ const cards = [
 const AboutSection3 = () => {
   const [activeIndex, setActiveIndex] = useState(1); // Default to 'About Us' (index 1)
   const [isMobile, setIsMobile] = useState(false);
-
   const [hasEntered, setHasEntered] = useState(false);
 
   React.useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
+      // Using 1024px (lg) as the breakpoint to switch from Stack to Carousel
+      setIsMobile(window.innerWidth < 1024);
     };
     checkMobile();
     window.addEventListener("resize", checkMobile);
@@ -122,14 +122,33 @@ const AboutSection3 = () => {
   }, []);
 
   const handleCardClick = (index) => {
-    setActiveIndex(index);
+    // Only allow rotation logic on desktop
+    if (!isMobile) {
+      setActiveIndex(index);
+    }
   };
 
   const getCardProps = (index) => {
+    // If mobile, return neutral props to disable 3D effects
+    if (isMobile) {
+      return {
+        zIndex: 1,
+        x: 0,
+        y: 0,
+        z: 0,
+        scale: 1,
+        opacity: 1,
+        rotate: 0,
+        rotateY: 0,
+        filter: "blur(0px)",
+      };
+    }
+
+    // --- DESKTOP LOGIC (Unchanged) ---
     // efficient circular distance
     // 0: Center, 1: Right, 2: Left (in a 3-item circle relative to active)
     const position = (index - activeIndex + 3) % 3;
-    const xOffset = isMobile ? 40 : 200; // Use original wider spacing if valid, adjusted for needs
+    const xOffset = 200; 
 
     if (!hasEntered) {
       // Entrance State
@@ -169,11 +188,6 @@ const AboutSection3 = () => {
     }
 
     // Normal State with 3D effect
-    // To make it look like a 3D cycle:
-    // Center: Face forward, z=0
-    // Right (1): Moved right, pushed back (z < 0), rotated inward facing left (rotateY < 0)
-    // Left (2): Moved left, pushed back (z < 0), rotated inward facing right (rotateY > 0)
-
     if (position === 0) {
       return {
         zIndex: 30,
@@ -194,7 +208,7 @@ const AboutSection3 = () => {
         z: -100, // Push back
         scale: 1,
         opacity: 0.6,
-        rotate: 0, // Reset incidental z-rotation or keep subtle
+        rotate: 0,
         rotateY: -45, // Face inward to center (right card faces left)
         filter: "blur(2px)",
       };
@@ -215,26 +229,30 @@ const AboutSection3 = () => {
   };
 
   return (
-    <section className="relative w-full bg-[#080618] pb-20 px-6 min-h-screen flex flex-col items-center justify-center z-20">
-      {/* Background Glow similar to original if needed, or subtle */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#2D68FF] opacity-[0.03] rounded-full blur-[100px] pointer-events-none" />
+    <section className="relative w-full bg-[#080618]   px-5 min-h-screen flex flex-col items-center justify-center z-20">
+      {/* Background Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#2D68FF] opacity-[0.03] rounded-full blur-[100px] pointer-events-none" />
 
       {/* Header Section */}
       <div className="w-full max-w-[1400px] mx-auto overflow-x-clip py-10 flex flex-col items-center">
-        <h1 className=" max-w-2xl ml-auto text-white text-end lg:text-[4.5rem] tracking-tight leading-none font-jakarta font-medium">
+        {/* Responsive Text Size */}
+        <h1 className="max-w-2xl ml-auto text-white text-end text-4xl md:text-6xl lg:text-[4.5rem] tracking-tight leading-none font-jakarta font-medium">
           We envision a transformative decade ahead
         </h1>
 
-        {/* Stacked Card Container */}
-        <div className="w-full flex justify-center overflow-x-clip py-10">
+        {/* Card Container */}
+        <div className="w-full flex justify-center py-10">
           <motion.div
-            className="relative w-full max-w-[650px] flex items-center justify-center h-[700px]"
-            // Add perspective to container for 3D effect
-            style={{ perspective: "1000px" }}
+            // Mobile: Auto height, Flex Column. Desktop: Fixed Height, Block/Relative.
+            className={`
+              relative w-full max-w-[650px] flex items-center justify-center
+              ${isMobile ? "h-auto flex-col gap-8" : "h-[700px]"}
+            `}
+            // Only apply perspective on Desktop
+            style={{ perspective: isMobile ? "none" : "1000px" }}
             onViewportEnter={() => setHasEntered(true)}
             viewport={{ amount: 0.3, once: true }}
           >
-            {/* We render ALL cards mapped */}
             {cards.map((card, index) => {
               const props = getCardProps(index);
               const isActive = index === activeIndex;
@@ -244,39 +262,44 @@ const AboutSection3 = () => {
                   key={card.id}
                   onClick={() => handleCardClick(index)}
                   initial={false}
+                  // Animate props: On mobile, these will resolve to neutral values
                   animate={{
                     zIndex: props.zIndex,
                     x: props.x,
                     y: props.y,
-                    z: props.z, // Added z
+                    z: props.z,
                     scale: props.scale,
                     opacity: props.opacity,
                     rotate: props.rotate,
-                    rotateY: props.rotateY, // Added rotateY
+                    rotateY: props.rotateY,
                     filter: props.filter,
                   }}
                   transition={{
-                    duration: hasEntered ? 0.8 : 1.2, // Slower on entrance
+                    duration: hasEntered ? 0.8 : 1.2,
                     ease: "easeOut",
-                    delay: hasEntered ? 0 : 0.2, // Small delay on entrance
+                    delay: hasEntered ? 0 : 0.2,
                   }}
-                  className={`absolute w-[90%] md:w-[550px] h-[600px] bg-[#0E0C1F] rounded-[40px] p-8 md:p-10 border border-[#2D68FF] shadow-2xl cursor-pointer overflow-hidden ${
-                    isActive ? "pointer-events-auto" : "pointer-events-auto"
-                  }`}
+                  // Mobile: Relative positioning to stack. Desktop: Absolute to overlap/carousel.
+                  className={`
+                    w-full md:w-[550px]
+                    bg-[#0E0C1F]   p-8 md:p-10 border border-[#2D68FF]/60 shadow-2xl overflow-hidden
+                    ${isMobile ? "relative h-auto min-h-[450px]" : "absolute h-[600px] cursor-pointer"}
+                    ${isActive || isMobile ? "pointer-events-auto" : "pointer-events-auto"}
+                  `}
                 >
-                  {/* Background Decorative Text - Only show on active or all? Original had it on main card */}
+                  {/* Background Decorative Text */}
                   <div className="absolute top-10 right-[-20px] opacity-[0.03] select-none pointer-events-none">
-                    <h4 className="text-[12rem] font-bold leading-none">RM</h4>
+                    <h4 className="text-[8rem] md:text-[12rem] font-bold leading-none">RM</h4>
                   </div>
 
-                  <div className="relative z-10 flex flex-col h-full justify-between">
+                  <div className="relative z-10 flex flex-col h-full justify-between gap-6 md:gap-0">
                     {/* TOP SECTION */}
-                    <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-8">
+                    <div className="flex flex-col md:flex-row justify-between items-start gap-4 md:gap-8 mb-4 md:mb-8">
                       <div className="max-w-[450px]">
-                        <p className="text-[#2D68FF] font-mono text-sm tracking-[0.3em] uppercase mb-2">
+                        <p className="text-[#2D68FF] font-mono text-xs md:text-sm tracking-[0.3em] uppercase mb-2">
                           {card.subtitle}
                         </p>
-                        <h3 className="text-4xl md:text-4xl font-switzer font-medium text-white leading-[1] tracking-tight">
+                        <h3 className="text-3xl md:text-4xl font-switzer font-medium text-white leading-[1] tracking-tight">
                           {card.title}
                         </h3>
                       </div>
@@ -290,14 +313,14 @@ const AboutSection3 = () => {
                     </div>
 
                     {/* MIDDLE SECTION */}
-                    <div className="mb-8">
-                      <p className="text-xl md:text-2xl text-gray-300 leading-[1.2] font-light">
+                    <div className="mb-4 md:mb-8">
+                      <p className="text-lg md:text-2xl text-gray-300 leading-[1.3] md:leading-[1.2] font-light">
                         {card.middleText}
                       </p>
                     </div>
 
                     {/* BOTTOM SECTION */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-end">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-end">
                       <div className="space-y-4">
                         <p className="text-sm text-gray-500 max-w-[280px] leading-relaxed">
                           {card.footerText}
@@ -325,7 +348,7 @@ const AboutSection3 = () => {
                                 "
                       >
                         <span className="relative z-10">{card.buttonText}</span>
-                        <span className="bg-[#080618] p-1.5">
+                        <span className=" ">
                           <FaArrowRight size={14} className="relative z-10" />
                         </span>
                         {/* SHIMMER OVERLAY */}
@@ -352,9 +375,7 @@ const AboutSection3 = () => {
           </motion.div>
         </div>
       </div>
-
-      {/* Bottom Gradient Blend */}
-     </section>
+    </section>
   );
 };
 

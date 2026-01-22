@@ -12,7 +12,7 @@ export default function App() {
     "commerce",
     "possibility",
   ];
-  const wordColors = ["#E38E2B", "#2D68FF"];
+  const wordColors = ["#2D68FF"];
 
   const [index, setIndex] = useState(0);
 
@@ -26,7 +26,7 @@ export default function App() {
   return (
     <>
       <section className="relative h-screen w-full overflow-hidden bg-[#080618]">
-            {/* MOBILE IMAGE */}
+        {/* MOBILE IMAGE */}
         <div className="fixed inset-0 z-0 md:hidden">
           <img
             src="/bg.png"
@@ -40,9 +40,9 @@ export default function App() {
         </div>
 
         {/* CONTENT */}
-        <div className="max-w-[1400px] mx-auto relative z-50 h-full flex flex-col justify-center mt-[-30px] px-6">
+        <div className="max-w-[1400px] mx-auto relative z-50 h-full flex flex-col justify-center mt-[-70px] sm:mt-[-30px] px-5 md:px-0">
           <h1
-            className="font-jakarta text-5xl md:text-7xl lg:text-[5.4rem] font-bold tracking-tight leading-none capitalize
+            className="font-jakarta  text-[2.1rem] md:text-7xl lg:text-[5.4rem] font-bold tracking-tight  leading-[1.1] sm:leading-none capitalize
  text-[#ECF5FF] max-w-5xl"
           >
             Every decade, new technologies emerge that redefine{" "}
@@ -55,7 +55,7 @@ export default function App() {
                   exit={{ y: "-100%" }}
                   transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
                   className="block"
-                  style={{ color: wordColors[index % wordColors.length] }}
+                  style={{ color: wordColors }}
                 >
                   {words[index]}
                 </motion.span>
@@ -63,7 +63,7 @@ export default function App() {
             </div>
           </h1>
 
-          <p className="mt-14 text-lg md:text-[1.65rem] text-white max-w-sm leading-[1.1] tracking-wide font-normal">
+          <p className="mt-14 text-2xl md:text-[1.65rem] text-white max-w-sm leading-[1.1] tracking-wide font-normal">
             It is our mission to identify these innovations as they prepare to
             cross the chasm.
           </p>
