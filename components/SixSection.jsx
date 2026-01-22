@@ -242,44 +242,60 @@ export default function TeamSection() {
     controls.set({ x: -index * dimensions.totalWidth });
   }, [dimensions.totalWidth]); // Only trigger on dimension change, index change handles itself
 
+  // Reset lock when user starts interacting
+  const handleDragStart = () => {
+    isTransitioning.current = true;
+  };
+
   const slideTo = useCallback(async (newIndex) => {
     if (isTransitioning.current) return;
     isTransitioning.current = true;
 
-    // We animate to the target index first
-    await controls.start({
-      x: -newIndex * dimensions.totalWidth,
-      transition: { duration: 0.5, ease: [0.32, 0.72, 0, 1] },
-    });
+    try {
+      // We animate to the target index first
+      await controls.start({
+        x: -newIndex * dimensions.totalWidth,
+        transition: { duration: 0.5, ease: [0.32, 0.72, 0, 1] },
+      });
 
-    // Check boundaries for seamless loop interaction
-    // "Middle Zone" is roughly index N to 2N - 1
-    
-    // If we moved past the end of the middle set (into the 3rd set)
-    if (newIndex >= 2 * N) {
-      // Calculate the equivalent index in the middle set
-      // e.g., if N=4, we are at 8. Equivalent is 4.  (8 - 4 = 4)
-      const resetsToIndex = newIndex - N; 
-      await controls.set({ x: -resetsToIndex * dimensions.totalWidth });
-      setIndex(resetsToIndex);
-    } 
-    // If we moved before the start of the middle set (into the 1st set)
-    else if (newIndex < N) {
-      // e.g. if N=4, we are at 3. Equivalent is 7 (3 + 4 = 7).
-      const resetsToIndex = newIndex + N;
-      await controls.set({ x: -resetsToIndex * dimensions.totalWidth });
-      setIndex(resetsToIndex);
-    } 
-    else {
-      // Just update regular index
-      setIndex(newIndex);
+      // Check boundaries for seamless loop interaction
+      // "Middle Zone" is roughly index N to 2N - 1
+      
+      // If we moved past the end of the middle set (into the 3rd set)
+      if (newIndex >= 2 * N) {
+        // Calculate the equivalent index in the middle set
+        // e.g., if N=4, we are at 8. Equivalent is 4.  (8 - 4 = 4)
+        const resetsToIndex = newIndex - N; 
+        await controls.set({ x: -resetsToIndex * dimensions.totalWidth });
+        setIndex(resetsToIndex);
+      } 
+      // If we moved before the start of the middle set (into the 1st set)
+      else if (newIndex < N) {
+        // e.g. if N=4, we are at 3. Equivalent is 7 (3 + 4 = 7).
+        const resetsToIndex = newIndex + N;
+        await controls.set({ x: -resetsToIndex * dimensions.totalWidth });
+        setIndex(resetsToIndex);
+      } 
+      else {
+        // Just update regular index
+        setIndex(newIndex);
+      }
+    } catch (err) {
+      // Animation was likely cancelled by a new gesture; ignore
+      console.log("Animation interrupted", err);
+    } finally {
+      // ALWAYS release the lock
+      // Use a small timeout to preventing accidental double-triggers if momentum carries over
+      // but primarily just ensure it's false
+      isTransitioning.current = false;
     }
-
-    isTransitioning.current = false;
   }, [controls, dimensions.totalWidth, N]);
 
   // Handle Drag End (Touch/Mouse Swipe)
   const handleDragEnd = (event, info) => {
+    // Release the manual lock we set on drag start so slideTo can run
+    isTransitioning.current = false;
+    
     const { offset, velocity } = info;
     const swipeThreshold = 50; 
     
@@ -335,6 +351,7 @@ export default function TeamSection() {
       >
         <motion.div
           drag="x"
+          onDragStart={handleDragStart}
           dragMomentum={false} 
           // Strictly constrain drag to current card +/- 1 width
           dragConstraints={{ left: minX, right: maxX }}

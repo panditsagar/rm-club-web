@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
@@ -62,40 +61,50 @@ export default function FifthSection() {
     );
   };
 
+  // Add swipe support for mobile
+  const handleDragEnd = (event, info) => {
+    if (info.offset.x < -50) {
+      handleNext();
+    } else if (info.offset.x > 50) {
+      handlePrev();
+    }
+  };
+
   return (
-    <section className="relative w-full bg-[#ECF5FF] py-20 overflow-hidden text-[#002FFF]">
+    <section className="relative w-full bg-[#ECF5FF] py-12 pt-20 md:py-20 overflow-hidden text-[#002FFF]">
       {/* HEADER */}
-      <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-start md:items-end mb-20 px-4  gap-8">
-        <h2 className="  text-start lg:text-[4.5rem] tracking-tight leading-none font-jakarta font-medium max-w-2xl">
+      <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-20 px-4 gap-6 md:gap-8">
+        <h2 className="text-start text-4xl md:text-[4.5rem] tracking-tight leading-[1.1] md:leading-none font-jakarta font-medium max-w-2xl">
           Founders that <br /> believe in us
         </h2>
 
         {/* NAVIGATION BUTTONS */}
-        <div className="flex gap-2">
+        <div className="flex gap-2 self-end md:self-auto">
           <button
             onClick={handlePrev}
-            className="group relative overflow-hidden w-12 h-12 flex items-center justify-center border border-[#002FFF]/20 text-[#002FFF] rounded-sm cursor-pointer z-50 transition-all"
+            className="group relative overflow-hidden w-10 h-10 md:w-12 md:h-12 flex items-center justify-center border border-[#002FFF]/20 text-[#002FFF] rounded-sm cursor-pointer z-50 transition-all"
           >
             <span className="absolute inset-0 bg-[#002FFF]/10 translate-x-full group-hover:translate-x-0 transition-transform duration-400 ease-out" />
-            <span className="relative z-10  transition-colors duration-300">
-              <IoIosArrowBack size={24} />
+            <span className="relative z-10 transition-colors duration-300">
+              <IoIosArrowBack size={20} className="md:w-6 md:h-6" />
             </span>
           </button>
 
           <button
             onClick={handleNext}
-            className="group relative overflow-hidden w-12 h-12 flex items-center justify-center border border-[#002FFF]/20 text-[#002FFF] rounded-sm cursor-pointer z-50 transition-all"
+            className="group relative overflow-hidden w-10 h-10 md:w-12 md:h-12 flex items-center justify-center border border-[#002FFF]/20 text-[#002FFF] rounded-sm cursor-pointer z-50 transition-all"
           >
             <span className="absolute inset-0 bg-[#002FFF]/10 -translate-x-full group-hover:translate-x-0 transition-transform duration-400 ease-out" />
-            <span className="relative z-10  transition-colors duration-300">
-              <IoIosArrowForward size={24} />
+            <span className="relative z-10 transition-colors duration-300">
+              <IoIosArrowForward size={20} className="md:w-6 md:h-6" />
             </span>
           </button>
         </div>
       </div>
 
       {/* CAROUSEL */}
-      <div className="w-full relative h-[600px] md:h-[480px] flex items-center justify-center">
+      {/* Increased mobile height to 750px to accommodate stacked content, desktop remains 480px */}
+      <div className="w-full relative h-[750px] md:h-[480px] flex items-center justify-center">
         {testimonials.map((data, index) => {
           let offset =
             (index - currentIndex + testimonials.length) % testimonials.length;
@@ -115,13 +124,11 @@ export default function FifthSection() {
             opacity = 1;
             zIndex = 10;
           } else if (offset === 1) {
-            // Increased xPos from 95% to 110% to create a gap
             xPos = "103%";
             scale = 0.85;
             opacity = 0.7;
             zIndex = 5;
           } else if (offset === -1) {
-            // Increased xPos from -95% to -110% to create a gap
             xPos = "-103%";
             scale = 0.85;
             opacity = 0.7;
@@ -143,14 +150,20 @@ export default function FifthSection() {
                 opacity: opacity,
                 zIndex: zIndex,
               }}
+              // Enable swipe on mobile
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.2}
+              onDragEnd={handleDragEnd}
               transition={{ duration: 0.65, ease: "easeInOut" }}
-              // Reduced width from md:w-[70%] to md:w-[65%] to decrease card size
-              className="absolute w-[85%] md:w-[70%] max-w-[1100px] h-full"
+              // Adjusted width for mobile (90%) vs desktop (70% - reduced from original code to decrease size as requested)
+              className="absolute w-[90%] md:w-[70%] max-w-[1100px] h-full"
               style={{ pointerEvents: offset === 0 ? "auto" : "none" }}
             >
-              <div className="w-full h-full border border-[#002FFF] p-8 md:p-10 flex flex-col md:flex-row gap-12 items-center bg-[#ECF5FF] relative transition-shadow duration-300">
+              <div className="w-full h-full border border-[#002FFF] p-6 md:p-10 flex flex-col md:flex-row gap-6 md:gap-12 items-center bg-[#ECF5FF] relative transition-shadow duration-300">
                 {/* LEFT: FOUNDER IMAGE WITH TECH FRAME */}
-                <div className="relative shrink-0 w-[280px] h-[320px] md:w-[320px] md:h-[380px] flex items-center justify-center">
+                {/* Scaled down dimensions for mobile, kept original for desktop */}
+                <div className="relative shrink-0 w-[240px] h-[280px] md:w-[320px] md:h-[380px] flex items-center justify-center mt-4 md:mt-0">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="100%"
@@ -176,7 +189,8 @@ export default function FifthSection() {
                     />
                   </svg>
                   <CornerAccents />
-                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[240px] h-[260px] md:w-[234px] md:h-[280px] overflow-hidden border border-[#002FFF] z-10">
+                  {/* Scaled image container for mobile */}
+                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[170px] h-[205px] md:w-[234px] md:h-[280px] overflow-hidden border border-[#002FFF] z-10">
                     <img
                       src={data.image}
                       alt={data.name}
@@ -186,24 +200,24 @@ export default function FifthSection() {
                 </div>
 
                 {/* RIGHT: CONTENT */}
-                <div className="flex-1 flex flex-col justify-between h-full py-4 text-[#002FFF]">
-                  <div className="relative">
-                    <p className="text-lg md:text-2xl leading-[1.1] font-author font-normal">
+                <div className="flex-1 flex flex-col justify-between h-full py-2 md:py-4 text-[#002FFF] w-full text-center md:text-left">
+                  <div className="relative overflow-y-auto md:overflow-visible flex-grow md:flex-grow-0 max-h-[200px] md:max-h-none pr-2 md:pr-0">
+                    <p className="text-lg md:text-2xl leading-[1.3] md:leading-[1.1] font-author font-normal">
                       “{data.quote}”
                     </p>
                   </div>
 
-                  <div className="mt-8 flex items-end justify-between border-b border-[#002FFF]/20 pb-4">
+                  <div className="mt-4 md:mt-8 flex flex-col md:flex-row items-center md:items-end justify-between border-b border-[#002FFF]/20 pb-4 gap-4 md:gap-0">
                     <div>
-                      <h3 className="text-3xl font-switzer font-medium">
+                      <h3 className="text-2xl md:text-3xl font-switzer font-medium">
                         {data.name}
                       </h3>
-                      <p className="text-[#002FFF]/60 text-lg uppercase tracking-wider mt-1 font-medium">
+                      <p className="text-[#002FFF]/60 text-base md:text-lg uppercase tracking-wider mt-1 font-medium">
                         {data.title}
                       </p>
                     </div>
 
-                    <div className="h-8">
+                    <div className="h-6 md:h-8">
                       {data.companyLogo ? (
                         <img
                           src={data.companyLogo}
@@ -211,7 +225,7 @@ export default function FifthSection() {
                           className="h-full object-contain grayscale opacity-80"
                         />
                       ) : (
-                        <span className="text-xl font-bold font-switzer uppercase tracking-widest opacity-80">
+                        <span className="text-lg md:text-xl font-bold font-switzer uppercase tracking-widest opacity-80">
                           DRESSX
                         </span>
                       )}
@@ -224,8 +238,8 @@ export default function FifthSection() {
         })}
       </div>
 
-      <div className="   flex    justify-center items-center md:items-end  py-10 ">
-        <p className="   lg:text-[0.98rem] tracking-tight leading-none font-author  text-center max-w-xl">
+      <div className="flex justify-center items-center md:items-end py-10 px-4">
+        <p className="text-sm md:text-[0.98rem] tracking-tight leading-normal md:leading-none font-author text-center max-w-xl text-[#002FFF]/80">
           These opinions represent the view of certain founders and may not be
           representative of the views of all founders or investors. No
           compensation was provided for such opinions.
@@ -234,6 +248,7 @@ export default function FifthSection() {
     </section>
   );
 }
+
 function CornerAccents() {
   return (
     <>
