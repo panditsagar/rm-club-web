@@ -39,7 +39,7 @@ const ContactSection4 = () => {
   };
 
   return (
-    <section className="bg-[#080618] pt-20 pb-40 px-6 md:px-12 relative   z-20">
+    <section className="bg-[#080618]  pb-40 px-6 md:px-12 relative   z-20">
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         {/* Left Side */}
         <div className="flex flex-col items-start gap-8">
