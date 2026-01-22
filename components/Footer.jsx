@@ -8,7 +8,7 @@ import { FaXTwitter } from "react-icons/fa6";
 
 export default function Footer() {
   return (
-    <footer className="relative z-50 bg-[#080618] text-[#fff] m-5  pt-5 md:m-10 md:p-10 rounded-md font-author">
+    <footer className="relative z-50 bg-[#080618] text-[#fff] m-2 p-4  pt-5 md:m-10 md:p-10 rounded-md font-author">
       <div className=" ">
         {/* TOP ROW: LOGO + CONTACT INFO */}
         <div className="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-8  mb-12">

@@ -9,6 +9,14 @@ export default function App() {
   return (
     <>
       <section className="relative min-h-screen w-full overflow-hidden bg-[#080618] flex items-center">
+            {/* MOBILE IMAGE */}
+        <div className="fixed inset-0 z-0 md:hidden">
+          <img
+            src="/bg.png"
+            alt="Background"
+            className="w-full h-full object-cover"
+          />
+        </div>
         {/* SPLINE BACKGROUND */}
         <div className="fixed inset-0 pointer-events-none transition-opacity duration-150 ease-linear z-0 hidden md:block">
           <Spline scene="https://prod.spline.design/DBCGWGemx6OSZ2Xf/scene.splinecode" />

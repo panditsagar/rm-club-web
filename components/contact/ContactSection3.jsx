@@ -4,74 +4,74 @@ import { motion } from "framer-motion";
 import { FiArrowUpRight } from "react-icons/fi"; // Matching the Source icon style
 
 export default function FourthSection() {
-const logos = [
-  {
-    id: "coindesk",
-    content: (
-      <span className="text-white font-bold text-4xl opacity-60">
-        News and media
-      </span>
-    ),
-    quote:
-      "Through Jansanket, RM Club supports local journalism and community-focused reporting that amplifies regional voices and public awareness.",
-    source: "RM Club Ecosystem",
-  },
-  {
-    id: "barrons",
-    content: (
-      <span className="text-white font-bold text-4xl opacity-60">
-        Hospitality
-      </span>
-    ),
-    quote:
-      "City View Restaurant & Bar represents RM Club’s approach to hospitality—bringing people together through food, experience, and community.",
-    source: "RM Club Ecosystem",
-  },
-  {
-    id: "cryptoslate",
-    content: (
-      <span className="text-white font-bold text-4xl opacity-60">
-        Travel
-      </span>
-    ),
-    quote:
-      "RM Trek focuses on curated travel and exploration, creating meaningful experiences that connect people with places and culture.",
-    source: "RM Club Ecosystem",
-  },
-  {
-    id: "blockworks",
-    content: (
-      <span className="text-white font-bold text-4xl opacity-60">
-        Music
-      </span>
-    ),
-    quote:
-      "Beatz of Melody supports independent artists and creative production, fostering authentic sound and sustainable creative expression.",
-    source: "RM Club Ecosystem",
-  },
-  {
-    id: "carta",
-    content: (
-      <span className="text-white font-bold text-4xl opacity-60">
-        Education
-      </span>
-    ),
-    quote:
-      "Jawa Poonp reflects RM Club’s commitment to education and welfare initiatives focused on access, learning, and long-term social impact.",
-    source: "RM Club Ecosystem",
-  },
-];
+  const logos = [
+    {
+      id: "coindesk",
+      content: (
+        <span className="text-white font-bold text-xl sm:text-4xl opacity-60">
+          News and media
+        </span>
+      ),
+      quote:
+        "Through Jansanket, RM Club supports local journalism and community-focused reporting that amplifies regional voices and public awareness.",
+      source: "RM Club Ecosystem",
+    },
+    {
+      id: "barrons",
+      content: (
+        <span className="text-white font-bold text-xl sm:text-4xl opacity-60">
+          Hospitality
+        </span>
+      ),
+      quote:
+        "City View Restaurant & Bar represents RM Club’s approach to hospitality—bringing people together through food, experience, and community.",
+      source: "RM Club Ecosystem",
+    },
+    {
+      id: "cryptoslate",
+      content: (
+        <span className="text-white font-bold text-xl sm:text-4xl opacity-60">
+          Travel
+        </span>
+      ),
+      quote:
+        "RM Trek focuses on curated travel and exploration, creating meaningful experiences that connect people with places and culture.",
+      source: "RM Club Ecosystem",
+    },
+    {
+      id: "blockworks",
+      content: (
+        <span className="text-white font-bold text-xl sm:text-4xl opacity-60">
+          Music
+        </span>
+      ),
+      quote:
+        "Beatz of Melody supports independent artists and creative production, fostering authentic sound and sustainable creative expression.",
+      source: "RM Club Ecosystem",
+    },
+    {
+      id: "carta",
+      content: (
+        <span className="text-white font-bold text-xl sm:text-4xl opacity-60">
+          Education
+        </span>
+      ),
+      quote:
+        "Jawa Poonp reflects RM Club’s commitment to education and welfare initiatives focused on access, learning, and long-term social impact.",
+      source: "RM Club Ecosystem",
+    },
+  ];
 
   // Duplicate for marquee effect
   const carouselItems = [...logos, ...logos];
 
   return (
-    <section className="relative w-full bg-[#080618] py-20   pb-50 z-20">
-          <div className="absolute top-0 z-50 left-0 w-full h-[150px] -translate-y-full bg-gradient-to-t from-[#080618] to-transparent pointer-events-none" />
+    <section className="relative w-full bg-[#080618]  py-20  overflow-hidden  sm:pb-50">
+         <div className="absolute top-0 z-50 left-0 w-full h-[150px] -translate-y-full bg-gradient-to-t from-[#080618] to-transparent pointer-events-none" />
 
       <div className="w-full">
-        <h2 className="text-white pl-20 text-start text-5xl lg:text-[4.5rem] tracking-tight leading-none font-switzer mb-20">
-          Engaging across 
+        <h2 className="text-white pl-5 lg:pl-20 text-start text-4xl lg:text-[4.5rem] tracking-tight leading-none font-jakarta font-medium mb-10 lg:mb-20">
+          Engaging across
         </h2>
 
         {/* CAROUSEL TRACK */}
@@ -80,7 +80,7 @@ const logos = [
             {carouselItems.map((item, index) => (
               <div
                 key={`${item.id}-${index}`}
-                className="group relative flex items-center cursor-pointer justify-center w-[300px] h-[290px] shrink-0 border-r border-white/20 transition-all duration-300"
+                className="group relative flex items-center cursor-pointer justify-center w-[150px] h-[140px] sm:w-[300px] sm:h-[290px] shrink-0 border-r border-white/20 transition-all duration-300"
               >
                 {/* LOGO CONTENT */}
                 <div className="group-hover:opacity-100 transition-opacity duration-300 grayscale group-hover:grayscale-0">
