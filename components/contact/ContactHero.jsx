@@ -37,9 +37,10 @@ export default function App() {
           </div>
 
           {/* Right Side: Form */}
-          <div className="flex justify-center lg:justify-end w-full">
-            <ContactForm />
-          </div>
+       <div className="flex justify-center lg:justify-end w-full relative z-[60]">
+  <ContactForm />
+</div>
+
         </div>
       </section>
     </>

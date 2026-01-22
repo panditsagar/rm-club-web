@@ -26,9 +26,9 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="w-full max-w-2xl p-8 bg-white/5   border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] backdrop-blur-xl hover:border-white/20 transition-all duration-300">
+    <div className="w-full max-w-2xl p-5 sm:p-8 bg-white/5   border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] backdrop-blur-xl hover:border-white/20 transition-all duration-300">
       <form onSubmit={handleSubmit} className="space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-6">
           <div className="flex flex-col gap-1">
             <label
               htmlFor="firstName"
@@ -161,7 +161,7 @@ const ContactForm = () => {
           />
         </button>
 
-        <p className="text-center text-xs text-gray-500 mt-4">
+        <p className="text-center text-sm text-gray-500 mt-4">
           By submitting this form you agree to our{" "}
           <span className="text-[#2D68FF] hover:text-[#144EE3] underline cursor-pointer transition-colors">
             Privacy Policy

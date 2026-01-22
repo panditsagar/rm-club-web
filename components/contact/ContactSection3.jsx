@@ -66,72 +66,74 @@ export default function FourthSection() {
   const carouselItems = [...logos, ...logos];
 
   return (
-    <section className="relative w-full bg-[#080618]  py-20  overflow-hidden  sm:pb-50">
-         <div className="absolute top-0 z-50 left-0 w-full h-[150px] -translate-y-full bg-gradient-to-t from-[#080618] to-transparent pointer-events-none" />
+    <section className="relative w-full bg-[#080618]  py-20 sm:pb-50">
+         <div className="absolute top-0 z-30 left-0 w-full h-[100px] -translate-y-full bg-gradient-to-t from-[#080618] to-transparent pointer-events-none" />
 
       <div className="w-full">
         <h2 className="text-white pl-5 lg:pl-20 text-start text-4xl lg:text-[4.5rem] tracking-tight leading-none font-jakarta font-medium mb-10 lg:mb-20">
           Engaging across
         </h2>
 
-        {/* CAROUSEL TRACK */}
-        <div className="w-full border-t border-b border-white/20 relative">
-          <div className="flex animate-marquee">
-            {carouselItems.map((item, index) => (
-              <div
-                key={`${item.id}-${index}`}
-                className="group relative flex items-center cursor-pointer justify-center w-[150px] h-[140px] sm:w-[300px] sm:h-[290px] shrink-0 border-r border-white/20 transition-all duration-300"
-              >
-                {/* LOGO CONTENT */}
-                <div className="group-hover:opacity-100 transition-opacity duration-300 grayscale group-hover:grayscale-0">
-                  {item.content}
-                </div>
-
-                {/* --- HOVER UI ELEMENTS --- */}
-
-                {/* Corner Squares (Matches Image) */}
-                <BlueSquare className="-top-1 -left-1" />
-                <BlueSquare className="-top-1 -right-1" />
-                <BlueSquare className="-bottom-1 -left-1" />
-
-                {/* DIAGONAL LINE AND TOOLTIP CONTAINER */}
-                <div className="absolute top-[65%] left-1/2 w-[400px] pointer-events-none z-50 opacity-0 group-hover:opacity-100 transition-all duration-700 ease-out translate-y-2 group-hover:translate-y-0">
-                  {/* The SVG Line */}
-                  <svg
-                    className="absolute top-0 left-0 w-full h-[100px] overflow-visible"
-                    style={{
-                      filter: "drop-shadow(0 0 2px rgba(31, 165, 253, 0.5))",
-                    }}
+        {/* CAROUSEL TRACK WRAPPER to handle overflow without clipping section blend */}
+        <div className="w-full overflow-hidden pb-32">
+            <div className="w-full border-t border-b border-white/20 relative">
+              <div className="flex animate-marquee">
+                {carouselItems.map((item, index) => (
+                  <div
+                    key={`${item.id}-${index}`}
+                    className="group relative flex items-center cursor-pointer justify-center w-[150px] h-[140px] sm:w-[300px] sm:h-[290px] shrink-0 border-r border-white/20 transition-all duration-300"
                   >
-                    <rect x="0" y="0" width="8" height="8" fill="#1FA5FD" />
-                    <path
-                      d="M 0 0 L 50 60" // Starts from parent's left 50% (0 in this local div), goes down and right
-                      stroke="#1FA5FD"
-                      strokeWidth="1.5"
-                      fill="none"
-                    />
-                  </svg>
+                    {/* LOGO CONTENT */}
+                    <div className="group-hover:opacity-100 transition-opacity duration-300 grayscale group-hover:grayscale-0">
+                      {item.content}
+                    </div>
 
-                  {/* THE TOOLTIP BOX */}
-                  <div className="absolute top-[60px] left-[50px] w-[320px] pointer-events-auto">
-                    <div className="relative bg-[#050412]/95 backdrop-blur-md border border-[#1FA5FD] p-6 text-left  ">
-                      <p className="text-[#1FA5FD] text-[15px] leading-relaxed font-medium mb-4">
-                        {item.quote}
-                      </p>
+                    {/* --- HOVER UI ELEMENTS --- */}
 
-                      <a
-                        href="#"
-                        className="inline-flex items-center gap-1 text-[#1FA5FD] text-sm font-semibold border-b border-[#1FA5FD] pb-0.5 hover:opacity-80 transition-opacity"
+                    {/* Corner Squares (Matches Image) */}
+                    <BlueSquare className="-top-1 -left-1" />
+                    <BlueSquare className="-top-1 -right-1" />
+                    <BlueSquare className="-bottom-1 -left-1" />
+
+                    {/* DIAGONAL LINE AND TOOLTIP CONTAINER */}
+                    <div className="absolute top-[65%] left-1/2 w-[400px] pointer-events-none z-50 opacity-0 group-hover:opacity-100 transition-all duration-700 ease-out translate-y-2 group-hover:translate-y-0">
+                      {/* The SVG Line */}
+                      <svg
+                        className="absolute top-0 left-0 w-full h-[100px] overflow-visible"
+                        style={{
+                          filter: "drop-shadow(0 0 2px rgba(31, 165, 253, 0.5))",
+                        }}
                       >
-                        {item.source}
-                        <FiArrowUpRight className="text-lg" />
-                      </a>
+                        <rect x="0" y="0" width="8" height="8" fill="#1FA5FD" />
+                        <path
+                          d="M 0 0 L 50 60" // Starts from parent's left 50% (0 in this local div), goes down and right
+                          stroke="#1FA5FD"
+                          strokeWidth="1.5"
+                          fill="none"
+                        />
+                      </svg>
+
+                      {/* THE TOOLTIP BOX */}
+                      <div className="absolute top-[60px] left-[50px] w-[320px] pointer-events-auto">
+                        <div className="relative bg-[#050412]/95 backdrop-blur-md border border-[#1FA5FD] p-6 text-left  ">
+                          <p className="text-[#1FA5FD] text-[15px] leading-relaxed font-medium mb-4">
+                            {item.quote}
+                          </p>
+
+                          <a
+                            href="#"
+                            className="inline-flex items-center gap-1 text-[#1FA5FD] text-sm font-semibold border-b border-[#1FA5FD] pb-0.5 hover:opacity-80 transition-opacity"
+                          >
+                            {item.source}
+                            <FiArrowUpRight className="text-lg" />
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
         </div>
       </div>
 
