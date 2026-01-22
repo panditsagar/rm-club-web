@@ -58,18 +58,21 @@ const insights = [
   },
 ];
 
-const loopedInsights = [...insights, ...insights];
+// Triple buffer for true infinite loop (Left buffer | Middle | Right buffer)
+const loopedInsights = [...insights, ...insights, ...insights];
 const CARD_WIDTH = 450;
 const GAP = 38;
-const TOTAL_WIDTH = CARD_WIDTH + GAP;
 
-function InsightCard({ item }) {
+// --- InsightCard with Responsive Width ---
+function InsightCard({ item, width }) {
   return (
-    // UPDATED: Width is fluid on mobile (85vw), fixed on desktop (450px)
-    <div className="group flex flex-col cursor-pointer shrink-0 w-[85vw] md:w-[400px] lg:w-[450px] relative">
+    <div 
+      style={{ width: width }}
+      className="group flex flex-col cursor-pointer shrink-0 relative group snap-center"
+    >
+      {/* Main Container with Blue Corner Markers */}
       <div className="relative flex flex-col h-full border border-white/20 p-4 bg-[#080618] transition-colors duration-300">
-        
-        {/* Blue Corner Markers */}
+        {/* Blue Corner Markers - Visible ONLY on Hover */}
         <div className="absolute -top-1 -left-1 w-2 h-2 bg-[#002FFF] z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
         <div className="absolute -top-1 -right-1 w-2 h-2 bg-[#002FFF] z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
         <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-[#002FFF] z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
@@ -87,19 +90,19 @@ function InsightCard({ item }) {
         {/* CONTENT AREA */}
         <div className="flex flex-col flex-grow">
           {/* Tag */}
-          <div className="mb-4 lg:mb-6">
-            <span className="bg-[#101426] text-[#002FFF] px-3 py-2 text-xs lg:text-sm font-normal font-author uppercase tracking-wider">
+          <div className="mb-6">
+            <span className="bg-[#101426] text-[#002FFF] px-3 py-2 text-sm font-normal font-author uppercase tracking-wider">
               {item.tag}
             </span>
           </div>
 
-          {/* Title - UPDATED: Responsive font size */}
-          <h3 className="text-2xl md:text-3xl lg:text-[2.45rem] leading-[1.1] lg:leading-[0.9] font-normal text-white font-author mb-4 lg:mb-6 line-clamp-3">
+          {/* Title */}
+          <h3 className="text-[2.45rem] leading-[0.9] font-normal text-white font-author mb-6 line-clamp-3">
             {item.title}
           </h3>
 
           <div className="mt-auto">
-            <span className="relative pb-0.5 inline-block font-author text-base lg:text-lg font-medium text-gray-400 cursor-pointer">
+            <span className="relative pb-0.5 inline-block font-author text-lg font-medium text-gray-400 cursor-pointer">
               Read more
               <span
                 className="
@@ -121,69 +124,119 @@ function InsightCard({ item }) {
 
 export default function SevenSection() {
   const controls = useAnimation();
-  const [index, setIndex] = useState(0);
+  // Start in the middle set
+  const [index, setIndex] = useState(insights.length);
   const isTransitioning = useRef(false);
-  
-  // State to track if we are on desktop
-  const [isDesktop, setIsDesktop] = useState(true);
+  const containerRef = useRef(null);
 
-  // Effect to handle responsive checks
-  useEffect(() => {
-    const checkIsDesktop = () => {
-      // 1024px is the standard 'lg' breakpoint in Tailwind
-      setIsDesktop(window.innerWidth >= 1024);
-    };
-    
-    // Check on mount
-    checkIsDesktop();
-    
-    // Check on resize
-    window.addEventListener('resize', checkIsDesktop);
-    return () => window.removeEventListener('resize', checkIsDesktop);
+  // Responsive State
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [cardWidth, setCardWidth] = useState(CARD_WIDTH);
+  const [gap, setGap] = useState(GAP);
+
+  // Dynamic Dimension Check
+  const updateDimensions = useCallback(() => {
+    const desktop = window.innerWidth >= 768;
+    setIsDesktop(desktop);
+
+    if (desktop) {
+      setCardWidth(CARD_WIDTH);
+      setGap(GAP);
+      // On desktop, container width is fixed
+    } else {
+       // On mobile, card takes full available width of the container
+       if (containerRef.current) {
+          // Mobile: 85% of container width to show a "peek" of the next card
+          setCardWidth(containerRef.current.offsetWidth * 0.85);
+       }
+       setGap(20); // Smaller gap on mobile
+    }
   }, []);
+
+  useEffect(() => {
+    updateDimensions();
+    window.addEventListener("resize", updateDimensions);
+    // Initial jump to middle set without animation to set position
+    controls.set({ x: -insights.length * (isDesktop ? CARD_WIDTH + GAP : 300) }); // Approximate/safe initial
+    return () => window.removeEventListener("resize", updateDimensions);
+  }, [updateDimensions, controls, isDesktop]);
+
+  // Re-sync position when dimensions stabilize
+  useEffect(() => {
+     const totalItemWidth = cardWidth + gap;
+     controls.set({ x: -index * totalItemWidth });
+  }, [cardWidth, gap, index, controls]);
+
 
   const slideTo = useCallback(
     async (newIndex) => {
       if (isTransitioning.current) return;
       isTransitioning.current = true;
 
+      const totalItemWidth = cardWidth + gap;
+
+      // Animate to the new index
       await controls.start({
-        x: -newIndex * TOTAL_WIDTH,
-        transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+        x: -newIndex * totalItemWidth,
+        transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
       });
 
+      // Handle Wrapping Logic
       let finalIndex = newIndex;
+      const len = insights.length;
 
-      if (newIndex >= insights.length) {
-        finalIndex = 0;
-        await controls.set({ x: 0 });
-      } else if (newIndex < 0) {
-        finalIndex = insights.length - 1;
-        await controls.set({ x: -finalIndex * TOTAL_WIDTH });
+      // If we are in the third set (Right Buffer), jump to Middle
+      if (newIndex >= len * 2) {
+        finalIndex = newIndex - len;
+        await controls.set({ x: -finalIndex * totalItemWidth });
+      } 
+      // If we are in the first set (Left Buffer), jump to Middle
+      else if (newIndex < len) {
+        finalIndex = newIndex + len;
+        await controls.set({ x: -finalIndex * totalItemWidth });
       }
 
       setIndex(finalIndex);
       isTransitioning.current = false;
     },
-    [controls]
+    [controls, cardWidth, gap]
   );
 
-  return (
-    <section className="relative w-full z-30 bg-[#080618] py-10 pb-20 text-white overflow-hidden">
+  const handleDragEnd = (event, info) => {
+    const threshold = 10; // Minimal threshold to detect intent
+    const velocityThreshold = 10;
     
-      {/* HEADER SECTION */}
+    // Determine direction based on offset or velocity
+    // If user swipes significantly or flicks
+    if (info.offset.x < -threshold || info.velocity.x < -velocityThreshold) {
+      // Swipe Left -> Next Slide
+      slideTo(index + 1);
+    } else if (info.offset.x > threshold || info.velocity.x > velocityThreshold) {
+      // Swipe Right -> Prev Slide
+      slideTo(index - 1);
+    } else {
+      // Snap back if movement was tiny
+      slideTo(index);
+    }
+  };
+
+  return (
+    <section className="relative w-full z-30 bg-[#080618] py-10 md:py-20 pb-20 md:pb-30 text-white">
+      {/* Bottom Gradient Blend */}
+      <div className="absolute bottom-0 z-30 left-0 w-full h-[200px] bg-linear-to-b from-[#080618] to-transparent translate-y-full pointer-events-none" />
+
       <div
-        // UPDATED: Only apply fixed max-width on Desktop
-        style={isDesktop ? { maxWidth: `${CARD_WIDTH * 3 + GAP * 2}px` } : {}}
-        className="mx-auto flex flex-col lg:flex-row lg:justify-between lg:items-end mb-8 lg:mb-16 px-4 w-full"
+        style={{
+          maxWidth: isDesktop ? `${CARD_WIDTH * 3 + GAP * 2}px` : "100%",
+        }}
+        className="mx-auto flex flex-col md:flex-row justify-between items-start md:items-end mb-8 md:mb-16 px-5 md:px-4"
       >
-        {/* UPDATED: Responsive font size */}
         <h2 className="text-start text-[2.5rem] md:text-5xl lg:text-[4.0rem] tracking-tight leading-[1.1] font-jakarta font-medium max-w-xl mb-6 lg:mb-0">
           Updates from the RM Club Ecosystem
         </h2>
 
-        {/* UPDATED: Arrows hidden on mobile (user swipes instead) */}
-        <div className="hidden lg:flex gap-2">
+        {/* Buttons Visible on All Devices now */}
+        <div className="flex gap-2 self-end md:self-auto">
           <button
             onClick={() => slideTo(index - 1)}
             className="group relative cursor-pointer overflow-hidden w-12 h-12 flex items-center justify-center border border-[#002FFF]/20 text-[#002FFF] rounded-sm z-50"
@@ -201,21 +254,34 @@ export default function SevenSection() {
         </div>
       </div>
 
-      {/* CAROUSEL SECTION */}
       <div
-        // UPDATED: Mobile gets 100% width + native scroll. Desktop gets fixed width + visible overflow.
-        className={`mx-auto ${isDesktop ? "overflow-visible" : "overflow-x-auto snap-x snap-mandatory px-4 scrollbar-hide"}`}
-        style={isDesktop ? { width: `${CARD_WIDTH * 3 + GAP * 2}px` } : { width: "100%" }}
+        ref={containerRef}
+        className="mx-auto overflow-hidden px-5 md:px-0"
+        style={{
+          width: isDesktop ? `${CARD_WIDTH * 3 + GAP * 2}px` : "100%",
+        }}
       >
         <motion.div
-          // UPDATED: Disable framer motion transform on mobile so native scroll works
-          animate={isDesktop ? controls : undefined}
-          initial={isDesktop ? { x: 0 } : undefined}
-          style={{ gap: `${GAP}px` }}
-          className="flex flex-nowrap items-stretch py-4"
+           animate={controls}
+           initial={{ x: 0 }}
+           style={{ gap: `${gap}px` }}
+           className="flex flex-row flex-nowrap items-stretch"
+           // Enable drag on mobile, disable on desktop (optional, or keep both)
+           drag={isDesktop ? false : "x"} 
+           // Remove constraints to allow free movement before snap
+           dragConstraints={{ left: -10000, right: 10000 }} 
+           // Drag elastic 1 means it tracks finger 1:1 perfectly
+           dragElastic={1}
+           // Momentum false ensuring no momentum scrolling after release
+           dragMomentum={false}
+           onDragEnd={handleDragEnd}
         >
           {loopedInsights.map((item, i) => (
-            <InsightCard key={`${item.id}-${i}`} item={item} />
+            <InsightCard 
+              key={`${item.id}-${i}`} 
+              item={item} 
+              width={isDesktop ? CARD_WIDTH : cardWidth}
+            />
           ))}
         </motion.div>
       </div>

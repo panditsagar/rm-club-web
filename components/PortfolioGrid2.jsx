@@ -60,7 +60,7 @@ const PortfolioGrid = () => {
             {/* Outer Lines (connecting corners) */}
             <svg
               className="absolute inset-0 w-full h-full pointer-events-none"
-              style={{ strokeWidth: 0.4, stroke: "#002FFF" }}
+              style={{ strokeWidth: 0.4, stroke: "#1105fc" }}
             >
               <line x1="0" y1="0" x2="33%" y2="33%" />
               <line x1="100%" y1="0" x2="67%" y2="33%" />
