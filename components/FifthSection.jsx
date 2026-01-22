@@ -126,7 +126,7 @@ function TestimonialCard({ data, isActive, isNeighbor, cardWidth }) {
 
         {/* RIGHT: CONTENT */}
         <div className="flex-1 flex flex-col justify-between h-full py-2 md:py-4 text-[#002FFF] w-full text-center md:text-left">
-          <div className="relative overflow-y-auto md:overflow-visible flex-grow md:flex-grow-0 max-h-[200px] md:max-h-none pr-2 md:pr-0">
+          <div className="relative overflow-visible flex-grow md:flex-grow-0 max-h-[200px] md:max-h-none pr-2 md:pr-0 pointer-events-none">
             <p className="text-lg md:text-2xl leading-[1.3] md:leading-[1.1] font-author font-normal">
               “{data.quote}”
             </p>
