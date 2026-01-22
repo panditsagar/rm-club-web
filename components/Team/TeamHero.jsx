@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function App() {
   const words = ["tomorrow", "creation", "growth", "clarity", "legacy"];
 
-  const wordColors = ["#E38E2B", "#2D68FF"];
+  const wordColors = [ "#2D68FF"];
 
   const [index, setIndex] = useState(0);
 
@@ -35,9 +35,9 @@ export default function App() {
         </div>
 
         {/* CONTENT */}
-        <div className="max-w-[1400px] mx-auto relative z-50 h-full flex flex-col justify-center mt-[-30px] px-6">
+        <div className="max-w-[1400px] mx-auto relative z-50 h-full flex flex-col justify-center mt-[-80px] sm:mt-0  px-5 md:px-0">
           <h1
-            className="font-jakarta text-5xl md:text-7xl lg:text-[5.2rem] font-bold max-w-7xl tracking-tight leading-none capitalize
+            className="font-jakarta text-[2.35rem] md:text-7xl lg:text-[5.2rem] font-bold max-w-7xl tracking-tight leading-[1.1] sm:leading-none capitalize
  text-[#ECF5FF]  "
           >
             Every Step Forward Begins With the Team That Builds the Future of{" "}
@@ -51,7 +51,7 @@ export default function App() {
                   exit={{ y: "-100%" }}
                   transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
                   className="block"
-                  style={{ color: wordColors[index % wordColors.length] }}
+                  style={{ color: wordColors }}
                 >
                   {words[index]}
                 </motion.span>
@@ -59,7 +59,7 @@ export default function App() {
             </div>
           </h1>
 
-          <p className="mt-14 text-lg md:text-[1.65rem] text-white  leading-[1.1] tracking-wide font-normal">
+          <p className="mt-14 text-2xl md:text-[1.65rem] text-white  leading-[1.1] tracking-wide font-normal">
             A collective of researchers, builders, and operators turning signals into scalable outcomes.
           </p>
         </div>

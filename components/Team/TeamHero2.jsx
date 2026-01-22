@@ -1,13 +1,11 @@
 "use client";
 
-import React, { useState, useEffect, useRef, useCallback } from "react";
-import { motion, useAnimation, AnimatePresence } from "framer-motion";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { RiInformationLine, RiTwitterXFill, RiCloseLine } from "react-icons/ri";
 import { FaLinkedinIn } from "react-icons/fa";
 
 // --- TEAM DATA ---
-// Added 'bio' field to the data
 const teamMembers = [
   {
     id: 1,
@@ -107,10 +105,7 @@ const teamMembers = [
   },
 ];
 
-const CARD_WIDTH = 450;
-const GAP = 38;
-
-// --- PIXEL TRANSITION WRAPPER (Unchanged) ---
+// --- PIXEL TRANSITION WRAPPER ---
 function PixelImage({ src, alt }) {
   const [isHovered, setIsHovered] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -134,6 +129,9 @@ function PixelImage({ src, alt }) {
   }, []);
 
   const handleHover = (active) => {
+    // Only animate hover on non-touch devices to avoid stuck states on mobile
+    if (window.matchMedia("(hover: none)").matches) return;
+
     if (isAnimating || active === isHovered) return;
     setIsAnimating(true);
 
@@ -176,16 +174,21 @@ function PixelImage({ src, alt }) {
 
 function TeamCard({ member, index }) {
   const [showInfo, setShowInfo] = useState(false);
+  // Determine if it's an offset card (every 2nd item)
   const isOffset = index % 2 !== 0;
 
   return (
     <div
+      className={`
+        flex flex-col cursor-pointer shrink-0 
+        w-full max-w-[450px]
+        /* Desktop: Apply the specific width and staggered margin */
+        lg:w-[450px] 
+        ${isOffset ? "lg:mt-[80px]" : "mt-0"}
+      `}
       style={{
-        width: `${CARD_WIDTH}px`,
-        marginTop: isOffset ? "80px" : "0px",
         transition: "margin-top 0.5s ease-in-out",
       }}
-      className="flex flex-col cursor-pointer shrink-0"
     >
       {/* Container with Blue Corner Markers */}
       <div className="relative aspect-square w-full border border-white/20 p-5 bg-[#080618]">
@@ -226,7 +229,8 @@ function TeamCard({ member, index }) {
         </svg>
 
         {/* MAIN CONTENT AREA (Image or Paragraph) */}
-        <div className="relative w-[320px] h-[320px] z-30 overflow-hidden border border-white/20 bg-[#080618]">
+        {/* Changed from fixed width to max-width for responsiveness */}
+        <div className="relative w-full max-w-[220px] sm:max-w-[320px] aspect-square z-30 overflow-hidden border border-white/20 bg-[#080618]">
           <AnimatePresence mode="wait">
             {!showInfo ? (
               <motion.div
@@ -256,8 +260,8 @@ function TeamCard({ member, index }) {
 
         {/* Text Details */}
         <div className="mt-4 px-1">
-          <h3 className="text-4xl font-switzer">{member.name}</h3>
-          <p className="text-white/80 text-xl font-normal font-author">
+          <h3 className="text-3xl md:text-4xl font-switzer">{member.name}</h3>
+          <p className="text-white/80 text-lg md:text-xl font-normal font-author">
             {member.role}
           </p>
         </div>
@@ -279,17 +283,18 @@ function TeamCard({ member, index }) {
 // --- TeamSection ---
 export default function TeamSection() {
   return (
-    <section className="relative w-full bg-[#080618] pt-20 pb-30 overflow-x-clip text-white z-20">
+    <section className="relative w-full bg-[#080618] py-20 pt-0 sm:pt-20 overflow-x-clip text-white z-20">
       <div className="absolute top-0 z-50 left-0 w-full h-[150px] -translate-y-full bg-gradient-to-t from-[#080618] to-transparent pointer-events-none" />
-    
+
       <div className="max-w-[1400px] mx-auto px-6 mb-16 flex justify-between items-end">
-        <h2 className="text-start lg:text-[4.5rem] tracking-tight leading-none font-jakarta font-medium max-w-xl">
+        <h2 className="text-start text-4xl md:text-6xl lg:text-[4.5rem] tracking-tight leading-none font-jakarta font-medium max-w-xl">
           Meet the Minds Behind Our Innovation
         </h2>
       </div>
 
       <div className="w-full max-w-[1600px] mx-auto px-6">
-        <div className="flex flex-wrap justify-center gap-[38px]">
+        {/* Adjusted Gap for Mobile vs Desktop */}
+        <div className="flex flex-wrap justify-center gap-6 lg:gap-[38px]">
           {teamMembers.map((member, i) => (
             <TeamCard key={member.id} member={member} index={i} />
           ))}
