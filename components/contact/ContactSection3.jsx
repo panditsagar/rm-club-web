@@ -66,7 +66,7 @@ export default function FourthSection() {
   const carouselItems = [...logos, ...logos];
 
   return (
-    <section className="relative w-full bg-[#080618]  py-20  ">
+    <section className="relative w-full bg-[#080618]  py-20 pb-0 sm:pb-20">
       <div className="absolute top-0 z-30 left-0 w-full h-[100px] -translate-y-full bg-gradient-to-t from-[#080618] to-transparent pointer-events-none" />
 
       <div className="w-full">
@@ -137,22 +137,7 @@ export default function FourthSection() {
         </div>
       </div>
 
-      <style jsx global>{`
-        @keyframes marquee {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-        .animate-marquee {
-          animation: marquee 30s linear infinite;
-        }
-        .animate-marquee:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
+     
     </section>
   );
 }

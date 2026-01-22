@@ -27,8 +27,8 @@ const ContactForm = () => {
 
   return (
     <div className="w-full max-w-2xl p-5 sm:p-8 bg-white/5   border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] backdrop-blur-xl hover:border-white/20 transition-all duration-300">
-      <form onSubmit={handleSubmit} className="space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-6">
+      <form onSubmit={handleSubmit} className=" ">
+        <div className="grid grid-cols-1 md:grid-cols-2  gap-4 mb-4">
           <div className="flex flex-col gap-1">
             <label
               htmlFor="firstName"
@@ -67,7 +67,7 @@ const ContactForm = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           <div className="flex flex-col gap-1">
             <label
               htmlFor="email"
@@ -139,6 +139,7 @@ const ContactForm = () => {
           overflow-hidden
           cursor-pointer
           group
+          mt-6
         "
         >
           <span className="relative z-10 text-center">Learn more</span>

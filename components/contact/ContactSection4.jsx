@@ -39,11 +39,11 @@ const ContactSection4 = () => {
   };
 
   return (
-    <section className="bg-[#080618]  pb-40 px-6 md:px-12 relative   z-20">
+    <section className="bg-[#080618]  pb-20 px-5 md:px-12 relative   z-20">
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         {/* Left Side */}
         <div className="flex flex-col items-start gap-8">
-          <h2 className="text-5xl md:text-[4.5rem] text-white font-medium tracking-tight leading-[1] font-jakarta ml-20">
+          <h2 className="text-4xl md:text-[4.5rem] text-white font-medium tracking-tight leading-[1] font-jakarta ml-0 sm:ml-20">
             Frequently <br /> asked <br /> questions
           </h2>
         </div>
@@ -53,7 +53,7 @@ const ContactSection4 = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className={`group relative border border-white/10  p-6   hover:border-[#002FFF]/50 transition-all duration-300 cursor-pointer    
+              className={`group relative border border-white/10 p-4  sm:p-6   hover:border-[#002FFF]/50 transition-all duration-300 cursor-pointer    
               }`}
               onClick={() => toggleAccordion(index)}
             >
