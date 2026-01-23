@@ -21,7 +21,7 @@ const fadeInUp = {
 
 export default function TeamSection({ company }) {
   return (
-    <section className="bg-[#080618] py-20 lg:py-10 min-h-screen flex items-center">
+    <section className="bg-[#080618]  lg:py-10 min-h-screen flex items-center">
       <div className="max-w-7xl mx-auto px-6 md:px-10 w-full">
         {/* --- CEO Feature Section --- */}
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-25 justify-between">

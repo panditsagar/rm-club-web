@@ -54,7 +54,7 @@ export default function GallerySection({ company }) {
   const surroundingImages = images.slice(1);
 
   return (
-    <section ref={container} className="relative h-[300vh] bg-[#080618] pb-40">
+    <section ref={container} className="relative h-[300vh] bg-[#080618] pb-20 sm:pb-40">
       <div className="sticky top-0 h-screen w-full   flex items-center justify-center">
         {/* --- SCATTERED IMAGES --- */}
         <motion.div className="absolute inset-0 w-full h-full">
@@ -68,7 +68,7 @@ export default function GallerySection({ company }) {
               y: "-58%",
               zIndex: 20,
             }}
-            className="absolute w-[280px] h-[300px] md:w-[280px] md:h-[300px] rounded-2xl overflow-hidden shadow-2xl"
+            className="absolute w-[120px] h-[120px] md:w-[280px] md:h-[300px] rounded-2xl overflow-hidden shadow-2xl"
           >
             <img
               src={centerImage.src}
@@ -109,7 +109,7 @@ export default function GallerySection({ company }) {
               <motion.div
                 key={i}
                 style={{ top, left, x, y, rotate, scale, zIndex: 10 }}
-                className="absolute w-[200px] h-[200px] md:w-[280px] md:h-[280px] rounded-2xl overflow-hidden shadow-lg bg-neutral-900 border border-white/10"
+                className="absolute w-[120px] h-[120px] md:w-[280px] md:h-[280px] rounded-2xl overflow-hidden shadow-lg bg-neutral-900 border border-white/10"
               >
                 <img
                   src={image.src}
@@ -122,7 +122,7 @@ export default function GallerySection({ company }) {
                   style={{
                     opacity: useTransform(smoothProgress, [0.3, 0.4], [0, 1]),
                   }}
-                  className={`absolute ${i % 2 === 0 ? "-top-10" : "-bottom-10"} left-1/2 -translate-x-1/2 px-4 py-2 bg-[#002FFF] text-white text-sm font-bold rounded-lg whitespace-nowrap z-30`}
+                  className={`absolute ${i % 2 === 0 ? "-top-10" : "-bottom-10"} left-1/2 -translate-x-1/2 px-3 py-1.5 md:px-4 md:py-2 bg-[#002FFF] text-white text-xs md:text-sm font-bold rounded-lg whitespace-nowrap z-30`}
                 >
                   {surroundingImages[i]?.tag}
                 </motion.div>
@@ -136,10 +136,10 @@ export default function GallerySection({ company }) {
           style={{ opacity: textOpacity, scale: textScale, zIndex: 50 }}
           className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none text-center px-4 mt-10"
         >
-          <h2 className="text-5xl lg:text-[3.2rem]  tracking-tight leading-none font-jakarta font-bold italic text-white mb-6   drop-shadow-2xl">
+          <h2 className="text-3xl md:text-5xl lg:text-[3.2rem] tracking-tight leading-none font-jakarta font-bold italic text-white mb-6 drop-shadow-2xl">
             From Idea To <br /> Impact
           </h2>
-          <p className="text-white/80 max-w-xl text-lg md:text-xl font-light mb-10 drop-shadow-lg font-author leading-[1]">
+          <p className="text-white/80 max-w-[200px] sm:max-w-xl text-base md:text-xl font-light mb-0 sm:mb-10 drop-shadow-lg font-author leading-[1.3] md:leading-[1]">
             Snapshots from our events, team energy, and the work we’re proud of
           </p>
         </motion.div>
