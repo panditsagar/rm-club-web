@@ -43,11 +43,11 @@ export default function App({ company }) {
         variants={containerVars}
         initial="hidden"
         animate="visible"
-        className="relative z-10 h-full flex flex-col mt-20  items-center px-6 text-center"
+        className="relative z-10 h-full flex flex-col mt-40 sm:mt-20  items-center px-6 text-center "
       >
         {/* Subtle Badge/Label */}
         <motion.div variants={itemVars} className="mb-6">
-          <span className="px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-[0.8rem] uppercase tracking-[0.3em] text-white/60">
+          <span className="px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-[0.7rem] sm:text-[0.8rem] uppercase tracking-[0.3em] text-white/60">
             {company.tagline}
           </span>
         </motion.div>
@@ -55,7 +55,7 @@ export default function App({ company }) {
         {/* HERO TITLE: Massive, Gradient, Bold */}
         <motion.h1
           variants={itemVars}
-          className="text-6xl md:text-8xl lg:text-[6rem]   font-bold   leading-[1] capitalize
+          className="text-[2.65rem] md:text-8xl lg:text-[6rem]   font-bold  leading-[1.1] sm:leading-[1] capitalize
             text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-white/40 max-w-6xl"
         >
           {company.name}
@@ -73,9 +73,9 @@ export default function App({ company }) {
         <motion.div variants={itemVars} className="mt-6">
           <button
              
-            className="group relative px-10 py-4 bg-white text-black font-bold rounded-full overflow-hidden transition-all duration-300  cursor-pointer"
+            className="group relative px-10 py-4  bg-white text-black font-bold rounded-full overflow-hidden transition-all duration-300  cursor-pointer"
           >
-            <span className="relative z-10 flex items-center gap-2 text-lg">
+            <span className="relative z-10 flex items-center gap-2 text-md sm:text-lg">
               {company.hero.cta}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -83,7 +83,7 @@ export default function App({ company }) {
                 viewBox="0 0 24 24"
                 strokeWidth={2.5}
                 stroke="currentColor"
-                className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform"
               >
                 <path
                   strokeLinecap="round"
