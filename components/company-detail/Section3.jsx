@@ -7,10 +7,10 @@ export default function ThirdSection({ company }) {
  const { ecosystemSection } = company;
 
   return (
-    <section className="relative z-30 w-full min-h-screen bg-[#080618] flex items-center justify-center py-20 pb-50 px-6 md:px-20">
+    <section className="relative z-30 w-full min-h-screen bg-[#080618] flex items-center justify-center py-20  sm:pb-50 px-6 md:px-20">
      
       <div className="max-w-[1400px] w-full flex flex-col">
-        <h1 className="max-w-lg mb-16 text-white text-start lg:text-[4.5rem] tracking-tight leading-none font-jakarta font-medium">
+        <h1 className="max-w-lg mb-16 text-white text-start text-[2.5rem] lg:text-[4.5rem] tracking-tight leading-[1.1] sm:leading-none font-jakarta font-medium">
           Discover our Venture Ecosystem
         </h1>
         <div className="    grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center">

@@ -21,10 +21,10 @@ const fadeInUp = {
 
 export default function TeamSection({ company }) {
   return (
-    <section className="bg-[#080618] py-10 h-screen">
-      <div className="max-w-7xl mx-auto px-6 md:px-10 ">
+    <section className="bg-[#080618] py-20 lg:py-10 min-h-screen flex items-center">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 w-full">
         {/* --- CEO Feature Section --- */}
-        <div className="flex  items-center gap-25 justify-between">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-25 justify-between">
           {/* Left Column: Quote */}
           <motion.div
             custom={0} // Stagger index
@@ -32,10 +32,10 @@ export default function TeamSection({ company }) {
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
             variants={fadeInUp}
-            className="lg:col-span-1 w-1/3 text-gray-300 flex flex-col items-start gap-4"
+            className="w-full lg:w-1/3 text-gray-300 flex flex-col items-center lg:items-start gap-4 text-center lg:text-left order-2 lg:order-none"
           >
-            <Image src="/comma.svg" alt="" width={0} height={0} sizes="100vw" className="h-14 w-auto" />
-            <p className="text-2xl text-white font-medium leading-[1] font-author">
+            <Image src="/comma.svg" alt="" width={0} height={0} sizes="100vw" className="h-10 w-auto lg:h-14 lg:w-auto" />
+            <p className="text-xl lg:text-2xl text-white font-medium leading-[1.2] lg:leading-[1] font-author">
               {company.founder.quote}
             </p>
           </motion.div>
@@ -47,14 +47,14 @@ export default function TeamSection({ company }) {
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
             variants={fadeInUp}
-            className="relative w-1/3 lg:col-span-1 order-first lg:order-none"
+            className="relative w-full max-w-[400px] lg:w-1/3 order-1 lg:order-none"
           >
             <Image
               src={company.founder.imageUrl}
               alt={company.founder.name}
               width={400}
               height={500}
-              className="mx-auto scale-120 [mask-image:linear-gradient(to_bottom,white_80%,transparent_100%)] [mask-repeat:no-repeat] [mask-size:100%_100%] bg-[#080618]"
+              className="mx-auto scale-100 lg:scale-120 [mask-image:linear-gradient(to_bottom,white_80%,transparent_100%)] [mask-repeat:no-repeat] [mask-size:100%_100%] bg-[#080618]"
             />
           </motion.div>
 
@@ -65,19 +65,16 @@ export default function TeamSection({ company }) {
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
             variants={fadeInUp}
-            className="lg:col-span-1 w-1/3 text-center lg:text-left"
+            className="w-full lg:w-1/3 text-center lg:text-left order-3 lg:order-none"
           >
-            <h2 className="text-4xl md:text-5xl font-extrabold text-white font-jakarta">
+            <h2 className="text-3xl lg:text-5xl font-extrabold text-white font-jakarta">
               {company.founder.name}
             </h2>
-            <p className="text-[#002FFF]  text-2xl font-[500] mt-4 font-author">
+            <p className="text-[#002FFF] text-xl lg:text-2xl font-[500] mt-2 lg:mt-4 font-author">
               {company.founder.title}
             </p>
           </motion.div>
         </div>
-
-         
-       
       </div>
     </section>
   );
