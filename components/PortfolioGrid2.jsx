@@ -54,7 +54,7 @@ const PortfolioGrid = () => {
   return (
     <section className="relative z-30 w-full bg-[#ECF5FF] font-switzer px-5  md:px-20 md:pb-20">
       <div className="grid grid-cols-1 md:grid-cols-2 border border-b-0 border-[#002FFF]/60">
-        <div className="relative w-full aspect-square overflow-hidden  cursor-pointer  md:border-t-0 border-b border-[#002FFF]/60">
+        <div className="relative w-full aspect-square overflow-hidden hidden sm:block  cursor-pointer  md:border-t-0 border-b border-[#002FFF]/60">
           {/* The Tunnel Effect */}
           <div className="absolute inset-0 flex items-center justify-center">
             {/* Outer Lines (connecting corners) */}
