@@ -281,7 +281,7 @@ export default function FifthSection() {
   return (
     <section className="relative w-full bg-[#ECF5FF] py-12 pt-20 md:py-20 overflow-hidden text-[#002FFF] select-none">
       {/* HEADER */}
-      <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-start md:items-end mb-4 md:mb-20 px-4 gap-6 md:gap-8">
+      <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-start md:items-end mb-0 md:mb-20 px-4 gap-6 md:gap-8">
         <h2 className="text-start text-4xl md:text-[4.5rem] tracking-tight leading-[1.1] md:leading-none font-jakarta font-medium max-w-2xl">
           Founders that <br /> believe in us
         </h2>
