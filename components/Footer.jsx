@@ -55,7 +55,7 @@ export default function Footer() {
 
             {/* Press */}
             <div className="flex flex-col gap-2">
-               <span className="bg-[#1A1A2A] text-white text-sm px-2 py-1 uppercase tracking-wider w-fit ">
+              <span className="bg-[#1A1A2A] text-white text-sm px-2 py-1 uppercase tracking-wider w-fit ">
                 Press
               </span>
               <a
@@ -68,7 +68,7 @@ export default function Footer() {
 
             {/* Our Investors */}
             <div className="flex flex-col gap-2">
-               <span className="bg-[#1A1A2A] text-white text-sm px-2 py-1 uppercase tracking-wider w-fit ">
+              <span className="bg-[#1A1A2A] text-white text-sm px-2 py-1 uppercase tracking-wider w-fit ">
                 Partnerships
               </span>
               <a
@@ -86,14 +86,23 @@ export default function Footer() {
           {/* Disclaimer Text */}
           <div className="max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8 text-md text-white/80 leading-[1.1]">
             <p>
-            RM Club is a multi-venture ecosystem bringing together independent businesses, community initiatives, and collaborative projects across media, hospitality, real estate, travel, education, and commerce.
-            We focus on building sustainable, real-world ventures guided by long-term thinking, shared values, and responsible growth. Each initiative operates independently while benefiting from collective experience and ecosystem support.
-
+              RM Club is a multi-venture ecosystem bringing together independent
+              businesses, community initiatives, and collaborative projects
+              across media, hospitality, real estate, travel, education, and
+              commerce. We focus on building sustainable, real-world ventures
+              guided by long-term thinking, shared values, and responsible
+              growth. Each initiative operates independently while benefiting
+              from collective experience and ecosystem support.
             </p>
             <p>
-             This website is intended for general informational purposes only. It does not constitute financial, legal, or investment advice, nor an offer or solicitation of any kind.
-
-References to ventures, initiatives, or activities are descriptive in nature and should not be interpreted as guarantees, recommendations, or invitations to participate in financial arrangements. Engagements, partnerships, or collaborations are subject to independent discussion and mutual agreement.
+              This website is intended for general informational purposes only.
+              It does not constitute financial, legal, or investment advice, nor
+              an offer or solicitation of any kind. References to ventures,
+              initiatives, or activities are descriptive in nature and should
+              not be interpreted as guarantees, recommendations, or invitations
+              to participate in financial arrangements. Engagements,
+              partnerships, or collaborations are subject to independent
+              discussion and mutual agreement.
             </p>
           </div>
 
@@ -121,20 +130,15 @@ References to ventures, initiatives, or activities are descriptive in nature and
         <div className="flex flex-col lg:flex-row justify-between items-center text-white/90 gap-8 text-sm md:text-md font-medium  ">
           {/* Links */}
           <div className="flex flex-wrap gap-8">
-            <FooterLink href="#">Offerings</FooterLink>
-            <FooterLink href="#">Portfolio</FooterLink>
+            <FooterLink href="#">Home</FooterLink>
             <FooterLink href="#">About</FooterLink>
-        
+            <FooterLink href="#">Team</FooterLink>
             <FooterLink href="#">Contact</FooterLink>
           </div>
 
           <div className="flex gap-8 ">
-            <FooterLink href="#"  >
-              Privacy Statement
-            </FooterLink>
-            <FooterLink href="#"  >
-              Terms of Use
-            </FooterLink>
+            <FooterLink href="#">Privacy Statement</FooterLink>
+            <FooterLink href="#">Terms of Use</FooterLink>
           </div>
 
           {/* Credits */}
@@ -165,10 +169,7 @@ function FooterLink({ children, href, className = "" }) {
       href={href}
       className={`hover:text-white transition-colors ${className}`}
     >
-      <span className="flex items-center gap-1">
-        {children}
-       
-      </span>
+      <span className="flex items-center gap-1">{children}</span>
     </Link>
   );
 }

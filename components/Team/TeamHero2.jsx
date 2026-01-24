@@ -9,98 +9,98 @@ import { FaLinkedinIn } from "react-icons/fa";
 const teamMembers = [
   {
     id: 1,
-    name: "Felix Hartmann",
-    role: "Managing Partner & CIO",
+    name: "Roshan Oraon",
+    role: "CEO & Founder",
     image:
-      "https://cdn.prod.website-files.com/66c71da082e3d64d93782c96/66e082d93f5863de9d14b563_11.avif",
+      "/team/ceo.webp",
     bio: "Felix founded Hartmann Capital in 2018 at the age of 23, launching one of the earliest crypto hedge funds directly from his bedroom. Starting with around $200k, he scaled Hartmann Capital into a ~$50 million frontier tech investment firm. Initially making his mark as a multi-strategy digital asset manager, Felix repeatedly achieved top-3 industry rankings between 2020 and 2023.",
   },
   {
     id: 2,
-    name: "Anand Dass",
-    role: "Advisor",
+    name: "Sarita Tigga",
+    role: "Member of Rm Club",
     image:
-      "https://cdn.prod.website-files.com/66c71da082e3d64d93782c96/66e0d2a334ed39eb3b3e3b72_1.avif",
+      "/team/sarita.webp",
     bio: "Anand brings years of strategic advisory experience in the emerging tech landscape...",
   },
   {
     id: 3,
-    name: "Roberto Nickson",
-    role: "Venture Partner",
+    name: "sanjay Kujur",
+    role: "Member of Rm Club",
     image:
-      "https://cdn.prod.website-files.com/66c71da082e3d64d93782c96/66e07e91ae942b542da7cecb_9.avif",
+      "/team/sanjay.webp",
     bio: "Roberto is a seasoned entrepreneur and creative director with a focus on web3 product design...",
   },
   {
     id: 4,
-    name: "David Linden",
-    role: "Head of Marketing",
+    name: "Prakash Kr. Nayak",
+    role: "Member of Rm Club",
     image:
-      "https://cdn.prod.website-files.com/66c71da082e3d64d93782c96/66e082eab6867c80ab096e17_13.avif",
+      "/team/prakash.webp",
     bio: "David leads growth and communication strategies, ensuring the firm's vision reaches the frontier...",
   },
   {
     id: 5,
-    name: "Felix Hartmann",
-    role: "Managing Partner & CIO",
+    name: "Vijayman Bhagat",
+    role: "Member of Rm Club",
     image:
-      "https://cdn.prod.website-files.com/66c71da082e3d64d93782c96/66e082d93f5863de9d14b563_11.avif",
+      "/team/vijayman.webp",
     bio: "Felix founded Hartmann Capital in 2018 at the age of 23, launching one of the earliest crypto hedge funds directly from his bedroom. Starting with around $200k, he scaled Hartmann Capital into a ~$50 million frontier tech investment firm. Initially making his mark as a multi-strategy digital asset manager, Felix repeatedly achieved top-3 industry rankings between 2020 and 2023.",
   },
   {
     id: 6,
-    name: "Anand Dass",
-    role: "Advisor",
+    name: "Sumitra Kr. Bhagat",
+    role: "Member of Rm Club",
     image:
-      "https://cdn.prod.website-files.com/66c71da082e3d64d93782c96/66e0d2a334ed39eb3b3e3b72_1.avif",
+      "/team/sumitra.webp",
     bio: "Anand brings years of strategic advisory experience in the emerging tech landscape...",
   },
   {
     id: 7,
-    name: "Roberto Nickson",
-    role: "Venture Partner",
+    name: "Sushma Lakra",
+    role: "Member of Rm Club",
     image:
-      "https://cdn.prod.website-files.com/66c71da082e3d64d93782c96/66e07e91ae942b542da7cecb_9.avif",
+      "/team/sushma.webp",
     bio: "Roberto is a seasoned entrepreneur and creative director with a focus on web3 product design...",
   },
   {
     id: 8,
-    name: "David Linden",
-    role: "Head of Marketing",
+    name: "Saromani Oraon",
+    role: "Member of Rm Club",
     image:
-      "https://cdn.prod.website-files.com/66c71da082e3d64d93782c96/66e082eab6867c80ab096e17_13.avif",
+      "/team/saromani.webp",
     bio: "David leads growth and communication strategies, ensuring the firm's vision reaches the frontier...",
   },
   {
     id: 9,
-    name: "Felix Hartmann",
-    role: "Managing Partner & CIO",
+    name: "jaimani Kr. Tirkey",
+    role: "Member of Rm Club",
     image:
-      "https://cdn.prod.website-files.com/66c71da082e3d64d93782c96/66e082d93f5863de9d14b563_11.avif",
+      "/team/jaimani.webp",
     bio: "Felix founded Hartmann Capital in 2018 at the age of 23, launching one of the earliest crypto hedge funds directly from his bedroom. Starting with around $200k, he scaled Hartmann Capital into a ~$50 million frontier tech investment firm. Initially making his mark as a multi-strategy digital asset manager, Felix repeatedly achieved top-3 industry rankings between 2020 and 2023.",
   },
   {
     id: 10,
-    name: "Anand Dass",
-    role: "Advisor",
+    name: "Hemant Minz",
+    role: "Member of Rm Club",
     image:
-      "https://cdn.prod.website-files.com/66c71da082e3d64d93782c96/66e0d2a334ed39eb3b3e3b72_1.avif",
+      "/team/hemant.webp",
     bio: "Anand brings years of strategic advisory experience in the emerging tech landscape...",
   },
   {
     id: 11,
-    name: "Roberto Nickson",
-    role: "Venture Partner",
+    name: "Bimla Oraon",
+    role: "Member of Rm Club",
     image:
-      "https://cdn.prod.website-files.com/66c71da082e3d64d93782c96/66e07e91ae942b542da7cecb_9.avif",
+      "/team/bimal.webp",
     bio: "Roberto is a seasoned entrepreneur and creative director with a focus on web3 product design...",
   },
   {
     id: 12,
-    name: "David Linden",
-    role: "Head of Marketing",
+    name: "Ganesh Gope",
+    role: "Member of Rm Club",
     image:
-      "https://cdn.prod.website-files.com/66c71da082e3d64d93782c96/66e082eab6867c80ab096e17_13.avif",
+      "/team/ganesh.webp",
     bio: "David leads growth and communication strategies, ensuring the firm's vision reaches the frontier...",
   },
 ];

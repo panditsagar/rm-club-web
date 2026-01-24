@@ -7,46 +7,46 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 const testimonials = [
   {
     id: 1,
-    name: "Daria Shapovalova",
-    title: "Founder, DRESSX",
-    companyLogo:
-      "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
+    name: "RM Club Member",
+    title: "Small Business Owner, Jharkhand",
+    companyLogo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
     quote:
-      "It has been a pleasure working with Hartmann Capital since day one when the fund first invested in DressX. We greatly appreciate being part of their portfolio, as it has allowed us to connect with other remarkable companies. The fund does an excellent job organizing valuable ideas and forge significant connections.",
+      "What stood out for me was the clarity. RM Club never pushed products or promises. They helped me understand where my money was going and how different businesses actually work on the ground.",
     image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1000&auto=format&fit=crop",
+      "/testimonial1.jpg",
   },
   {
     id: 2,
-    name: "Alex Rivera",
-    title: "CEO, NexaTech",
-    companyLogo: "",
+    name: "Community Partner",
+    title: "Hospitality Entrepreneur, Ranchi",
+    companyLogo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
     quote:
-      "Hartmann Capital’s strategic guidance was pivotal during our Series A. Their deep understanding of the Web3 landscape helped us navigate complex market cycles and position ourselves as leaders in the decentralized identity space.",
+      "RM Club feels less like an organization and more like a group of people who actually build things. From hospitality to local initiatives, the focus is always long-term and practical.",
     image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1000&auto=format&fit=crop",
+      "/testimonial2.jpg",
   },
   {
     id: 3,
-    name: "Sarah Chen",
-    title: "Co-Founder, Orbital",
-    companyLogo: "",
+    name: "RM Club Associate",
+    title: "Media & Local Initiatives",
+    companyLogo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
     quote:
-      "The team goes above and beyond just providing capital. They are effectively an extension of our core team, offering recruiting support, technical feedback, and introductions to key partners that expedited our roadmap by months.",
+      "Being associated with RM Club gave us access to shared experience and guidance. There was no rush, no pressure — just honest conversations and support.",
     image:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1000&auto=format&fit=crop",
+      "/testimonial3.jpg",
   },
   {
     id: 4,
-    name: "James Wilson",
-    title: "Director, BlockFlow",
-    companyLogo: "",
+    name: "RM Club Member",
+    title: "First-Generation Entrepreneur",
+    companyLogo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
     quote:
-      "We value investors who truly understand the tech. Hartmann Capital isn't just following trends; they are thesis-driven and have the conviction to back ambitious founders building the infrastructure of tomorrow.",
+      "For people like us who are building from scratch, RM Club brings structure and perspective. It’s not about hype — it’s about doing things the right way.",
     image:
-      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1000&auto=format&fit=crop",
+      "/testimonial4.jpg",
   },
 ];
+
 
 // Triple buffer for true infinite loop
 const loopedTestimonials = [...testimonials, ...testimonials, ...testimonials];
