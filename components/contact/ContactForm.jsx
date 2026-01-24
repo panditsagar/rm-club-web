@@ -19,10 +19,29 @@ const ContactForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Add logic to handle form submission here
+    try {
+      const res = await fetch("https://api.rmclub.co/api/website-queries", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+      if (!data.success) throw new Error(data.message);
+
+      // success UI
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
