@@ -344,7 +344,7 @@ export default function FifthSection() {
         </motion.div>
       </div>
 
-      <div className="flex justify-center items-center md:items-end py-10 px-4">
+      <div className="flex justify-center items-center md:items-end sm:py-10 px-4">
         <p className="text-sm md:text-[0.98rem] tracking-tight leading-normal md:leading-none font-author text-center max-w-xl text-[#002FFF]/80">
           These opinions represent the view of certain founders and may not be
           representative of the views of all founders or investors. No
