@@ -112,7 +112,7 @@ function TeamCard({ member, index }) {
         <div className="absolute top-4 right-4 z-50">
           <button
             onClick={() => setShowInfo(!showInfo)}
-            className="w-9 h-9 flex cursor-pointer items-center justify-center border border-gray-200 bg-white shadow-sm hover:bg-gray-50 text-alert transition-colors"
+            className="w-9 h-9 flex cursor-pointer items-center text-[#0054A6] justify-center border border-gray-200 bg-white   hover:bg-gray-50 text-alert transition-colors"
           >
             {showInfo ? (
               <RiCloseLine size={18} />
@@ -142,9 +142,9 @@ function TeamCard({ member, index }) {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 10 }}
-                className="w-full h-full p-4 flex flex-col justify-start overflow-y-auto scrollbar-hide bg-white"
+                className="w-full h-full p-4 flex flex-col justify-start overflow-y-auto scrollbar-hide bg-[#0054A6]/80"
               >
-                <p className="text-sm md:text-base leading-[1.4] text-gray-600 font-normal">
+                <p className="text-sm md:text-base leading-[1.4] text-white font-normal">
                   {member.bio}
                 </p>
               </motion.div>

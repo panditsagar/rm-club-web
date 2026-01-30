@@ -60,7 +60,9 @@ export default function SecondSection() {
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                   style={{ backgroundImage: `url(${item.image})` }}
               />
-              
+                 {/* Overlay - Gradient from bottom */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-90 transition-opacity duration-300"></div>
+
               {/* BLUE GRADIENT OVERLAY */}
               <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/40 to-transparent transition-opacity duration-300"></div>
               

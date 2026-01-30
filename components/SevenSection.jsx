@@ -53,7 +53,7 @@ const insights = [
 function InsightCard({ item }) {
   return (
     <div className="group flex flex-col cursor-pointer shrink-0 relative w-full">
-      {/* Main Container - News/Update Card Style */}
+      {/* Main Container */}
       <div className="relative w-full h-[460px] bg-gray-100 overflow-hidden shadow-md group-hover:shadow-2xl transition-all duration-300">
         
         {/* IMAGE BACKGROUND */}
@@ -62,31 +62,25 @@ function InsightCard({ item }) {
             style={{ backgroundImage: `url(${item.image})` }}
         />
         
-        {/* BLUE GRADIENT OVERLAY */}
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/40 to-transparent transition-opacity duration-300"></div>
+        {/* STATIC GRADIENT (Base visibility) */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-300 group-hover:opacity-0"></div>
+
+        {/* HOVER COLOR OVERLAY (Sliding Up) */}
+        <div className="absolute inset-0 bg-[#0054A6]/90 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-in-out z-10"></div>
         
         {/* CONTENT */}
-        <div className="absolute inset-0 p-6 flex flex-col justify-between">
+        <div className="absolute inset-0 p-8 pb-32 flex flex-col justify-end items-start text-start z-20 transition-all duration-500 translate-y-[28%] group-hover:translate-y-0">
           
-          {/* TOP BADGE */}
-          <span className="inline-block bg-[#0054A6] text-white text-xs font-bold px-3 py-1.5 w-fit uppercase tracking-wider backdrop-blur-sm shadow-sm">
+        
+           <span className="inline-block bg-white/20 text-white text-xs font-bold px-3 py-1.5 mb-4 w-fit uppercase tracking-wider backdrop-blur-sm shadow-sm opacity-100 group-hover:opacity-100 transition-opacity">
             {item.tag}
           </span>
 
-          {/* BOTTOM CONTENT */}
-          <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-             
-             <h3 className="text-white text-xl  font-bold leading-tight font-switzer mb-6 line-clamp-3">
-                {item.title}
-             </h3>
-             
-             <div className="flex items-center gap-6 border-t border-white/20 pt-4">
-                <Link href={item.link} className="flex items-center gap-2 text-white text-sm font-semibold hover:text-accent transition-colors">
-                    Read More <FaArrowRight size={12} />
-                </Link>
-             </div>
-          </div>
-
+           <h3 className="text-white text-2xl font-bold leading-tight font-switzer mb-8 line-clamp-3">
+              {item.title}
+           </h3>
+           
+           
         </div>
 
       </div>

@@ -1,148 +1,63 @@
 "use client";
 
-import React, { useRef } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa6";
 
-const tags = [
-  "AI Chat Assistant",
-  "Flower planting",
-  "Data Integration",
-  "Workflow Builder",
-  "Visual Media Creator",
-];
-
-const positions = [
-  { top: "17%", left: "15%", rotate: -5 }, // Top Left
-  { top: "50%", left: "10%", rotate: 5 }, // Mid Left
-  { top: "83%", left: "15%", rotate: -8 }, // Bot Left
-  { top: "51%", left: "88%", rotate: -7 }, // Mid Right (Moved down/right)
-  { top: "85%", left: "85%", rotate: 3 }, // Bot Right
-  { top: "15%", left: "50%", rotate: 6 }, // Top Center
-  { top: "90%", left: "50%", rotate: -6 }, // Bot Center
-];
-
 export default function GallerySection({ company }) {
-  const container = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start start", "end end"],
-  });
+  if (!company?.gallery?.images) return null;
 
-  // 0. SMOOTH SCROLL PROGRESS
-  // Using a spring makes the values "follow" the scroll with momentum, killing jitter
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
-
-  // 1. SCATTER ANIMATION
-  // Input: [0, 0.4] -> First 40% of scroll is for scattering
-  const scatterScale = useTransform(smoothProgress, [0, 0.3], [1, 0.6]);
-
-  // 2. TEXT REVEAL ANIMATION
-  // Input: [0.6, 0.9] -> Text fades in
-  const textOpacity = useTransform(smoothProgress, [0.6, 0.8], [0, 1]);
-  const textScale = useTransform(smoothProgress, [0.6, 0.8], [0.8, 1]);
-  // Removed galleryOpacity fade out, images stay visible
-
-  if (!company?.gallery) return null;
-
-  const images = company.gallery.images;
-  const centerImage = images[0];
-  const surroundingImages = images.slice(1);
+  
+  const galleryImages = company.gallery.images;
 
   return (
-    <section ref={container} className="relative h-[300vh] bg-white pb-20 sm:pb-40 border-t border-gray-100">
-      <div className="sticky top-0 h-screen w-full flex items-center justify-center">
-        {/* --- SCATTERED IMAGES --- */}
-        <motion.div className="absolute inset-0 w-full h-full">
-          {/* Center Image (The anchor) - Moves to top-right corner */}
-          <motion.div
-            style={{
-              scale: useTransform(smoothProgress, [0, 0.3], [1.5, 0.8]), // Scaled down to match others (400px * 0.6 ~= 240px)
-              top: useTransform(smoothProgress, [0, 0.3], ["50%", "20%"]),
-              left: useTransform(smoothProgress, [0, 0.3], ["50%", "85%"]),
-              x: "-50%",
-              y: "-58%",
-              zIndex: 20,
-            }}
-            className="absolute w-[120px] h-[120px] md:w-[280px] md:h-[300px] rounded-sm overflow-hidden shadow-2xl border-4 border-white"
-          >
-            <img
-              src={centerImage.src}
-              alt="Main"
-              className="w-full h-full object-cover"
-            />
-          </motion.div>
+    <section className="bg-white py-16  pb-30  ">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          
+          {/* --- ITEM 1: TEXT BLOCK --- */}
+          <div className="flex flex-col justify-center items-start   ">
+            <h2 className="text-3xl md:text-4xl lg:text-[2rem] font-medium text-slate-900 font-switzer leading-[1.1] uppercase mb-6  ">
+              FROM IDEA TO IMPACT 
+            </h2>
+            <p className="text-gray-700 text-xl leading-[1.4]  font-switzer">
+              We lead in every sphere we operate in. Serving customers globally across various industries. Serving customers globally across various industries. Explore our offerings by Industry or by Business.
+            </p>
+            
+          </div>
 
-          {/* Surrounding Images */}
-          {surroundingImages.map((image, i) => {
-            const pos = positions[i % positions.length];
+          {/* --- ITEMS 2-6: IMAGES --- */}
+          {galleryImages.map((img, index) => (
+            <div 
+              key={index} 
+              className="group relative h-[300px] md:h-[350px] lg:h-[330px] w-full overflow-hidden   cursor-pointer"
+            >
+              {/* Background Image */}
+              <Image
+                src={img.src}
+                alt={img.tag || `Gallery Image ${index}`}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 transition-opacity duration-300"></div>
 
-            // Calculate target positions based on scroll
-            // Start at center (50%, 50%), move to pos.top/left
-            const targetTop = pos.top;
-            const targetLeft = pos.left;
+              {/* Content Overlay */}
+              <div className="absolute inset-x-0 bottom-0 p-6 flex justify-between items-end">
+                {/* Title */}
+                <h3 className="text-white text-xl md:text-2xl font-normal font-switzer tracking-wide">
+                  {img.tag || "Gallery Item"}
+                </h3>
 
-            const top = useTransform(
-              smoothProgress,
-              [0, 0.4],
-              ["50%", targetTop],
-            );
-            const left = useTransform(
-              smoothProgress,
-              [0, 0.4],
-              ["50%", targetLeft],
-            );
-            const x = useTransform(smoothProgress, [0, 0.4], ["-50%", "-50%"]);
-            const y = useTransform(smoothProgress, [0, 0.4], ["-50%", "-50%"]);
-            const rotate = useTransform(
-              smoothProgress,
-              [0, 0.4],
-              [0, pos.rotate],
-            );
-            const scale = useTransform(smoothProgress, [0, 0.4], [0.5, 0.8]); // Start small behind
+                
+              </div>
+            </div>
+          ))}
 
-            return (
-              <motion.div
-                key={i}
-                style={{ top, left, x, y, rotate, scale, zIndex: 10 }}
-                className="absolute w-[120px] h-[120px] md:w-[280px] md:h-[280px] rounded-sm overflow-hidden shadow-lg bg-gray-50 border-4 border-white"
-              >
-                <img
-                  src={image.src}
-                  alt={image.tag || `Gallery ${i}`}
-                  className="w-full h-full object-cover"
-                />
-
-                {/* Tag/Tooltip - Only show near end of scatter */}
-                <motion.div
-                  style={{
-                    opacity: useTransform(smoothProgress, [0.3, 0.4], [0, 1]),
-                  }}
-                  className={`absolute ${i % 2 === 0 ? "-top-10" : "-bottom-10"} left-1/2 -translate-x-1/2 px-3 py-1.5 md:px-4 md:py-2 bg-primary text-white text-xs md:text-sm font-bold rounded-sm whitespace-nowrap z-30 shadow-md`}
-                >
-                  {surroundingImages[i]?.tag}
-                </motion.div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-
-        {/* --- FINAL TEXT OVERLAY --- */}
-        <motion.div
-          style={{ opacity: textOpacity, scale: textScale, zIndex: 50 }}
-          className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none text-center px-4 mt-10"
-        >
-          <h2 className="text-3xl md:text-5xl lg:text-[4rem] tracking-tight leading-[1] font-switzer font-bold text-primary-dark mb-6 drop-shadow-sm bg-white/50 backdrop-blur-sm p-4 rounded-xl">
-            From Idea To <br /> Impact
-          </h2>
-          <p className="text-gray-600 max-w-[200px] sm:max-w-xl text-base md:text-xl font-normal mb-0 sm:mb-10 drop-shadow-sm font-switzer leading-[1.4] bg-white/50 backdrop-blur-sm p-2 rounded-lg">
-            Snapshots from our events, team energy, and the work we’re proud of
-          </p>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

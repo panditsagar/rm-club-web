@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -17,64 +18,72 @@ const fadeInUp = {
 };
 
 export default function TeamSection({ company }) {
+  if (!company?.founder) return null;
+
   return (
-    <section className="bg-white lg:py-10 min-h-screen flex items-center">
-      <div className="max-w-7xl mx-auto px-6 md:px-10 w-full">
-        {/* --- CEO Feature Section --- */}
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-25 justify-between">
-          {/* Left Column: Quote */}
+    <section className="bg-white py-12 lg:py-16">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
+        
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
+          {/* --- Left Column: Image (5 cols) --- */}
           <motion.div
-            custom={0} // Stagger index
+            custom={0}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
+            viewport={{ once: true, amount: 0.3 }}
             variants={fadeInUp}
-            className="w-full lg:w-1/3 text-gray-600 flex flex-col items-center lg:items-start gap-4 text-center lg:text-left order-2 lg:order-none"
+            className="lg:col-span-4 w-full relative"
           >
-             {/* Simple Quote Icon styled in CSS or imported, here using simple text or placeholder if the SVG matches */}
-             <div className="mb-4">
-                <span className="text-6xl text-primary font-serif">“</span>
+             <div className="relative aspect-[4/8] w-full max-h-[450px] overflow-hidden shadow-lg bg-gray-100 mx-auto">
+                <Image
+                  src={company.founder.imageUrl}
+                  alt={company.founder.name}
+                  fill
+                  className="object-cover object-top"
+                />
              </div>
-             
-            <p className="text-xl lg:text-2xl text-primary-dark font-medium leading-[1.2] lg:leading-[1.4] font-switzer italic">
-              {company.founder.quote}
-            </p>
           </motion.div>
 
-          {/* Middle Column: CEO Image */}
+          {/* --- Right Column: Message (7 cols) --- */}
           <motion.div
             custom={1}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
+            viewport={{ once: true, amount: 0.3 }}
             variants={fadeInUp}
-            className="relative w-full max-w-[400px] lg:w-1/3 order-1 lg:order-none"
+            className="lg:col-span-8 flex flex-col justify-center  pt-2"
           >
-            <Image
-              src={company.founder.imageUrl}
-              alt={company.founder.name}
-              width={400}
-              height={500}
-              className="mx-auto scale-100 lg:scale-120 [mask-image:linear-gradient(to_bottom,white_80%,transparent_100%)] [mask-repeat:no-repeat] [mask-size:100%_100%] bg-white object-cover"
-            />
+          
+
+             {/* Opening Quote */}
+             <div className="mb-4">
+                <FaQuoteLeft className="text-primary text-4xl lg:text-5xl opacity-100" />
+             </div>
+
+             {/* Message Text */}
+             <p className="text-lg lg:text-xl text-gray-700 leading-relaxed font-normal font-switzer mb-6 lg:mb-8">
+               {company.founder.quote}
+             </p>
+
+             {/* Bottom Row: Name + Closing Quote */}
+             <div className="flex justify-between mt-auto">
+                <div>
+                   <h3 className="text-xl lg:text-2xl font-bold text-primary-dark font-switzer mb-2">
+                     {company.founder.name}
+                   </h3>
+                   <p className="text-gray-700 text-base lg:text-lg  font-normal font-switzer">
+                     {company.founder.title}
+                   </p>
+                </div>
+
+                <div className="hidden md:block">
+                   <FaQuoteRight className="text-primary text-4xl lg:text-5xl opacity-100" />
+                </div>
+             </div>
+
           </motion.div>
 
-          {/* Right Column: CEO Name & Title */}
-          <motion.div
-            custom={2}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
-            variants={fadeInUp}
-            className="w-full lg:w-1/3 text-center lg:text-left order-3 lg:order-none"
-          >
-            <h2 className="text-3xl lg:text-5xl font-extrabold text-primary-dark font-switzer">
-              {company.founder.name}
-            </h2>
-            <p className="text-primary text-xl lg:text-2xl font-[500] mt-2 lg:mt-4 font-switzer">
-              {company.founder.title}
-            </p>
-          </motion.div>
         </div>
       </div>
     </section>
