@@ -1,224 +1,80 @@
 "use client";
 
-import Image from "next/image";
-import { FaArrowRight } from "react-icons/fa6";
+import React from "react";
+import { BsArrow90DegDown } from "react-icons/bs";
+ 
 
-export default function ThirdSection({ company }) {
- const { ecosystemSection } = company;
+const solutions = [
+  {
+    id: 1,
+    title: "Financial Report",
+    description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem",
+    link: "#",
+  },
+  {
+    id: 2,
+    title: "Oak Tree Solutions",
+    description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem",
+    link: "#",
+  },
+  {
+    id: 3,
+    title: "Business Solutions",
+    description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem",
+    link: "#",
+  },
+];
 
+export default function SolutionsSection() {
   return (
-    <section className="relative z-30 w-full min-h-screen bg-white flex items-center justify-center py-20 pb-40 sm:pb-50 px-6 md:px-20 border-t border-gray-100">
-     
-      <div className="max-w-[1400px] w-full flex flex-col">
-        <h1 className="max-w-xl mb-16 text-primary-dark text-start text-[2.5rem] lg:text-[4.5rem] tracking-tight leading-[1.1] sm:leading-none font-switzer font-bold">
-          Discover our Venture Ecosystem
-        </h1>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center">
-          {/* LEFT COLUMN - TECH CARD */}
-          <div className="relative aspect-square w-full max-w-[600px] mx-auto">
-            {/* Main Border Container */}
-            <div className="absolute inset-0">
-              {/* Corner Accents */}
-              <div className="absolute -top-1 -left-1 w-2 h-2 bg-primary" />
-              <div className="absolute -top-1 -right-1 w-2 h-2 bg-primary" />
-              <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-primary" />
-              <div className="absolute -bottom-1 -right-1 w-2 h-2 bg-primary" />
+    <section className="pb-10 bg-white">
+      {/* Section Heading */}
+       
 
-              {/* Content Container */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center">
-                {/* "V" Visualization */}
+      {/* Image & Content Box */}
+      <div className="relative h-[600px] mx-4 lg:mx-16  overflow-hidden bg-slate-900">
+        {/* Background Image Placeholder */}
+        {/* Replace the style below with your actual image: backgroundImage: 'url(/path/to/image.jpg)' */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-60"
+          style={{ 
+            backgroundImage: 'url(https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2664&auto=format&fit=crop)', // Placeholder image
+            backgroundPosition: 'center 30%'
+          }}
+        ></div>
+        
+        {/* Overlay for better text contrast if needed */}
+        <div className="absolute inset-0 bg-black/20"></div>
 
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="100%"
-                  viewBox="0 0 760 760"
-                  fill="none"
-                  className="offerings__visual-svg group"
+        {/* Content Container */}
+        <div className="absolute bottom-0 left-0 w-full z-10">
+          <div className="  mx-auto px-6 lg:p-6  ">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {solutions.map((item) => (
+                <div 
+                  key={item.id} 
+                  className="group relative overflow-hidden   bg-white/10 backdrop-blur-md border border-white/10 p-8 transition-all duration-300 hover:bg-white/20 hover:-translate-y-1"
                 >
-                  <path
-                    d="M264.773 760L272.3 751.361H478.556L488.593 760H759.999V495.225L751.361 487.698V281.443L759.999 271.407V9.2481e-06L495.226 0L487.698 8.6392L281.443 8.63921L271.406 9.2481e-06L0 2.16588e-05V264.775L8.63823 272.301L8.63821 478.557L0 488.593V760L264.773 760Z"
-                    fill="#F3F4F6"
-                  ></path>
-                  <path
-                    d="M272.3 750.861H272.073L271.923 751.032L264.545 759.5L0.5 759.5V488.778L9.01716 478.883L9.13821 478.743V478.557L9.13823 272.301V272.074L8.96669 271.924L0.5 264.547V0.500022L271.22 0.500009L281.116 9.01816L281.257 9.13921H281.443L487.698 9.1392H487.926L488.075 8.96767L495.454 0.5L759.499 0.500009V271.221L750.982 281.116L750.861 281.257V281.443V487.698V487.926L751.032 488.075L759.499 495.453V759.5H488.779L478.882 750.982L478.742 750.861H478.556H272.3Z"
-                    stroke="#1E293B"
-                    strokeOpacity="0.1"
-                  ></path>
-                  <rect
-                    x="160.531"
-                    y="160.531"
-                    width="438.937"
-                    height="438.937"
-                    stroke="#1E293B"
-                    strokeOpacity="0.1"
-                    strokeWidth="1.06265"
-                  ></rect>
-                  <path
-                    d="M1 1L161 161"
-                    stroke="#1E293B"
-                    strokeOpacity="0.1"
-                  ></path>
-                  <path
-                    d="M1 759L161 599"
-                    stroke="#1E293B"
-                    strokeOpacity="0.1"
-                  ></path>
-                  <path
-                    d="M599 161L759 1"
-                    stroke="#1E293B"
-                    strokeOpacity="0.1"
-                  ></path>
-                  <path
-                    d="M599 599L759 759"
-                    stroke="#1E293B"
-                    strokeOpacity="0.1"
-                  ></path>
-                  <path
-                    d="M281 10H488"
-                    stroke="url(#paint0_linear_2997_10989)"
-                  ></path>
-                  <path
-                    d="M10 479L10 272"
-                    stroke="url(#paint1_linear_2997_10989)"
-                  ></path>
-                  <path
-                    d="M478.999 750H271.999"
-                    stroke="url(#paint2_linear_2997_10989)"
-                  ></path>
-                  <path
-                    d="M750 281V488"
-                    stroke="url(#paint3_linear_2997_10989)"
-                  ></path>
-                  <g className="logo-zoom">
-                    <image
-                      className="logo-img"
-                      href={ecosystemSection.logo}
-                      x="280"
-                      y="280"
-                      width="202"
-                      height="202"
-                      preserveAspectRatio="xMidYMid meet"
-                    />
-                  </g>
+                  <div className="relative z-10">
+                    <h3 className="text-3xl font-bold text-white mb-6 font-serif">{item.title}</h3>
+                    <p className="text-gray-100 text-md leading-relaxed mb-4 opacity-90">
+                      {item.description}
+                    </p>
+                    
+                    <a 
+                      href={item.link} 
+                      className="inline-flex items-center gap-2 text-white font-medium text-md hover:text-[#b08d55] transition-colors group/link"
+                    >
+                      Lets Talk
+                      <BsArrow90DegDown size={16} className="transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                    </a>
+                  </div>
 
-                  <defs>
-                    <linearGradient
-                      id="paint0_linear_2997_10989"
-                      x1="281"
-                      y1="10"
-                      x2="488"
-                      y2="10"
-                      gradientUnits="userSpaceOnUse"
-                    >
-                      <stop stopColor="#0054A6" stopOpacity="0"></stop>
-                      <stop offset="0.5" stopColor="#0054A6"></stop>
-                      <stop
-                        offset="1"
-                        stopColor="#0054A6"
-                        stopOpacity="0"
-                      ></stop>
-                    </linearGradient>
-                    <linearGradient
-                      id="paint1_linear_2997_10989"
-                      x1="10"
-                      y1="479"
-                      x2="10"
-                      y2="272"
-                      gradientUnits="userSpaceOnUse"
-                    >
-                      <stop stopColor="#0054A6" stopOpacity="0"></stop>
-                      <stop offset="0.5" stopColor="#0054A6"></stop>
-                      <stop
-                        offset="1"
-                        stopColor="#0054A6"
-                        stopOpacity="0"
-                      ></stop>
-                    </linearGradient>
-                    <linearGradient
-                      id="paint2_linear_2997_10989"
-                      x1="478.999"
-                      y1="750"
-                      x2="271.999"
-                      y2="750"
-                      gradientUnits="userSpaceOnUse"
-                    >
-                      <stop stopColor="#0054A6" stopOpacity="0"></stop>
-                      <stop offset="0.5" stopColor="#0054A6"></stop>
-                      <stop
-                        offset="1"
-                        stopColor="#0054A6"
-                        stopOpacity="0"
-                      ></stop>
-                    </linearGradient>
-                    <linearGradient
-                      id="paint3_linear_2997_10989"
-                      x1="750"
-                      y1="281"
-                      x2="750"
-                      y2="488"
-                      gradientUnits="userSpaceOnUse"
-                    >
-                      <stop stopColor="#0054A6" stopOpacity="0"></stop>
-                      <stop offset="0.5" stopColor="#0054A6"></stop>
-                      <stop
-                        offset="1"
-                        stopColor="#0054A6"
-                        stopOpacity="0"
-                      ></stop>
-                    </linearGradient>
-                    <linearGradient
-                      id="paint4_linear_2997_10989"
-                      x1="380"
-                      y1="256"
-                      x2="380"
-                      y2="504"
-                      gradientUnits="userSpaceOnUse"
-                    >
-                      <stop stopColor="#1FA5FD"></stop>
-                      <stop offset="1" stopColor="#3C0ED5"></stop>
-                    </linearGradient>
-                  </defs>
-                </svg>
-              </div>
-
-              {/* Bottom Blue Glow Bar */}
+                  {/* Hover Gradient Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+              ))}
             </div>
-          </div>
-
-          {/* RIGHT COLUMN - TEXT CONTENT */}
-          <div className="flex flex-col justify-center text-left">
-            <h2 className="text-primary-dark lg:text-[4.5rem] tracking-tight leading-none font-switzer font-bold mb-8 max-w-md">
-             {ecosystemSection.title}
-            </h2>
-
-            <p className="text-lg md:text-[1.35rem] text-gray-600 max-w-xl leading-relaxed tracking-wide font-normal mb-10">
-              {ecosystemSection.description}
-             </p>
-
-            <button
-              className="
-            relative
-            inline-flex items-center gap-2
-            w-fit
-            px-5 py-3
-             bg-primary
-             text-white
-             font-bold
-             rounded-sm
-             text-[1.1rem]
-             overflow-hidden
-             cursor-pointer
-             group
-             hover:bg-primary-dark
-             transition-colors
-             "
-            >
-              <span className="relative z-10">{ecosystemSection.buttonText}</span>
-
-              <span className=" ">
-                <FaArrowRight size={14} className="relative z-10  " />
-              </span>
-            </button>
           </div>
         </div>
       </div>

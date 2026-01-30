@@ -75,7 +75,7 @@ export default function Section2({ company }) {
   return (
     <div
       ref={container}
-      className="relative mt-[10vh] mb-[4vh] sm:mb-[20vh] px-5 bg-white"
+      className="relative mt-[10vh]  pb-30 px-5 bg-white"
     >
       {/* Top Gradient Blend Removed */}
       <h2 className="text-end text-[2.5rem] lg:text-[4.5rem] tracking-tight leading-none font-switzer font-bold sm:mr-20 max-w-lg m-auto text-primary-dark mb-20">

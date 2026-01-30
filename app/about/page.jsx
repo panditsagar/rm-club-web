@@ -4,6 +4,7 @@ import AboutSection2 from "@/components/about/AboutSection2";
 import AboutSection3 from "@/components/about/AboutSection3";
 import CTASection from "@/components/CTASection";
 import FourthSection from "@/components/FourthSection";
+import Section4 from "@/components/about/Section4";
 const page = () => {
   return (
     <div>
@@ -11,6 +12,7 @@ const page = () => {
       {/* ================= CONTENT ================= */}
       <section className="content">
         <AboutSection3 />
+        <Section4/>
         <FourthSection />
         <AboutSection2 />
         <CTASection />
