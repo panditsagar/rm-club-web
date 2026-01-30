@@ -1,74 +1,68 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import Spline from "@splinetool/react-spline";
+import React from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function App() {
-  const words = [
-    "industries",
-    "the future",
-    "humanity",
-    "commerce",
-    "possibility",
-  ];
-  const wordColors = ["#2D68FF"];
-
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % words.length);
-    }, 3000); // Changes word every 3 seconds
-    return () => clearInterval(timer);
-  }, []);
-
+export default function AboutSection1() {
   return (
-    <>
-      <section className="relative h-screen w-full overflow-hidden bg-[#080618]">
-        {/* MOBILE IMAGE */}
-        <div className="fixed inset-0 z-0 md:hidden">
-          <img
-            src="/bg.png"
-            alt="Background"
-            className="w-full h-full object-cover"
+    <section className="relative h-[100vh] w-full overflow-hidden px-10 bg-black">
+      
+      {/* --- BACKGROUND LAYER --- */}
+      <AnimatePresence>
+        <motion.div
+           initial={{ opacity: 0, scale: 1.2 }}
+           animate={{ opacity: 1, scale: 1 }}
+           transition={{ 
+               opacity: { duration: 2.0, ease: "easeInOut" },
+               scale: { 
+                 duration: 20.0, // Slow, continuous zoom
+                 ease: "linear",
+                 repeat: Infinity,
+                 repeatType: "mirror" // Zoom Out (1.2 -> 1), then In (1 -> 1.2)
+               }
+           }}
+           className="absolute inset-0 z-0"
+        >
+          <Image
+            src="/hero/hero1.jpg" // Using the same hero image for consistency or a related one
+            alt="About Our Vision"
+            fill
+            className="object-cover"
+            priority
           />
-        </div>
-        {/* SPLINE BACKGROUND */}
-        <div className="fixed inset-0 pointer-events-none transition-opacity duration-150 ease-linear z-0 hidden md:block">
-          <Spline scene="https://prod.spline.design/DBCGWGemx6OSZ2Xf/scene.splinecode" />
-        </div>
+          {/* Cinema Grade Gradient Overlay (Same as Home) */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/30"></div>
+        </motion.div>
+      </AnimatePresence>
 
-        {/* CONTENT */}
-        <div className="max-w-[1400px] mx-auto relative z-50 h-full flex flex-col justify-center mt-[-70px] sm:mt-[-30px] px-5 md:px-0">
-          <h1
-            className="font-jakarta  text-[2.1rem] md:text-7xl lg:text-[5.4rem] font-bold tracking-tight  leading-[1.1] sm:leading-none capitalize
- text-[#ECF5FF] max-w-5xl"
+      {/* --- CONTENT LAYER --- */}
+      <div className="relative z-10 size-full max-w-[1600px] mx-auto px-6 lg:px-12 flex flex-col justify-center h-full pb-16 md:pb-0 mt-10">
+        
+        {/* LEFT: Text Content */}
+        <div className="w-full md:w-3/4 lg:w-2/3 pl-0 md:pl-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
           >
-            Every decade, new technologies emerge that redefine{" "}
-            <div className="inline-block relative h-[1.1em] align-bottom overflow-hidden">
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={words[index]}
-                  initial={{ y: "100%" }}
-                  animate={{ y: "0%" }}
-                  exit={{ y: "-100%" }}
-                  transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
-                  className="block"
-                  style={{ color: wordColors }}
-                >
-                  {words[index]}
-                </motion.span>
-              </AnimatePresence>
-            </div>
-          </h1>
+            {/* Kicker removed as per user request */}
+        
+            <h1 className="text-white text-5xl md:text-6xl lg:text-[4rem] font-medium font-serif leading-[1] mb-10 tracking-tight drop-shadow-lg">
+                Redefining the Future of Innovation.
+            </h1>
 
-          <p className="mt-14 text-2xl md:text-[1.65rem] text-white max-w-sm leading-[1.1] tracking-wide font-normal">
-            It is our mission to identify these innovations as they prepare to
-            cross the chasm.
-          </p>
+            <p className="text-white text-lg md:text-3xl leading-[1.4] max-w-3xl mb-10 opacity-90 font-normal drop-shadow-md">
+               New technologies emerge that reshape humanity. It is our mission to identify these innovations as they prepare to cross the chasm and turn ambition into action.
+            </p>
+
+           
+             
+          </motion.div>
         </div>
-      </section>
-    </>
+ 
+      </div>
+    </section>
   );
 }

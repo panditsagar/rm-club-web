@@ -123,6 +123,8 @@ function PixelImage({ src, alt }) {
     for (let i = 0; i < gridSize * gridSize; i++) {
       const pixel = document.createElement("div");
       pixel.classList.add("pixel-unit");
+      // Use clean gray for pixel animation instead of transparent/dark
+      pixel.style.backgroundColor = "#f3f4f6"; 
       pixel.style.animationDuration = `${duration * 2}s`;
       grid.appendChild(pixel);
     }
@@ -151,7 +153,7 @@ function PixelImage({ src, alt }) {
 
   return (
     <div
-      className="pixel-transition-container w-full h-full"
+      className="pixel-transition-container w-full h-full bg-gray-100"
       onMouseEnter={() => handleHover(true)}
       onMouseLeave={() => handleHover(false)}
     >
@@ -159,14 +161,14 @@ function PixelImage({ src, alt }) {
       <img
         src={src}
         alt={alt}
-        className="w-full h-full object-cover transition-opacity duration-0"
+        className="w-full h-full object-cover transition-opacity duration-0  "
         style={{ opacity: isHovered ? 0 : 1 }}
       />
       <div
         className="absolute inset-0 flex items-center justify-center transition-opacity duration-0"
         style={{ opacity: isHovered ? 1 : 0 }}
       >
-        <img src={src} alt={alt} className="w-full h-full object-cover" />
+        <img src={src} alt={alt} className="w-full h-full object-cover  " />
       </div>
     </div>
   );
@@ -191,17 +193,14 @@ function TeamCard({ member, index }) {
       }}
     >
       {/* Container with Blue Corner Markers */}
-      <div className="relative aspect-square w-full border border-white/20 p-5 bg-[#080618]">
-        <div className="absolute -top-1 -left-1 w-2 h-2 bg-[#002FFF] z-50" />
-        <div className="absolute -top-1 -right-1 w-2 h-2 bg-[#002FFF] z-50" />
-        <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-[#002FFF] z-50" />
-        <div className="absolute -bottom-1 -right-1 w-2 h-2 bg-[#002FFF] z-50" />
-
+      <div className="relative aspect-square w-full border border-gray-200 p-5 bg-white shadow-sm hover:shadow-xl transition-shadow duration-300">
+        
+     
         {/* Info Toggle Button */}
         <div className="absolute top-4 right-4 z-50">
           <button
             onClick={() => setShowInfo(!showInfo)}
-            className="w-9 h-9 flex cursor-pointer items-center justify-center border border-white/20 bg-[#080618]/50 backdrop-blur-sm hover:bg-white/10 transition-colors"
+            className="w-9 h-9 flex cursor-pointer items-center justify-center border border-gray-200 bg-white shadow-sm hover:bg-gray-50 text-alert transition-colors"
           >
             {showInfo ? (
               <RiCloseLine size={18} />
@@ -211,26 +210,9 @@ function TeamCard({ member, index }) {
           </button>
         </div>
 
-        {/* Diagonal Line Background (stays behind content) */}
-        <svg
-          className="absolute inset-0 w-full h-full pointer-events-none z-10"
-          viewBox="0 0 100 100"
-          preserveAspectRatio="none"
-        >
-          <line
-            x1="0"
-            y1="0"
-            x2="100"
-            y2="100"
-            stroke="white"
-            strokeOpacity="0.15"
-            strokeWidth="0.2"
-          />
-        </svg>
-
         {/* MAIN CONTENT AREA (Image or Paragraph) */}
         {/* Changed from fixed width to max-width for responsiveness */}
-        <div className="relative w-full max-w-[220px] sm:max-w-[320px] aspect-square z-30 overflow-hidden border border-white/20 bg-[#080618]">
+        <div className="relative w-full max-w-[220px] sm:max-w-[320px] aspect-square z-30 overflow-hidden border border-gray-200 bg-gray-50">
           <AnimatePresence mode="wait">
             {!showInfo ? (
               <motion.div
@@ -248,9 +230,9 @@ function TeamCard({ member, index }) {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 10 }}
-                className="w-full h-full p-4 flex flex-col justify-start overflow-y-auto scrollbar-hide"
+                className="w-full h-full p-4 flex flex-col justify-start overflow-y-auto scrollbar-hide bg-white"
               >
-                <p className="text-sm md:text-base leading-[1.1] text-white/90 font-light">
+                <p className="text-sm md:text-base leading-[1.4] text-gray-600 font-normal">
                   {member.bio}
                 </p>
               </motion.div>
@@ -260,18 +242,18 @@ function TeamCard({ member, index }) {
 
         {/* Text Details */}
         <div className="mt-4 px-1">
-          <h3 className="text-3xl md:text-4xl font-switzer">{member.name}</h3>
-          <p className="text-white/80 text-lg md:text-xl font-normal font-author">
+          <h3 className="text-3xl md:text-4xl font-switzer font-bold text-primary-dark">{member.name}</h3>
+          <p className="text-primary text-lg md:text-xl font-normal font-switzer">
             {member.role}
           </p>
         </div>
 
         {/* Social Icons */}
-        <div className="absolute bottom-4 right-4 flex gap-2 z-40 bg-[#080618]">
-          <div className="w-9 h-9 flex items-center justify-center border border-white/20 hover:bg-white/5 transition-colors">
+        <div className="absolute bottom-4 right-4 flex gap-2 z-40 bg-white pl-2 pt-2">
+          <div className="w-9 h-9 flex items-center justify-center border border-gray-200 text-gray-400 hover:text-primary hover:border-primary transition-colors">
             <RiTwitterXFill size={14} />
           </div>
-          <div className="w-9 h-9 flex items-center justify-center border border-white/20 hover:bg-white/5 transition-colors">
+          <div className="w-9 h-9 flex items-center justify-center border border-gray-200 text-gray-400 hover:text-primary hover:border-primary transition-colors">
             <FaLinkedinIn size={14} />
           </div>
         </div>
@@ -283,12 +265,11 @@ function TeamCard({ member, index }) {
 // --- TeamSection ---
 export default function TeamSection() {
   return (
-    <section className="relative w-full bg-[#080618] py-20 pt-0 sm:pt-20 overflow-x-clip text-white z-20">
-      <div className="absolute top-0 z-50 left-0 w-full h-[150px] -translate-y-full bg-gradient-to-t from-[#080618] to-transparent pointer-events-none" />
-
+    <section className="relative w-full bg-white py-20 pt-0 sm:pt-20 overflow-x-clip text-primary-dark z-20 border-t border-gray-200">
+      
       <div className="max-w-[1400px] mx-auto px-6 mb-16 flex justify-between items-end">
-        <h2 className="text-start text-4xl md:text-6xl lg:text-[4.5rem] tracking-tight leading-none font-jakarta font-medium max-w-xl">
-          Meet the Minds Behind Our Innovation
+        <h2 className="text-start text-4xl md:text-6xl lg:text-[4.5rem] tracking-tight leading-none font-switzer font-bold max-w-xl text-primary-dark">
+          Meet the Minds Behind <br/> Our Innovation
         </h2>
       </div>
 

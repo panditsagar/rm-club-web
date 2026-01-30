@@ -7,7 +7,15 @@ export default {
     
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: "#0054A6",
+        "primary-dark": "#003366",
+        accent: "#FFD200",
+        "gray-bg": "#F5F7FA",
+        "text-main": "#333333",
+      },
+    },
   },
   plugins: [],
 };

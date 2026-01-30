@@ -1,14 +1,15 @@
+ 
 "use client";
 
 import { motion } from "framer-motion";
-import { FiArrowUpRight } from "react-icons/fi"; // Matching the Source icon style
+import { FiArrowUpRight } from "react-icons/fi"; 
 
 export default function FourthSection() {
   const logos = [
     {
       id: "coindesk",
       content: (
-        <span className="text-white font-bold text-xl sm:text-4xl opacity-60">
+        <span className="text-primary font-bold text-xl sm:text-2xl opacity-80">
           News and media
         </span>
       ),
@@ -19,7 +20,7 @@ export default function FourthSection() {
     {
       id: "barrons",
       content: (
-        <span className="text-white font-bold text-xl sm:text-4xl opacity-60">
+        <span className="text-primary font-bold text-xl sm:text-2xl opacity-80">
           Hospitality
         </span>
       ),
@@ -30,7 +31,7 @@ export default function FourthSection() {
     {
       id: "cryptoslate",
       content: (
-        <span className="text-white font-bold text-xl sm:text-4xl opacity-60">
+        <span className="text-primary font-bold text-xl sm:text-2xl opacity-80">
           Travel
         </span>
       ),
@@ -41,7 +42,7 @@ export default function FourthSection() {
     {
       id: "blockworks",
       content: (
-        <span className="text-white font-bold text-xl sm:text-4xl opacity-60">
+        <span className="text-primary font-bold text-xl sm:text-2xl opacity-80">
           Music
         </span>
       ),
@@ -52,7 +53,7 @@ export default function FourthSection() {
     {
       id: "carta",
       content: (
-        <span className="text-white font-bold text-xl sm:text-4xl opacity-60">
+        <span className="text-primary font-bold text-xl sm:text-2xl opacity-80">
           Education
         </span>
       ),
@@ -66,74 +67,55 @@ export default function FourthSection() {
   const carouselItems = [...logos, ...logos];
 
   return (
-    <section className="relative w-full bg-[#080618]  py-20  overflow-hidden  sm:pb-50">
+    <section className="relative w-full bg-white py-20 pb-0   ">
+
       <div className="w-full">
-        <h2 className="text-white pl-5 lg:pl-20 text-start text-4xl lg:text-[4.5rem] tracking-tight leading-none font-jakarta font-medium mb-10 lg:mb-20">
-          Engaging across
+        <h2 className="text-primary-dark pl-5 lg:pl-25 text-start text-4xl lg:text-[2.5rem] tracking-tight leading-none font-switzer font-normal mb-10 lg:mb-20">
+            Sectors We Engage In
         </h2>
 
-        {/* CAROUSEL TRACK */}
-        <div className="w-full border-t border-b border-white/20 relative">
-          <div className="flex animate-marquee">
-            {carouselItems.map((item, index) => (
-              <div
-                key={`${item.id}-${index}`}
-                className="group relative flex items-center cursor-pointer justify-center w-[150px] h-[140px] sm:w-[300px] sm:h-[290px] shrink-0 border-r border-white/20 transition-all duration-300"
-              >
-                {/* LOGO CONTENT */}
-                <div className="group-hover:opacity-100 transition-opacity duration-300 grayscale group-hover:grayscale-0">
-                  {item.content}
-                </div>
+        {/* CAROUSEL TRACK WRAPPER */}
+        <div className="w-full overflow-hidden pb-32">
+          <div className="w-full border-t border-b border-gray-200 relative bg-gray-50">
+            <div className="flex animate-marquee">
+              {carouselItems.map((item, index) => (
+                <div
+                  key={`${item.id}-${index}`}
+                  className="group relative flex items-center cursor-pointer justify-center w-[150px] h-[140px] sm:w-[260px] sm:h-[250px] shrink-0 border-r border-gray-200 transition-all duration-300 hover:bg-white"
+                >
+                  {/* LOGO CONTENT */}
+                  <div className="group-hover:translate-y-[-5px] transition-transform duration-300">
+                    {item.content}
+                  </div>
 
-                {/* --- HOVER UI ELEMENTS --- */}
+                  
+                  {/* TOOLTIP CONTAINER */}
+                  <div className="absolute top-[65%] left-1/2 w-[400px] pointer-events-none z-50 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out translate-y-2 group-hover:translate-y-0">
+                    
+                    {/* THE TOOLTIP BOX */}
+                    <div className="absolute top-[20px] left-[20px] w-[320px] pointer-events-auto shadow-2xl">
+                      <div className="relative bg-white border border-gray-200 p-6 text-left shadow-lg">
+                        <div className="absolute -top-2 left-4 w-4 h-4 bg-white border-t border-l border-gray-200 transform rotate-45"></div>
+                        <p className="text-gray-600 text-[15px] leading-relaxed font-normal mb-4">
+                          {item.quote}
+                        </p>
 
-                {/* Corner Squares (Matches Image) */}
-                <BlueSquare className="-top-1 -left-1" />
-                <BlueSquare className="-top-1 -right-1" />
-                <BlueSquare className="-bottom-1 -left-1" />
-
-                {/* DIAGONAL LINE AND TOOLTIP CONTAINER */}
-                <div className="absolute top-[65%] left-1/2 w-[400px] pointer-events-none z-50 opacity-0 group-hover:opacity-100 transition-all duration-700 ease-out translate-y-2 group-hover:translate-y-0">
-                  {/* The SVG Line */}
-                  <svg
-                    className="absolute top-0 left-0 w-full h-[100px] overflow-visible"
-                    style={{
-                      filter: "drop-shadow(0 0 2px rgba(31, 165, 253, 0.5))",
-                    }}
-                  >
-                    <rect x="0" y="0" width="8" height="8" fill="#1FA5FD" />
-                    <path
-                      d="M 0 0 L 50 60" // Starts from parent's left 50% (0 in this local div), goes down and right
-                      stroke="#1FA5FD"
-                      strokeWidth="1.5"
-                      fill="none"
-                    />
-                  </svg>
-
-                  {/* THE TOOLTIP BOX */}
-                  <div className="absolute top-[60px] left-[50px] w-[320px] pointer-events-auto">
-                    <div className="relative bg-[#050412]/95 backdrop-blur-md border border-[#1FA5FD] p-6 text-left  ">
-                      <p className="text-[#1FA5FD] text-[15px] leading-relaxed font-medium mb-4">
-                        {item.quote}
-                      </p>
-
-                      <a
-                        href="#"
-                        className="inline-flex items-center gap-1 text-[#1FA5FD] text-sm font-semibold border-b border-[#1FA5FD] pb-0.5 hover:opacity-80 transition-opacity"
-                      >
-                        {item.source}
-                        <FiArrowUpRight className="text-lg" />
-                      </a>
+                        <a
+                          href="#"
+                          className="inline-flex items-center gap-1 text-primary text-sm font-bold border-b-2 border-primary/20 hover:border-primary pb-0.5 transition-colors"
+                        >
+                          {item.source}
+                          <FiArrowUpRight className="text-lg" />
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>
-
-       
     </section>
   );
 }
@@ -142,7 +124,7 @@ export default function FourthSection() {
 function BlueSquare({ className = "" }) {
   return (
     <div
-      className={`absolute w-2 h-2 bg-[#1FA5FD] z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-700 ${className}`}
+      className={`absolute w-1.5 h-1.5 bg-primary z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${className}`}
     />
   );
 }

@@ -45,13 +45,13 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="w-full max-w-2xl p-5 sm:p-8 bg-white/5   border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] backdrop-blur-xl hover:border-white/20 transition-all duration-300">
+    <div className="w-full max-w-2xl p-5 sm:p-8 bg-white border border-gray-200 shadow-xl">
       <form onSubmit={handleSubmit} className=" ">
-        <div className="grid grid-cols-1 md:grid-cols-2  gap-4 mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-2  gap-5 mb-5">
           <div className="flex flex-col gap-1">
             <label
               htmlFor="firstName"
-              className="text-gray-300 text-md font-medium ml-1"
+              className="text-primary-dark text-sm font-bold ml-1 font-switzer"
             >
               First Name
             </label>
@@ -62,14 +62,14 @@ const ContactForm = () => {
               placeholder="Ex. John"
               value={formData.firstName}
               onChange={handleChange}
-              className="w-full bg-white/5 border border-white/10  px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-[#2D68FF] focus:bg-white/10 transition-all duration-300"
+              className="w-full bg-gray-50 border border-gray-200 px-4 py-3 text-primary-dark placeholder-gray-400 focus:outline-none focus:border-primary focus:bg-white transition-all duration-300 rounded-sm"
               required
             />
           </div>
           <div className="flex flex-col gap-1">
             <label
               htmlFor="lastName"
-              className="text-gray-300 text-md font-medium ml-1"
+              className="text-primary-dark text-sm font-bold ml-1 font-switzer"
             >
               Last Name
             </label>
@@ -80,17 +80,17 @@ const ContactForm = () => {
               placeholder="Ex. Doe"
               value={formData.lastName}
               onChange={handleChange}
-              className="w-full bg-white/5 border border-white/10   px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-[#2D68FF] focus:bg-white/10 transition-all duration-300"
+              className="w-full bg-gray-50 border border-gray-200 px-4 py-3 text-primary-dark placeholder-gray-400 focus:outline-none focus:border-primary focus:bg-white transition-all duration-300 rounded-sm"
               required
             />
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
           <div className="flex flex-col gap-1">
             <label
               htmlFor="email"
-              className="text-gray-300 text-md font-medium ml-1"
+              className="text-primary-dark text-sm font-bold ml-1 font-switzer"
             >
               Email
             </label>
@@ -101,14 +101,14 @@ const ContactForm = () => {
               placeholder="john@example.com"
               value={formData.email}
               onChange={handleChange}
-              className="w-full bg-white/5 border border-white/10  px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-[#2D68FF] focus:bg-white/10 transition-all duration-300"
+              className="w-full bg-gray-50 border border-gray-200 px-4 py-3 text-primary-dark placeholder-gray-400 focus:outline-none focus:border-primary focus:bg-white transition-all duration-300 rounded-sm"
               required
             />
           </div>
           <div className="flex flex-col gap-1">
             <label
               htmlFor="phone"
-              className="text-gray-300 text-md font-medium ml-1"
+              className="text-primary-dark text-sm font-bold ml-1 font-switzer"
             >
               Phone Number
             </label>
@@ -119,7 +119,7 @@ const ContactForm = () => {
               placeholder="+1 (555) 000-0000"
               value={formData.phone}
               onChange={handleChange}
-              className="w-full bg-white/5 border border-white/10   px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-[#2D68FF] focus:bg-white/10 transition-all duration-300"
+              className="w-full bg-gray-50 border border-gray-200 px-4 py-3 text-primary-dark placeholder-gray-400 focus:outline-none focus:border-primary focus:bg-white transition-all duration-300 rounded-sm"
             />
           </div>
         </div>
@@ -127,7 +127,7 @@ const ContactForm = () => {
         <div className="flex flex-col gap-1">
           <label
             htmlFor="message"
-            className="text-gray-300 text-md font-medium ml-1"
+            className="text-primary-dark text-sm font-bold ml-1 font-switzer"
           >
             Message
           </label>
@@ -138,7 +138,7 @@ const ContactForm = () => {
             value={formData.message}
             onChange={handleChange}
             rows="4"
-            className="w-full bg-white/5 border border-white/10   px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-[#2D68FF] focus:bg-white/10 transition-all duration-300 resize-none"
+            className="w-full bg-gray-50 border border-gray-200 px-4 py-3 text-primary-dark placeholder-gray-400 focus:outline-none focus:border-primary focus:bg-white transition-all duration-300 resize-none rounded-sm"
             required
           ></textarea>
         </div>
@@ -148,42 +148,28 @@ const ContactForm = () => {
           relative
           inline-flex items-center gap-2
           w-full
-          px-3 py-2.5
-          bg-[#0A2549]
-          text-[#1EA1F7]
-         
-          text-[1.4rem]
+          px-6 py-4
+          bg-primary
+          text-white
+          font-bold
+          text-lg
           text-center
             justify-center
           overflow-hidden
           cursor-pointer
           group
-          mt-6
+          mt-8
+          rounded-sm
+          hover:bg-primary-dark
+          transition-colors
         "
         >
-          <span className="relative z-10 text-center">Learn more</span>
-
-          {/* SHIMMER OVERLAY */}
-          <span
-            className="
-            absolute inset-0
-            bg-gradient-to-r
-            from-transparent
-            via-white/15
-          
-            to-transparent
-            -translate-x-full
-            group-hover:translate-x-full
-            transition-transform
-            duration-700
-            ease-in-out
-          "
-          />
+          <span className="relative z-10 text-center uppercase tracking-wider">Send Message</span>
         </button>
 
-        <p className="text-center text-sm text-gray-500 mt-4">
+        <p className="text-center text-sm text-gray-500 mt-6 font-switzer">
           By submitting this form you agree to our{" "}
-          <span className="text-[#2D68FF] hover:text-[#144EE3] underline cursor-pointer transition-colors">
+          <span className="text-primary hover:text-primary-dark underline cursor-pointer transition-colors font-bold">
             Privacy Policy
           </span>
         </p>

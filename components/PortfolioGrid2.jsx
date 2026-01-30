@@ -52,15 +52,15 @@ const PortfolioGrid = () => {
   };
 
   return (
-    <section className="relative z-30 w-full bg-[#ECF5FF] font-switzer px-5  md:px-20 md:pb-20">
-      <div className="grid grid-cols-1 md:grid-cols-2 border border-b-0 border-[#002FFF]/60">
-        <div className="relative w-full aspect-square overflow-hidden hidden sm:block  cursor-pointer  md:border-t-0 border-b border-[#002FFF]/60">
+    <section className="relative z-30 w-full bg-[#F5F7FA] font-switzer px-5  md:px-20 md:py-20">
+      <div className="grid grid-cols-1 md:grid-cols-2 border border-b-0 border-gray-200">
+        <div className="relative w-full aspect-square overflow-hidden hidden sm:block  cursor-pointer  md:border-t-0 border-b border-gray-200">
           {/* The Tunnel Effect */}
           <div className="absolute inset-0 flex items-center justify-center">
             {/* Outer Lines (connecting corners) */}
             <svg
               className="absolute inset-0 w-full h-full pointer-events-none"
-              style={{ strokeWidth: 0.4, stroke: "#1105fc" }}
+              style={{ strokeWidth: 0.8, stroke: "#E5E7EB" }}
             >
               <line x1="0" y1="0" x2="33%" y2="33%" />
               <line x1="100%" y1="0" x2="67%" y2="33%" />
@@ -69,29 +69,25 @@ const PortfolioGrid = () => {
             </svg>
 
             {/* Inner Box */}
-            <div className="relative w-1/2 h-1/2 group bg-[#ECF5FF] border border-[#002FFF]/60 flex flex-col justify-between p-6 hover:bg-[#E3EDFF] transition-colors duration-500">
-              <div className="flex justify-between items-start text-[#002FFF]">
+            <div className="relative w-1/2 h-1/2 group bg-[#F5F7FA] border border-gray-200 flex flex-col justify-between p-6   transition-colors duration-500">
+              <div className="flex justify-between items-start text-primary">
                 <span className="text-xl opacity-60">(28)</span>
                 <BsArrowUpRight className="text-4xl transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
               </div>
 
-              <div className="text-[#002FFF]">
+              <div className="text-primary">
                 <h3 className="text-xl md:text-5xl font-jakarta font-medium leading-[0.9] tracking-tight">
                   View our
                   <br />
                   portfolio
                 </h3>
               </div>
-              <div className="absolute -top-1 -left-1 w-2 h-2 bg-[#002FFF] z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute -top-1 -right-1 w-2 h-2 bg-[#002FFF] z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-[#002FFF] z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute -bottom-1 -right-1 w-2 h-2 bg-[#002FFF] z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
           </div>
         </div>
         {/* Left Side - Interactive Logo Grid */}
         <div
-          className="grid grid-cols-2 h-auto md:h-auto transition-all duration-500 ease-out  border-l-0 md:border-l border-b border-[#002FFF]/60"
+          className="grid grid-cols-2 h-auto md:h-auto transition-all duration-500 ease-out  border-l-0 md:border-l border-b border-gray-200"
           style={{
             ...getGridStyles(),
           }}
@@ -120,7 +116,7 @@ const PortfolioGrid = () => {
             icon={<FaShapes className="text-2xl mb-2" />}
             name="Jawa Poonp"
             badge="Fund II" // Example badge
-            href="/company/jawa-poonp" 
+            href="/company/jawa-poonp"
           />
 
           <LogoItem
@@ -128,7 +124,8 @@ const PortfolioGrid = () => {
             hoveredIndex={hoveredIndex}
             setHoveredIndex={setHoveredIndex}
             icon={<FaSquare className="text-2xl mb-2" />}
-            name="RM Shop"
+            name="Reparkle"
+            href="/company/reparkle"
           />
         </div>
 
@@ -154,8 +151,8 @@ const LogoItem = ({
   // 2: border-r
   // 3: none
   const borderClasses = `
-        ${index === 0 || index === 2 ? "border-r border-[#002FFF]/60" : ""}
-        ${index === 0 || index === 1 ? "border-b border-[#002FFF]/60" : ""}
+        ${index === 0 || index === 2 ? "border-r border-gray-200" : ""}
+        ${index === 0 || index === 1 ? "border-b border-gray-200" : ""}
     `;
 
   return (
@@ -165,14 +162,14 @@ const LogoItem = ({
     >
       {/* Background Hover Highlight */}
       <div
-        className={`absolute inset-0 bg-[#E3EDFF] transition-opacity duration-500 ease-out ${
-          isHovered ? "opacity-100" : "opacity-0"
+        className={`absolute inset-0   transition-opacity duration-500 ease-out 
+        
         }`}
       />
 
       {/* Content */}
       <div
-        className={`relative z-10 flex flex-col items-center justify-center gap-3 text-[#002FFF] transition-transform duration-500 ${
+        className={`relative z-10 flex flex-col items-center justify-center gap-3 text-primary transition-transform duration-500 ${
           isHovered ? "md:scale-110" : "scale-100"
         }`}
       >
@@ -184,7 +181,7 @@ const LogoItem = ({
 
       {/* Top Right Arrow (Visible on Hover) */}
       <div
-        className={`absolute top-4 right-4 text-[#002FFF] transition-all duration-300 ${
+        className={`absolute top-4 right-4 text-primary transition-all duration-300 ${
           isHovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
         }`}
       >
@@ -192,43 +189,6 @@ const LogoItem = ({
           <BsArrowUpRight className="text-4xl" />
         </Link>
       </div>
-      <div className="absolute -top-1 -left-1 w-2 h-2 bg-[#002FFF] z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-      <div className="absolute -top-1 -right-1 w-2 h-2 bg-[#002FFF] z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-      <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-[#002FFF] z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-      <div className="absolute -bottom-1 -right-1 w-2 h-2 bg-[#002FFF] z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-      {/* Bottom Left Badge 'Fund II' (Visible on Hover if badge prop exists or just generic logic) */}
-      {badge && (
-        <div
-          className={`absolute bottom-4 left-4 transition-all duration-300 ${
-            isHovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
-          }`}
-        >
-          <span className="text-xs font-medium text-[#002FFF] bg-[#002FFF]/10 px-2 py-1.5 ">
-            {badge}
-          </span>
-        </div>
-      )}
-
-      {/* If no badge prop, we can show a placeholder or nothing. The image showed 'Fund II', adding it for all for demo or specific ones is fine. 
-                Applying 'Fund II' to the one with the badge prop passed above (nunu.ai). 
-                If user wants it on all, we can untoggle this logic.
-            */}
-      <div
-        className={`absolute bottom-4 left-4 transition-all duration-300 ${
-          isHovered && !badge
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-2"
-        }`}
-      >
-        {/* Optional: Generic badge for others if needed, using badge prop for explicit ones */}
-        {!badge && (
-          <span className="text-xs font-medium text-[#002FFF] bg-[#002FFF]/10 px-2 py-1.5  ">
-            Fund I
-          </span>
-        )}
-      </div>
-
-      {/* Blue corner accents on active ?? (from previous image) - Keeping clean for now as per latest image */}
     </div>
   );
 };

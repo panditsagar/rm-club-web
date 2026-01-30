@@ -39,11 +39,11 @@ const ContactSection4 = () => {
   };
 
   return (
-    <section className="bg-[#080618]  pb-20 px-5 md:px-12 relative   z-20">
+    <section className="bg-white pb-20 px-5 md:px-12 relative z-20 border-t border-gray-100 pt-20">
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         {/* Left Side */}
         <div className="flex flex-col items-start gap-8">
-          <h2 className="text-4xl md:text-[4.5rem] text-white font-medium tracking-tight leading-[1] font-jakarta ml-0 sm:ml-20">
+          <h2 className="text-4xl md:text-[4.5rem] text-primary-dark font-bold tracking-tight leading-[1] font-switzer ml-0 sm:ml-20">
             Frequently <br /> asked <br /> questions
           </h2>
         </div>
@@ -53,21 +53,18 @@ const ContactSection4 = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className={`group relative border border-white/10 p-4  sm:p-6   hover:border-[#002FFF]/50 transition-all duration-300 cursor-pointer    
+              className={`group relative border border-gray-200 p-4 sm:p-6 hover:border-primary/30 transition-all duration-300 cursor-pointer bg-white shadow-sm hover:shadow-md
               }`}
               onClick={() => toggleAccordion(index)}
             >
-              {/* Blue Corner Accents */}
-              <div className="absolute -top-1 -left-1 w-2 h-2 bg-[#002FFF] z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="absolute -top-1 -right-1 w-2 h-2 bg-[#002FFF] z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-[#002FFF] z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="absolute -bottom-1 -right-1 w-2 h-2 bg-[#002FFF] z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+               {/* Accent Bar */}
+               <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
               <div className="flex justify-between items-center bg-transparent relative z-10">
-                <h3 className="text-lg md:text-xl text-white font-normal pr-8 font-switzer">
+                <h3 className="text-lg md:text-xl text-primary-dark font-bold pr-8 font-switzer group-hover:text-primary transition-colors">
                   {faq.question}
                 </h3>
-                <span className="text-[#002FFF] text-3xl font-medium">
+                <span className="text-primary text-3xl font-medium">
                   {activeIndex === index ? "−" : "+"}
                 </span>
               </div>
@@ -80,7 +77,7 @@ const ContactSection4 = () => {
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                     className="overflow-hidden relative z-10"
                   >
-                    <p className="text-gray-400 leading-[1.1] font-author font-normal text-lg">
+                    <p className="text-gray-600 leading-relaxed font-normal text-lg">
                       {faq.answer}
                     </p>
                   </motion.div>

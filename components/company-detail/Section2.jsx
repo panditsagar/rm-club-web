@@ -20,32 +20,26 @@ const Card = ({ i, title, description, src, progress, range, targetScale }) => {
       <motion.div
         style={{
           scale,
-          backgroundColor: "#080618", // Fallback
+          backgroundColor: "#fff", 
           top: `calc(5vh + ${i * 25}px)`,
         }}
-        className="flex flex-col relative -top-[15%] h-[500px] w-full max-w-5xl p-5   sm:p-10 origin-top border border-white/20    "
+        className="flex flex-col relative -top-[15%] h-[500px] w-full max-w-5xl p-5 sm:p-14 origin-top border border-gray-200 shadow-2xl rounded-sm"
       >
-        <div className="absolute -top-1 -left-1 w-2 h-2 bg-[#002FFF] z-50" />
-        <div className="absolute -top-1 -right-1 w-2 h-2 bg-[#002FFF] z-50" />
-        <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-[#002FFF] z-50" />
-        <div className="absolute -bottom-1 -right-1 w-2 h-2 bg-[#002FFF] z-50" />
-
         <div className="flex flex-col md:flex-row h-full gap-10 relative z-10">
           {/* Text Content */}
           <div className="w-full md:w-[40%] flex flex-col justify-center gap-6">
             <h2
-              className="text-2xl sm:text-4xl font-bold font-jakarta text-white leading-tight"
-              style={{ textShadow: "0 0 20px rgba(255,255,255,0.1)" }}
+              className="text-2xl sm:text-4xl font-bold font-switzer text-primary-dark leading-tight"
             >
               {title}
             </h2>
-            <p className="  text-lg text-white/70 font-light leading-[1.3] sm:leading-relaxed">
+            <p className="text-lg text-gray-600 font-normal leading-relaxed">
               {description}
             </p>
           </div>
 
           {/* Image Content */}
-          <div className="w-full md:w-[60%] relative h-full rounded-xl overflow-hidden bg-black/50">
+          <div className="w-full md:w-[60%] relative h-full rounded-sm overflow-hidden bg-gray-100">
             <motion.div
               className="w-full h-full relative"
               style={{ scale: imageScale }}
@@ -54,10 +48,10 @@ const Card = ({ i, title, description, src, progress, range, targetScale }) => {
                 <img
                   src={src}
                   alt="image"
-                  className="object-cover w-full h-full"
+                  className="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-500"
                 />
               ) : (
-                <div className="w-full h-full bg-neutral-800 flex items-center justify-center text-white/20">
+                <div className="w-full h-full bg-gray-200 flex items-center justify-center text-gray-400">
                   No Image Available
                 </div>
               )}
@@ -81,10 +75,10 @@ export default function Section2({ company }) {
   return (
     <div
       ref={container}
-      className="relative  mt-[20vh] mb-[4vh] sm:mb-[20vh] px-5"
+      className="relative mt-[10vh] mb-[4vh] sm:mb-[20vh] px-5 bg-white"
     >
-      <div className="absolute top-0 z-50 left-0 w-full h-[200px] -translate-y-full bg-gradient-to-t from-[#080618] to-transparent pointer-events-none" />
-      <h2 className="text-end text-[2.5rem] lg:text-[4.5rem] tracking-tight leading-none font-jakarta font-medium sm:mr-20 max-w-lg m-auto">
+      {/* Top Gradient Blend Removed */}
+      <h2 className="text-end text-[2.5rem] lg:text-[4.5rem] tracking-tight leading-none font-switzer font-bold sm:mr-20 max-w-lg m-auto text-primary-dark mb-20">
         Our Core Value Offerings
       </h2>
       {company.features.map((feature, i) => {

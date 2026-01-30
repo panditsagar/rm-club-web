@@ -7,57 +7,68 @@
   --font-jakarta: "plus jakarta sans", sans-serif;
 }
 
+:root {
+  /* L&T Corporate Colors */
+  --color-primary: #0054A6;   /* Navy Blue */
+  --color-primary-dark: #003366;
+  --color-accent: #FFD200;    /* L&T Yellow */
+  --color-text-main: #333333; /* Dark Grey for text */
+  --color-text-light: #555555;
+  --color-bg-light: #F5F7FA;  /* Light Grey Section BG */
+  --color-border: #E0E0E0;
+}
+
 html,
 body {
   margin: 0;
   padding: 0;
-  /* overflow-x: hidden;  <-- REMOVED to fix sticky positioning */
-  
-  background: #080618;
-  color: white;
+  background: #FFFFFF;
+  color: var(--color-text-main);
+  /* Re-enabled system fonts fallback for corporate feel */
+  font-family: var(--font-switzer), system-ui, -apple-system, sans-serif; 
 }
 
-/* ================= HIDE SCROLLBAR EVERYWHERE ================= */
+/* ================= UTILITIES ================= */
 
-/* Chrome, Safari, Edge */
-*::-webkit-scrollbar {
-  width: 0px;
-  height: 0px;
-  display: none;
+.text-primary {
+  color: var(--color-primary);
 }
 
-/* Firefox */
-* {
-  scrollbar-width: none;
+.bg-primary {
+  background-color: var(--color-primary);
 }
 
-/* IE / Edge Legacy */
-* {
-  -ms-overflow-style: none;
+.text-accent {
+  color: var(--color-accent);
 }
 
-.offerings__visual-svg .logo-img {
-  transform-box: fill-box;      /* IMPORTANT for SVG */
-  transform-origin: center;     /* IMPORTANT for SVG */
-  transition: transform 0.8s ease;
-  will-change: transform;
+.bg-accent {
+  background-color: var(--color-accent);
 }
 
-.offerings__visual-svg:hover .logo-img {
-  transform: scale(1.2);
+.section-padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
-
-/* ================= HERO STYLES REMOVED (Now using Tailwind in Herosection.jsx) ================= */
-
-/* ================= RESPONSIVE ================= */
-@media (max-width: 1200px) {
-  /* Removed grid templates */
+/* Standard Scrollbar for Corporate Feel */
+@media (min-width: 1024px) {
+    *::-webkit-scrollbar {
+        width: 10px;
+    }
+    *::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+    }
+    *::-webkit-scrollbar-thumb {
+        background: #888; 
+        border-radius: 5px;
+    }
+    *::-webkit-scrollbar-thumb:hover {
+        background: #555; 
+    }
 }
 
-@media (max-width: 640px) {
-  /* Removed padding adjustments */
-}
+/* ================= ANIMATIONS ================= */
 
 @keyframes marquee {
   from {
@@ -69,22 +80,18 @@ body {
 }
 
 .animate-marquee {
-  animation: marquee 15s linear infinite;
+  animation: marquee 25s linear infinite; /* Slower for corporate */
   will-change: transform;
   touch-action: pan-y;
 }
 
-/* Pause ONLY on desktop */
 @media (hover: hover) and (pointer: fine) {
   .animate-marquee:hover {
     animation-play-state: paused;
   }
 }
 
-
-
-
-
+/* Clean up Pixel Transition styles (keep functionality but invisible default) */
 .pixel-transition-container {
   position: relative;
   width: 100%;
@@ -102,7 +109,7 @@ body {
 
 .pixel-unit {
   opacity: 0;
-  background-color: #a3b2f3; /* Using your theme's blue */
+  background-color: var(--color-primary); /* Use Primary Blue */
 }
 
 .pixel-unit.animate {
@@ -114,6 +121,8 @@ body {
   50% { opacity: 1; }
   100% { opacity: 0; }
 }
+
+/* Typing Effect */
 .text-type {
   display: inline-block;
   white-space: pre-wrap;
@@ -123,6 +132,7 @@ body {
   margin-left: 0.25rem;
   display: inline-block;
   opacity: 1;
+  color: var(--color-primary);
 }
 
 .text-type__cursor--hidden {

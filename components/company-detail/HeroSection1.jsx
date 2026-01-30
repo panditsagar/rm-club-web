@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Spline from "@splinetool/react-spline";
 import { motion } from "framer-motion";
 
 export default function App({ company }) {
@@ -24,39 +23,33 @@ export default function App({ company }) {
   };
 
   return (
-    <section className="relative   w-full overflow-hidden bg-[#080618] font-jakarta">
-        <div className="fixed inset-0 z-0 md:hidden">
-          <img
-            src="/bg.png"
-            alt="Background"
-            className="w-full h-full object-cover"
-          />
+    <section className="relative w-full overflow-hidden bg-white font-switzer h-screen flex flex-col justify-center">
+        {/* Background Texture/Pattern */}
+        <div className="absolute inset-0 z-0 opacity-5 pointer-events-none">
+             <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
         </div>
-      {/* 1. HIGH-END SPLINE BACKGROUND */}
-      <div className="fixed inset-0 pointer-events-none transition-opacity duration-150 ease-linear z-0 hidden md:block">
-        <Spline scene="https://prod.spline.design/DBCGWGemx6OSZ2Xf/scene.splinecode" />
-        {/* Dark Vignette Overlay to make text pop */}
-       </div>
+        
+        {/* Abstract Corporate Shape */}
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-gray-50 clip-path-polygon-[20%_0%,100%_0,100%_100%,0%_100%] z-0 hidden md:block"></div>
 
       {/* 2. MAIN CONTENT AREA */}
       <motion.div
         variants={containerVars}
         initial="hidden"
         animate="visible"
-        className="relative z-10 h-full flex flex-col mt-40 sm:mt-20  items-center px-6 text-center "
+        className="relative z-10 w-full flex flex-col items-center px-6 text-center max-w-[1400px] mx-auto"
       >
         {/* Subtle Badge/Label */}
-        <motion.div variants={itemVars} className="mb-6">
-          <span className="px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-[0.7rem] sm:text-[0.8rem] uppercase tracking-[0.3em] text-white/60">
+        <motion.div variants={itemVars} className="mb-8">
+          <span className="px-4 py-2 rounded-sm bg-primary/10 text-primary font-bold text-xs uppercase tracking-[0.2em]">
             {company.tagline}
           </span>
         </motion.div>
 
-        {/* HERO TITLE: Massive, Gradient, Bold */}
+        {/* HERO TITLE: Massive, Corporate Navy */}
         <motion.h1
           variants={itemVars}
-          className="text-[2.65rem] md:text-8xl lg:text-[6rem]   font-bold  leading-[1.1] sm:leading-[1] capitalize
-            text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-white/40 max-w-6xl"
+          className="text-[3rem] md:text-8xl lg:text-[7rem] font-bold leading-[1.1] sm:leading-[1] capitalize text-primary-dark max-w-6xl"
         >
           {company.name}
         </motion.h1>
@@ -64,16 +57,16 @@ export default function App({ company }) {
         {/* HEADLINE: The core message */}
         <motion.p
           variants={itemVars}
-          className="mt-6 text-xl md:text-2xl lg:text-3xl text-white/80 font-author font-light max-w-3xl leading-snug tracking-wide"
+          className="mt-8 text-xl md:text-2xl lg:text-3xl text-gray-600 font-normal max-w-4xl leading-relaxed tracking-wide"
         >
           {company.hero.headline}
         </motion.p>
 
-        {/* CTA BUTTON: Interactive and Glowy */}
-        <motion.div variants={itemVars} className="mt-6">
+        {/* CTA BUTTON: Clean & Professional */}
+        <motion.div variants={itemVars} className="mt-10">
           <button
              
-            className="group relative px-10 py-4  bg-white text-black font-bold rounded-full overflow-hidden transition-all duration-300  cursor-pointer"
+            className="group relative px-10 py-4 bg-primary text-white font-bold rounded-sm overflow-hidden transition-all duration-300 cursor-pointer hover:bg-primary-dark"
           >
             <span className="relative z-10 flex items-center gap-2 text-md sm:text-lg">
               {company.hero.cta}
@@ -99,16 +92,14 @@ export default function App({ company }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}
-          className=" flex flex-col items-center gap-3 mt-10"
+          className=" flex flex-col items-center gap-3 mt-16"
         >
-          <span className="text-white/30 text-[0.7rem] uppercase tracking-[0.4em] rotate-0">
+          <span className="text-gray-400 text-[0.7rem] uppercase tracking-[0.4em] rotate-0 font-bold">
             Scroll
           </span>
-          <div className="w-px h-12 bg-gradient-to-b from-white/40 to-transparent" />
+          <div className="w-px h-12 bg-gradient-to-b from-gray-300 to-transparent" />
         </motion.div>
       </motion.div>
-
-    
     </section>
   );
 }

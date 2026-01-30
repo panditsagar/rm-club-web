@@ -39,7 +39,7 @@ export default function Preloader() {
             key="preloader"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, transition: { duration: 0.8, ease: "easeInOut" } }}
-          className="fixed inset-0 z-[5000] flex items-center justify-center bg-[#080618] pointer-events-none"
+          className="fixed inset-0 z-[5000] flex items-center justify-center bg-[#181818] pointer-events-none"
         >
           <div className="relative w-32 h-32 md:w-48 md:h-48 flex items-center justify-center pointer-events-auto">
             <AnimatePresence>

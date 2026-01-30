@@ -3,150 +3,95 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FaLinkedinIn, FaYoutube, FaInstagram } from "react-icons/fa";
+import { FaLinkedinIn, FaYoutube, FaInstagram, FaFacebookF } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 export default function Footer() {
   return (
-    <footer className="relative z-50 bg-[#080618] text-[#fff] m-2 p-4  pt-5 md:m-10 md:p-10 rounded-md font-author">
-      <div className=" ">
-        {/* TOP ROW: LOGO + CONTACT INFO */}
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-8  mb-12">
-          {/* LOGO */}
-          <div className="flex items-center gap-2">
-            <div className="relative w-12 h-12">
-              <Image
-                src="/logo1.png"
-                alt="RM Club Logo"
-                width={52}
-                height={52}
-                className="objec"
-              />
-            </div>
-            <div className="  flex items-center gap-2 tracking-widest text-[1.3rem]  ">
-              <h1 className="font-switzer text-[1.6rem] font-light">RM</h1>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="96 0 14 33"
-                className="h-8 w-auto"
-                fill="currentColor"
-              >
-                <path d="M107.46 0H105.13V24.9958H107.46V0ZM100.5 9.90744H98.17V32.5855H100.5V9.90744Z" />
-              </svg>
-
-              <h1 className="font-switzer text-[1.6rem] font-light">CLUB</h1>
-            </div>
-          </div>
-
-          {/* CONTACT COLUMNS */}
-          <div className="flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-44">
-            {/* General Inquiries */}
-            <div className="flex flex-col gap-2">
-              <span className="bg-[#1A1A2A] text-white text-sm px-2 py-1 uppercase tracking-wider w-fit ">
-                General Inquiries
-              </span>
-              <a
-                href="mailto:connect@rmclub.in"
-                className="text-lg hover:text-white transition-colors border-b border-white/90 hover:border-white w-fit"
-              >
-                connect@rmclub.in
-              </a>
+    <footer className="bg-[#181818] text-white pt-16 pb-8 border-t-2 border-[#0054A6] font-switzer">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+        
+        {/* TOP ROW: LOGO & LINKS */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+            
+            {/* COLUMN 1: BRAND */}
+            <div>
+                 <Link href="/" className="flex items-center gap-3 mb-6   w-fit   rounded-sm">
+                    <div className="relative w-16 h-16">
+                        <Image
+                        src="/logo1.png"
+                        alt="RM Club Logo"
+                        fill
+                        className="object-contain " 
+                        />
+                    </div>
+                </Link>
+                <div className="text-gray-300 text-sm leading-relaxed mb-6">
+                    A multi-venture ecosystem building sustainable real-world enterprises. Driven by values, powered by people.
+                </div>
+                <div className="flex gap-3">
+                    <SocialIcon href="#"><FaXTwitter size={14}/></SocialIcon>
+                    <SocialIcon href="#"><FaLinkedinIn size={14}/></SocialIcon>
+                    <SocialIcon href="#"><FaYoutube size={14}/></SocialIcon>
+                    <SocialIcon href="#"><FaInstagram size={14}/></SocialIcon>
+                </div>
             </div>
 
-            {/* Press */}
-            <div className="flex flex-col gap-2">
-              <span className="bg-[#1A1A2A] text-white text-sm px-2 py-1 uppercase tracking-wider w-fit ">
-                Press
-              </span>
-              <a
-                href="mailto:media@rmclub.in"
-                className="text-lg hover:text-white transition-colors border-b border-white/90 hover:border-white   w-fit"
-              >
-                media@rmclub.in
-              </a>
+            {/* COLUMN 2: QUICK LINKS */}
+            <div>
+                <h4 className="text-md font-bold mb-4 border-b border-white/60 pb-4 w-fit text-[#ffffff]">Quick Links</h4>
+                <ul className="flex flex-col gap-3 text-sm text-gray-300">
+                    <li><FooterLink href="/">Home</FooterLink></li>
+                    <li><FooterLink href="/about">About Us</FooterLink></li>
+                    <li><FooterLink href="/team">Leadership</FooterLink></li>
+                    <li><FooterLink href="/ventures">Our Ventures</FooterLink></li>
+                    <li><FooterLink href="/contact">Contact Us</FooterLink></li>
+                </ul>
             </div>
 
-            {/* Our Investors */}
-            <div className="flex flex-col gap-2">
-              <span className="bg-[#1A1A2A] text-white text-sm px-2 py-1 uppercase tracking-wider w-fit ">
-                Partnerships
-              </span>
-              <a
-                href="mailto:partners@rmclub.in"
-                className="text-lg hover:text-white transition-colors border-b border-white/90 hover:border-white   w-fit"
-              >
-                partners@rmclub.in
-              </a>
+            {/* COLUMN 3: VENTURES */}
+            <div>
+                <h4 className="text-md font-bold mb-4 border-b border-white/60 pb-4 w-fit text-[#ffffff]">Our Businesses</h4>
+                <ul className="flex flex-col gap-3 text-sm text-gray-300">
+                    <li><FooterLink href="/company/jawa-poonp">Jawa Poonp</FooterLink></li>
+                    <li><FooterLink href="/company/reparkle">Reparkle Infra</FooterLink></li>
+                    <li><FooterLink href="/company/ipdc">IPDC Finance</FooterLink></li>
+                    <li><FooterLink href="/company/city-view">Hospitality</FooterLink></li>
+                    <li><FooterLink href="/company/beatz-melody">Media & Arts</FooterLink></li>
+                </ul>
             </div>
-          </div>
+
+            {/* COLUMN 4: CONTACT */}
+             <div>
+                <h4 className="text-md font-bold mb-4 border-b border-white/60 pb-4 w-fit text-[#ffffff]">Contact</h4>
+                <div className="flex flex-col gap-4 text-sm text-gray-300">
+                    <div>
+                        <span className="block text-white font-semibold">Corporate Office</span>
+                        Ranchi, Jharkhand, India
+                    </div>
+                    <div>
+                        <span className="block text-white font-semibold">Email</span>
+                        <a href="mailto:connect@rmclub.in" className="hover:text-[#0054A6] transition-colors">connect@rmclub.in</a>
+                    </div>
+                    <div>
+                        <span className="block text-white font-semibold">Phone</span>
+                        <a href="tel:+911234567890" className="hover:text-[#0054A6] transition-colors">+91 123 456 7890</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-        {/* MIDDLE ROW: DISCLAIMER + SOCIALS */}
-        <div className="flex flex-col lg:flex-row justify-between gap-16  mb-12">
-          {/* Disclaimer Text */}
-          <div className="max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8 text-md text-white/80 leading-[1.1]">
-            <p>
-              RM Club is a multi-venture ecosystem bringing together independent
-              businesses, community initiatives, and collaborative projects
-              across media, hospitality, real estate, travel, education, and
-              commerce. We focus on building sustainable, real-world ventures
-              guided by long-term thinking, shared values, and responsible
-              growth. Each initiative operates independently while benefiting
-              from collective experience and ecosystem support.
-            </p>
-            <p>
-              This website is intended for general informational purposes only.
-              It does not constitute financial, legal, or investment advice, nor
-              an offer or solicitation of any kind. References to ventures,
-              initiatives, or activities are descriptive in nature and should
-              not be interpreted as guarantees, recommendations, or invitations
-              to participate in financial arrangements. Engagements,
-              partnerships, or collaborations are subject to independent
-              discussion and mutual agreement.
-            </p>
-          </div>
-
-          {/* Socials */}
-          <div className="flex flex-col gap-4">
-            <span className="text-md font-medium text-white/90">Follow us</span>
-            <div className="flex gap-2">
-              <SocialIcon href="#">
-                <FaXTwitter size={20} />
-              </SocialIcon>
-              <SocialIcon href="#">
-                <FaLinkedinIn size={20} />
-              </SocialIcon>
-              <SocialIcon href="#">
-                <FaYoutube size={20} />
-              </SocialIcon>
-              <SocialIcon href="#">
-                <FaInstagram size={20} />
-              </SocialIcon>
+        {/* BOTTOM ROW: COPYRIGHT */}
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
+            <p>&copy; {new Date().getFullYear()} RM Club Ecosystem. All rights reserved.</p>
+            <div className="flex gap-6 mt-4 md:mt-0">
+                <Link href="#" className="hover:text-[#0054A6] transition-colors">Privacy Policy</Link>
+                <Link href="#" className="hover:text-[#0054A6] transition-colors">Terms of Use</Link>
+                <Link href="#" className="hover:text-[#0054A6] transition-colors">Sitemap</Link>
             </div>
-          </div>
         </div>
 
-        {/* BOTTOM ROW: LINKS + CREDITS */}
-        <div className="flex flex-col lg:flex-row justify-between items-center text-white/90 gap-8 text-sm md:text-md font-medium  ">
-          {/* Links */}
-          <div className="flex flex-wrap gap-8">
-            <FooterLink href="#">Home</FooterLink>
-            <FooterLink href="#">About</FooterLink>
-            <FooterLink href="#">Team</FooterLink>
-            <FooterLink href="#">Contact</FooterLink>
-          </div>
-
-          <div className="flex gap-8 ">
-            <FooterLink href="#">Privacy Statement</FooterLink>
-            <FooterLink href="#">Terms of Use</FooterLink>
-          </div>
-
-          {/* Credits */}
-          <div className="flex gap-4 text-white/90">
-            <span>Designed by Triplehash</span>
-            {/* <span>Code by Dennis</span> */}
-          </div>
-        </div>
       </div>
     </footer>
   );
@@ -156,20 +101,20 @@ function SocialIcon({ children, href }) {
   return (
     <a
       href={href}
-      className="w-12 h-12 border border-white/15 flex items-center justify-center   hover:border-white/30 transition-all rounded-xs text-white"
+      className="w-8 h-8 flex items-center justify-center bg-white/10 hover:bg-[#0054A6] hover:text-white transition-all rounded-sm text-white"
     >
       {children}
     </a>
   );
 }
 
-function FooterLink({ children, href, className = "" }) {
+function FooterLink({ children, href }) {
   return (
     <Link
       href={href}
-      className={`hover:text-white transition-colors ${className}`}
+      className="hover:text-[#0054A6] hover:translate-x-1 transition-all inline-block"
     >
-      <span className="flex items-center gap-1">{children}</span>
+      {children}
     </Link>
   );
 }

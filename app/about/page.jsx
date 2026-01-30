@@ -10,10 +10,10 @@ const page = () => {
       <AboutSection1 />
       {/* ================= CONTENT ================= */}
       <section className="content">
-        <AboutSection2 />
-        <FourthSection/>
         <AboutSection3 />
-        <CTASection/>
+        <FourthSection />
+        <AboutSection2 />
+        <CTASection />
       </section>
     </div>
   );
