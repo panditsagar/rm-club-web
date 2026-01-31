@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 const faqs = [
   {
@@ -29,57 +30,85 @@ const faqs = [
     answer:
       "We offer 24/7 customer support via chat and email, along with a comprehensive knowledge base and dedicated account managers for enterprise plans.",
   },
+  {
+    question: "How does RM Club AI automate tasks?",
+    answer:
+      "Our platform uses intelligent agents to automate repetitive data entry, report generation, and notification workflows, freeing up your team to focus on strategic initiatives.",
+  },
+  {
+    question: "Is my data secure with RM Club AI?",
+    answer:
+      "Yes, we prioritize security with enterprise-grade encryption, SOC 2 compliance, and regular security audits to ensure your data remains protected at all times.",
+  },
+  {
+    question: "What kind of support do you offer?",  
+    answer:
+      "We offer 24/7 customer support via chat and email, along with a comprehensive knowledge base and dedicated account managers for enterprise plans.",
+  },
 ];
 
 const ContactSection4 = () => {
-  const [activeIndex, setActiveIndex] = useState(1);
+  const [activeIndex, setActiveIndex] = useState(null);
 
   const toggleAccordion = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
   return (
-    <section className="bg-white pb-20 px-5 md:px-12 relative z-20 border-t border-gray-100 pt-20">
-      <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-        {/* Left Side */}
-        <div className="flex flex-col items-start gap-8">
-          <h2 className="text-4xl md:text-[4.5rem] text-primary-dark font-bold tracking-tight leading-[1] font-switzer ml-0 sm:ml-20">
-            Frequently <br /> asked <br /> questions
+    <section className="bg-white pb-20 px-6 lg:px-26 relative z-20">
+      <div className="max-w-[1400px] mx-auto">
+        {/* Header Section */}
+        <div className="mb-12">
+          <h2 className="text-2xl md:text-[2.5rem] font-switzer font-normal text-gray-800 border-b border-gray-200 pb-4 mb-8">
+            Frequently Asked Questions
           </h2>
+          <p className="text-lg text-gray-700 max-w-5xl leading-relaxed mb-12">
+            Below are a list of our frequently asked questions that might help
+            answer your query. If you can't find what you are looking for please
+            contact us using the form above. Below are a list of our frequently
+            asked questions that might help answer your query. If you can't find
+            what you are looking for please contact us using the form above.
+          </p>
         </div>
 
-        {/* Right Side: Accordion */}
-        <div className="flex flex-col gap-4">
+        {/* Accordion List */}
+        <div className="flex flex-col gap-4 max-w-[900px]">
           {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className={`group relative border border-gray-200 p-4 sm:p-6 hover:border-primary/30 transition-all duration-300 cursor-pointer bg-white shadow-sm hover:shadow-md
-              }`}
-              onClick={() => toggleAccordion(index)}
-            >
-               {/* Accent Bar */}
-               <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
-              <div className="flex justify-between items-center bg-transparent relative z-10">
-                <h3 className="text-lg md:text-xl text-primary-dark font-bold pr-8 font-switzer group-hover:text-primary transition-colors">
-                  {faq.question}
-                </h3>
-                <span className="text-primary text-3xl font-medium">
-                  {activeIndex === index ? "−" : "+"}
+            <div key={index} className="w-full">
+              {/* Accordion Header - Solid Blue Bar */}
+              <button
+                onClick={() => toggleAccordion(index)}
+                className={`
+                    w-full flex justify-between items-center 
+                    p-5 md:p-6 
+                    bg-[#0054A6] 
+                    text-white 
+                    text-left 
+                    transition-all duration-300
+                    hover:bg-[#004080]
+                    font-bold text-lg md:text-xl font-switzer
+                    ${activeIndex === index ? "rounded-t-sm" : "rounded-sm"}
+                `}
+              >
+                <span>{faq.question}</span>
+                <span className="ml-4 flex-shrink-0 text-white cursor-pointer">
+                  {activeIndex === index ? <FaChevronUp /> : <FaChevronDown />}
                 </span>
-              </div>
+              </button>
+
+              {/* Accordion Body */}
               <AnimatePresence>
                 {activeIndex === index && (
                   <motion.div
-                    initial={{ height: 0, opacity: 0, marginTop: 0 }}
-                    animate={{ height: "auto", opacity: 1, marginTop: 16 }}
-                    exit={{ height: 0, opacity: 0, marginTop: 0 }}
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className="overflow-hidden relative z-10"
+                    className="overflow-hidden bg-[#E9EDEE] border-x border-b border-gray-200"
                   >
-                    <p className="text-gray-600 leading-relaxed font-normal text-lg">
+                    <div className="p-6 md:p-8 text-gray-700 leading-relaxed text-lg">
                       {faq.answer}
-                    </p>
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -87,7 +116,7 @@ const ContactSection4 = () => {
           ))}
         </div>
       </div>
-     </section>
+    </section>
   );
 };
 

@@ -66,11 +66,11 @@ export default function FourthSection() {
   const carouselItems = [...logos, ...logos];
 
   return (
-    <section className="relative w-full bg-white py-20 pb-0 sm:pb-20 border-t border-gray-200">
+    <section className="relative w-full bg-white  ">
 
       <div className="w-full">
-        <h2 className="text-primary-dark pl-5 lg:pl-20 text-start text-4xl lg:text-[4.5rem] tracking-tight leading-none font-switzer font-bold mb-10 lg:mb-20">
-          Engaging across
+        <h2 className="text-primary-dark pl-5 lg:pl-25 text-start text-4xl lg:text-[2.5rem] tracking-tight leading-none font-switzer font-normal mb-10 lg:mb-16">
+            Sectors We Engage In
         </h2>
 
         {/* CAROUSEL TRACK WRAPPER */}

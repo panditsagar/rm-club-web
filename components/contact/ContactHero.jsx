@@ -1,49 +1,64 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import ContactForm from "./ContactForm";
 
-export default function App() {
+export default function ContactHero() {
   return (
-    <>
-      <section className="relative min-h-screen w-full overflow-hidden bg-white flex items-center">
-            {/* MOBILE IMAGE */}
-        <div className="fixed inset-0 z-0 md:hidden opacity-10">
-          <img
-            src="/bg.png"
-            alt="Background"
-            className="w-full h-full object-cover grayscale"
-          />
-        </div>
-
-        {/* CONTENT */}
-        <div className="max-w-[1400px] mx-auto relative z-50 w-full px-5 md:px-0 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center mt-20 lg:mt-0">
-          {/* Left Side: Text */}
-          <div className="flex flex-col justify-start">
-             {/* Small Kicker */}
-            <div className="mb-6 flex items-center gap-2">
-                <div className="h-[2px] w-10 bg-accent"></div>
-                <span className="text-primary font-bold uppercase tracking-widest text-sm">Contact Us</span>
-            </div>
-
-            <h1 className="font-switzer text-[2.65rem] md:text-7xl lg:text-[5.4rem] font-bold mt-4 tracking-tight leading-[1.1] capitalize text-primary-dark">
-              Chat with the team{" "}
+    <section className="relative w-full flex flex-col">
+      {/* --- TOP SECTION: CONTENT --- */}
+      <div className="w-full bg-[#ffffff] text-[#0054A6]  pb-10 px-6 lg:px-25 flex flex-col justify-end min-h-[40vh]">
+        <div className="max-w-[1400px] mx-auto w-full">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col gap-6"
+          >
+            {/* Main Heading */}
+            <h1 className="text-primary-dark text-4xl md:text-6xl lg:text-[3.5rem] font-medium font-serif leading-[1.1] tracking-tight  ">
+              Let's Start a Conversation About Your Future.
             </h1>
 
-            <p className="mt-8 text-lg md:text-[1.65rem] text-gray-600 max-w-lg leading-relaxed font-normal">
-              RM Club AI helps you tackle data bottlenecks, streamline analysis,
-              and make smarter decisions with ease.
+            <p className="text-gray-600 text-lg md:text-xl max-w-2xl leading-relaxed font-normal">
+              Whether you have a question about features, pricing, or anything
+              else .
             </p>
-          </div>
-
-          {/* Right Side: Form */}
-       <div className="flex justify-center lg:justify-end w-full relative z-[60]">
-          <ContactForm />
+          </motion.div>
         </div>
+      </div>
 
-        </div>
-      </section>
-    </>
+      {/* --- BOTTOM SECTION: IMAGE --- */}
+      <div className="relative w-full h-[50vh] md:h-[65vh] overflow-hidden">
+        <AnimatePresence>
+          <motion.div
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              opacity: { duration: 1.5, ease: "easeInOut" },
+              scale: {
+                duration: 20.0, // Slow, continuous zoom (Ken Burns)
+                ease: "linear",
+                repeat: Infinity,
+                repeatType: "mirror",
+              },
+            }}
+            className="absolute inset-0 z-0 bg-gray-100"
+          >
+            {/* Using an existing valid hero image */}
+            <Image
+              src="/hero/hero1.jpg"
+              alt="Contact Us"
+              fill
+              className="object-cover"
+              priority
+            />
+            {/* Subtle Overlay */}
+            <div className="absolute inset-0 bg-black/10"></div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    </section>
   );
 }
