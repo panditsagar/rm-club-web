@@ -180,7 +180,7 @@ function TeamCard({ member, index }) {
   return (
     <div className="flex flex-col cursor-pointer w-full group">
       {/* Container with Blue Corner Markers */}
-      <div className="relative aspect-square w-full border border-gray-200 p-5 bg-white duration-300 shadow-sm hover:shadow-xl transition-shadow">
+      <div className="relative aspect-square w-full border border-gray-200 p-5 bg-white duration-300  transition-shadow">
         
         {/* Info Toggle Button */}
         <div className="absolute top-4 right-4 z-50">
@@ -237,10 +237,10 @@ function TeamCard({ member, index }) {
 
         {/* Social Icons */}
         <div className="absolute bottom-4 right-4 flex gap-2 z-40 bg-white pl-2 pt-2">
-          <div className="w-9 h-9 flex items-center justify-center border border-gray-200 text-gray-400 hover:text-primary hover:border-primary transition-colors">
+          <div className="w-9 h-9 flex items-center justify-center border border-gray-200 text-[#0054A6]/80 hover:text-primary hover:border-primary transition-colors">
             <RiTwitterXFill size={14} />
           </div>
-          <div className="w-9 h-9 flex items-center justify-center border border-gray-200 text-gray-400 hover:text-primary hover:border-primary transition-colors">
+          <div className="w-9 h-9 flex items-center justify-center border border-gray-200 text-[#0054A6]/80 hover:text-primary hover:border-primary transition-colors">
             <FaLinkedinIn size={14} />
           </div>
         </div>
