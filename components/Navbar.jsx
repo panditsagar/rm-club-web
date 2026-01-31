@@ -3,41 +3,21 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { FaPhoneAlt, FaEnvelope, FaGlobe, FaSearch } from "react-icons/fa";
+import { FaPhoneAlt, FaEnvelope, FaGlobe, FaSearch, FaArrowRight } from "react-icons/fa";
+import { companiesData } from "../lib/constants";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false); // Desktop Dropdown
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false); // Mobile Dropdown
-  const [language, setLanguage] = useState("Global (EN)");
-
-  const companies = [
-    { name: "JAWA POONP", id: "jawa-poonp" },
-    { name: "REPARKLE", id: "reparkle" },
-    { name: "IPDC", id: "ipdc" },
-    { name: "City View", id: "city-view" },
-    { name: "Beatz Of Melody", id: "beatz-melody" },
-  ];
 
   return (
     <div className="w-full fixed top-0 z-[100] font-switzer shadow-md ">
       
-      {/* ================= TOP BAR (Desktop Only) ================= */}
-      <div className="hidden lg:flex justify-end items-center gap-5 px-6 lg:px-26 pt-4 pb-1 bg-[#181818] text-[12px] font-medium tracking-wider text-gray-400    ">
-        <a href="mailto:connect@rmclub.in" className="flex items-center gap-2 hover:text-white transition-colors">
-          <FaEnvelope className="text-[#0054A6]" size={12} />
-          connect@rmclub.in
-        </a>
-        <div className="w-[2px] h-3 bg-white/80"></div>
-        <a href="tel:+911234567890" className="flex items-center gap-2 hover:text-white transition-colors">
-          <FaPhoneAlt className="text-[#0054A6]" size={11} />
-          +91 123 456 7890
-        </a>
-        
-      </div>
+     
 
       {/* ================= MAIN NAVBAR ================= */}
-      <nav className="bg-[#181818] w-full px-6 lg:px-26   pb-4  flex items-center justify-between relative z-50">
+      <nav className="bg-[#181818] w-full px-6 lg:px-26   p-4  flex items-center justify-between relative z-50">
         
         {/* 1. LOGO */}
         <Link href="/" className="flex items-center gap-3 group">
@@ -78,23 +58,45 @@ export default function Navbar() {
 
               {/* MEGA MENU DROPDOWN */}
               <div
-                className={`absolute top-18 -left-20 w-[600px] bg-[#181818] shadow-xl border-t-4 border-[#0054A6] transition-all duration-300 ease-out origin-top ${isOpen ? "opacity-100 translate-y-0 visible" : "opacity-0 -translate-y-2 invisible"}`}
+                className={`absolute top-19 -left-48 w-[900px] bg-white text-gray-800 shadow-2xl   overflow-hidden transition-all duration-300 ease-out origin-top ${
+                  isOpen ? "opacity-100 translate-y-0 visible" : "opacity-0 -translate-y-2 invisible"
+                }`}
               >
-                <div className="p-6 grid grid-cols-2 gap-x-8 gap-y-4">
-                  {companies.map((item) => (
-                    <Link
-                      key={item.id}
-                      href={`/company/${item.id}`}
-                      className="group/item flex items-center gap-3 p-2 hover:bg-white/5 rounded-sm transition-colors"
-                    >
-                      <div className="w-1.5 h-1.5 bg-[#0054A6] rounded-full group-hover/item:scale-150 transition-transform"></div>
-                      <span className="text-gray-300 font-semibold group-hover/item:text-[#0054A6] transition-colors">
-                        {item.name}
-                      </span>
-                    </Link>
-                  ))}
+                <div className="flex h-full"> 
+                  {/* LEFT COLUMN: BRAND CONCEPT */}
+                  <div className="w-[32%] bg-gray-50 p-8 flex flex-col justify-between border-r border-gray-100">
+                    <div>
+                      <h3 className="text-[#0054A6] font-serif text-xl font-medium mb-3 tracking-tight">The RM Ecosystem</h3>
+                      <p className="text-gray-600 text-sm leading-relaxed mb-6 font-normal">
+                        A diverse network of enterprises building value across industries, united by a shared vision of impact and excellence.
+                      </p>
+                    </div>
+                    <div>
+                      <Link href="/companies" className="text-xs font-bold uppercase tracking-wider text-[#0054A6] flex items-center gap-2 hover:gap-3 transition-all">
+                        View All Ventures <FaArrowRight />
+                      </Link>
+                    </div>
+                  </div>
+
+                  {/* RIGHT COLUMN: VENTURES GRID */}
+                  <div className="w-[68%] p-8 grid grid-cols-2 gap-x-6 gap-y-4">
+                    {companiesData.map((item) => (
+                      <Link
+                        key={item.id}
+                        href={`/company/${item.id}`}
+                        className="group/item block p-4 rounded-md hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100"
+                      >
+                         <h4 className="text-gray-900 text-[0.95rem] font-semibold group-hover/item:text-[#0054A6] transition-colors flex items-center justify-between">
+                            {item.name}
+                            <FaArrowRight className="w-3 h-3 opacity-0 group-hover/item:opacity-100 -translate-x-2 group-hover/item:translate-x-0 transition-all text-[#0054A6]" />
+                         </h4>
+                         <p className="text-xs text-gray-500 mt-1.5 font-normal line-clamp-1">
+                           {item.tagline}
+                         </p>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
-                
               </div>
             </div>
 
@@ -155,7 +157,7 @@ export default function Navbar() {
           <div
             className={`flex flex-col pl-4 gap-4 overflow-hidden transition-all duration-500 ease-in-out ${isMobileDropdownOpen ? "max-h-[500px] mt-6 opacity-100" : "max-h-0 opacity-0"}`}
           >
-            {companies.map((company) => (
+            {companiesData.map((company) => (
               <Link
                 key={company.id}
                 href={`/company/${company.id}`}

@@ -28,9 +28,10 @@ export default function App() {
     <div >
       <HeroSection1 company={company} />
       {/* ================= CONTENT ================= */}
-      <section className="relative z-20 bg-[#080618]">
-        <Section2 company={company}  />
+      <section className="relative z-20  ">
         <Section3 company={company} />
+        <Section2 company={company}  />
+        
         <FounderSection company={company} />
         <GallerySection company={company} />
       </section>
@@ -38,3 +39,5 @@ export default function App() {
     </div>
   );
 }
+
+

@@ -1,105 +1,82 @@
 "use client";
-
 import React from "react";
-import { motion } from "framer-motion";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaArrowRight } from "react-icons/fa6";
 
-export default function App({ company }) {
-  // Animation Variants
-  const containerVars = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2, delayChildren: 0.3 },
-    },
-  };
-
-  const itemVars = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
-    },
-  };
+export default function HeroSection1({ company }) {
+  // Fallback image if company.hero.image doesn't exist
+  // Using the first feature image or a default placeholder
+  const heroImage =
+    company?.hero?.image || company?.features?.[0]?.image || "/hero/hero1.jpg";
 
   return (
-    <section className="relative w-full overflow-hidden bg-white font-switzer h-screen flex flex-col justify-center">
-        {/* Background Texture/Pattern */}
-        <div className="absolute inset-0 z-0 opacity-5 pointer-events-none">
-             <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-        </div>
-        
-        {/* Abstract Corporate Shape */}
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-gray-50 clip-path-polygon-[20%_0%,100%_0,100%_100%,0%_100%] z-0 hidden md:block"></div>
-
-      {/* 2. MAIN CONTENT AREA */}
-      <motion.div
-        variants={containerVars}
-        initial="hidden"
-        animate="visible"
-        className="relative z-10 w-full flex flex-col items-center px-6 text-center max-w-[1400px] mx-auto"
-      >
-        {/* Subtle Badge/Label */}
-        <motion.div variants={itemVars} className="mb-8">
-          <span className="px-4 py-2 rounded-sm bg-primary/10 text-primary font-bold text-xs uppercase tracking-[0.2em]">
-            {company.tagline}
-          </span>
-        </motion.div>
-
-        {/* HERO TITLE: Massive, Corporate Navy */}
-        <motion.h1
-          variants={itemVars}
-          className="text-[3rem] md:text-8xl lg:text-[7rem] font-bold leading-[1.1] sm:leading-[1] capitalize text-primary-dark max-w-6xl"
-        >
-          {company.name}
-        </motion.h1>
-
-        {/* HEADLINE: The core message */}
-        <motion.p
-          variants={itemVars}
-          className="mt-8 text-xl md:text-2xl lg:text-3xl text-gray-600 font-normal max-w-4xl leading-relaxed tracking-wide"
-        >
-          {company.hero.headline}
-        </motion.p>
-
-        {/* CTA BUTTON: Clean & Professional */}
-        <motion.div variants={itemVars} className="mt-10">
-          <button
-             
-            className="group relative px-10 py-4 bg-primary text-white font-bold rounded-sm overflow-hidden transition-all duration-300 cursor-pointer hover:bg-primary-dark"
+    <section className="relative w-full flex flex-col">
+      {/* --- TOP SECTION: CONTENT --- */}
+      <div className="w-full bg-[#ffffff] text-[#0054A6]  pb-10 px-6 lg:px-25 flex flex-col justify-end min-h-[40vh]">
+        <div className="max-w-[1600px] mx-auto w-full">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
           >
-            <span className="relative z-10 flex items-center gap-2 text-md sm:text-lg">
-              {company.hero.cta}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2.5}
-                stroke="currentColor"
-                className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
-                />
-              </svg>
-            </span>
-          </button>
-        </motion.div>
+            
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 1 }}
-          className=" flex flex-col items-center gap-3 mt-16"
-        >
-          <span className="text-gray-400 text-[0.7rem] uppercase tracking-[0.4em] rotate-0 font-bold">
-            Scroll
-          </span>
-          <div className="w-px h-12 bg-gradient-to-b from-gray-300 to-transparent" />
-        </motion.div>
-      </motion.div>
+            <h1 className="text-primary-dark text-5xl md:text-6xl lg:text-[3.5rem] font-medium font-serif leading-[1.1] mb-4 tracking-tight">
+              {company?.name}
+            </h1>
+
+            {/* Optional Headline Description if needed in this growing header */}
+             {company?.hero?.headline && (
+              <p className="text-gray-600 text-lg md:text-xl max-w-2xl leading-relaxed  ">
+                 {company.hero.headline}
+              </p>
+             )}
+
+             {/* CTA Button (Optional in this layout, but kept for function) */}
+             {/* 
+            {company?.hero?.cta && (
+              <button className="group relative px-6 py-3 bg-primary hover:bg-primary-dark text-white transition-all duration-300 rounded-full flex items-center gap-2">
+                <span className="text-sm font-medium tracking-wide uppercase">
+                  {company.hero.cta}
+                </span>
+                <FaArrowRight className="w-3 h-3 transform group-hover:translate-x-1 transition-transform" />
+              </button>
+            )}
+            */}
+          </motion.div>
+        </div>
+      </div>
+
+      {/* --- BOTTOM SECTION: IMAGE --- */}
+      <div className="relative w-full h-[50vh] md:h-[60vh] overflow-hidden">
+        <AnimatePresence>
+          <motion.div
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              opacity: { duration: 1.5, ease: "easeInOut" },
+              scale: {
+                duration: 20.0, // Slow, continuous zoom (Ken Burns)
+                ease: "linear",
+                repeat: Infinity,
+                repeatType: "mirror",
+              },
+            }}
+            className="absolute inset-0 z-0 bg-gray-200"
+          >
+            <Image
+              src={heroImage}
+              alt={company?.name || "Company Hero"}
+              fill
+              className="object-cover"
+              priority
+            />
+            {/* Optional Subtle Overlay to ensure image doesn't clash if it has white parts */}
+            <div className="absolute inset-0 bg-black/5"></div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
     </section>
   );
 }

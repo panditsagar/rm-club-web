@@ -100,7 +100,7 @@ const teamMembers = [
     name: "Ganesh Gope",
     role: "Member of Rm Club",
     image:
-      "/team/ganesh.webp",
+      "/team/vijayman.webp",
     bio: "David leads growth and communication strategies, ensuring the firm's vision reaches the frontier...",
   },
 ];
@@ -176,31 +176,17 @@ function PixelImage({ src, alt }) {
 
 function TeamCard({ member, index }) {
   const [showInfo, setShowInfo] = useState(false);
-  // Determine if it's an offset card (every 2nd item)
-  const isOffset = index % 2 !== 0;
 
   return (
-    <div
-      className={`
-        flex flex-col cursor-pointer shrink-0 
-        w-full max-w-[450px]
-        /* Desktop: Apply the specific width and staggered margin */
-        lg:w-[450px] 
-        ${isOffset ? "lg:mt-[80px]" : "mt-0"}
-      `}
-      style={{
-        transition: "margin-top 0.5s ease-in-out",
-      }}
-    >
+    <div className="flex flex-col cursor-pointer w-full group">
       {/* Container with Blue Corner Markers */}
-      <div className="relative aspect-square w-full border border-gray-200 p-5 bg-white shadow-sm hover:shadow-xl transition-shadow duration-300">
+      <div className="relative aspect-square w-full border border-gray-200 p-5 bg-white duration-300 shadow-sm hover:shadow-xl transition-shadow">
         
-     
         {/* Info Toggle Button */}
         <div className="absolute top-4 right-4 z-50">
           <button
             onClick={() => setShowInfo(!showInfo)}
-            className="w-9 h-9 flex cursor-pointer items-center justify-center border border-gray-200 bg-white shadow-sm hover:bg-gray-50 text-alert transition-colors"
+            className="w-9 h-9 flex cursor-pointer items-center justify-center border border-gray-200 bg-white shadow-sm hover:bg-gray-50 text-[#0054A6] transition-colors"
           >
             {showInfo ? (
               <RiCloseLine size={18} />
@@ -211,7 +197,6 @@ function TeamCard({ member, index }) {
         </div>
 
         {/* MAIN CONTENT AREA (Image or Paragraph) */}
-        {/* Changed from fixed width to max-width for responsiveness */}
         <div className="relative w-full max-w-[220px] sm:max-w-[320px] aspect-square z-30 overflow-hidden border border-gray-200 bg-gray-50">
           <AnimatePresence mode="wait">
             {!showInfo ? (
@@ -230,9 +215,9 @@ function TeamCard({ member, index }) {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 10 }}
-                className="w-full h-full p-4 flex flex-col justify-start overflow-y-auto scrollbar-hide bg-white"
+                className="w-full h-full p-4 flex flex-col justify-start overflow-y-auto scrollbar-hide bg-[#0054A6]/80"
               >
-                <p className="text-sm md:text-base leading-[1.4] text-gray-600 font-normal">
+                <p className="text-sm md:text-base leading-[1.4] text-white font-normal">
                   {member.bio}
                 </p>
               </motion.div>
@@ -242,7 +227,9 @@ function TeamCard({ member, index }) {
 
         {/* Text Details */}
         <div className="mt-4 px-1">
-          <h3 className="text-3xl md:text-4xl font-switzer font-bold text-primary-dark">{member.name}</h3>
+          <h3 className="text-3xl font-switzer font-medium text-primary-dark">
+            {member.name}
+          </h3>
           <p className="text-primary text-lg md:text-xl font-normal font-switzer">
             {member.role}
           </p>
@@ -268,14 +255,13 @@ export default function TeamSection() {
     <section className="relative w-full bg-white py-20 pt-0 sm:pt-20 overflow-x-clip text-primary-dark z-20 border-t border-gray-200">
       
       <div className="max-w-[1400px] mx-auto px-6 mb-16 flex justify-between items-end">
-        <h2 className="text-start text-4xl md:text-6xl lg:text-[4.5rem] tracking-tight leading-none font-switzer font-bold max-w-xl text-primary-dark">
+        <h2 className="text-start text-3xl md:text-5xl lg:text-[2.5rem] tracking-tight leading-tight font-switzer font-normal max-w-xl mb-6 md:mb-0">
           Meet the Minds Behind <br/> Our Innovation
         </h2>
       </div>
 
-      <div className="w-full max-w-[1600px] mx-auto px-6">
-        {/* Adjusted Gap for Mobile vs Desktop */}
-        <div className="flex flex-wrap justify-center gap-6 lg:gap-[38px]">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-12 gap-x-6 w-full">
           {teamMembers.map((member, i) => (
             <TeamCard key={member.id} member={member} index={i} />
           ))}

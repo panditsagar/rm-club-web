@@ -15,31 +15,28 @@ const Card = ({ i, title, description, src, progress, range, targetScale }) => {
   return (
     <div
       ref={container}
-      className="h-screen flex items-center justify-center sticky top-0 "
+      className="h-screen flex items-center justify-center sticky top-0"
     >
       <motion.div
         style={{
           scale,
-          backgroundColor: "#fff", 
           top: `calc(5vh + ${i * 25}px)`,
         }}
-        className="flex flex-col relative -top-[15%] h-[500px] w-full max-w-5xl p-5 sm:p-14 origin-top border border-gray-200 shadow-2xl rounded-sm"
+        className="flex flex-col relative -top-[15%] h-[530px] w-full max-w-6xl p-8 sm:p-14 origin-top     bg-[#E9EDEE] overflow-hidden"
       >
-        <div className="flex flex-col md:flex-row h-full gap-10 relative z-10">
+        <div className="flex flex-col md:flex-row h-full gap-12 relative z-10">
           {/* Text Content */}
-          <div className="w-full md:w-[40%] flex flex-col justify-center gap-6">
-            <h2
-              className="text-2xl sm:text-4xl font-bold font-switzer text-primary-dark leading-tight"
-            >
+          <div className="w-full md:w-[45%] flex flex-col justify-center gap-8">
+            <h2 className="text-3xl sm:text-5xl font-serif font-medium text-[#0054A6] leading-[1.1] tracking-tight">
               {title}
             </h2>
-            <p className="text-lg text-gray-600 font-normal leading-relaxed">
+            <p className="text-xl text-gray-700 font-sans font-normal leading-relaxed">
               {description}
             </p>
           </div>
 
           {/* Image Content */}
-          <div className="w-full md:w-[60%] relative h-full rounded-sm overflow-hidden bg-gray-100">
+          <div className="w-full md:w-[55%] relative h-full  overflow-hidden bg-gray-100">
             <motion.div
               className="w-full h-full relative"
               style={{ scale: imageScale }}
@@ -47,11 +44,11 @@ const Card = ({ i, title, description, src, progress, range, targetScale }) => {
               {src ? (
                 <img
                   src={src}
-                  alt="image"
-                  className="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-500"
+                  alt={title}
+                  className="object-cover w-full h-full   transition-all duration-700 ease-in-out"
                 />
               ) : (
-                <div className="w-full h-full bg-gray-200 flex items-center justify-center text-gray-400">
+                <div className="w-full h-full flex items-center justify-center text-gray-400 text-sm uppercase tracking-widest">
                   No Image Available
                 </div>
               )}
@@ -73,14 +70,10 @@ export default function Section2({ company }) {
   if (!company || !company.features) return null;
 
   return (
-    <div
-      ref={container}
-      className="relative mt-[10vh]  pb-30 px-5 bg-white"
-    >
-      {/* Top Gradient Blend Removed */}
-      <h2 className="text-end text-[2.5rem] lg:text-[4.5rem] tracking-tight leading-none font-switzer font-bold sm:mr-20 max-w-lg m-auto text-primary-dark mb-20">
-        Our Core Value Offerings
-      </h2>
+    <div ref={container} className=" relative pb-20 px-5 bg-white">
+      <div className="max-w-[1300px] mx-auto flex flex-col gap-0">
+      
+
       {company.features.map((feature, i) => {
         const targetScale = 1 - (company.features.length - i) * 0.05;
 
@@ -97,6 +90,7 @@ export default function Section2({ company }) {
           />
         );
       })}
+    </div>
     </div>
   );
 }

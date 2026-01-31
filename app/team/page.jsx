@@ -2,6 +2,7 @@ import React from "react";
 import TeamHero from "@/components/Team/TeamHero";
 import TeamHero2 from "@/components/Team/TeamHero2";
 import CTASection from "@/components/CTASection";
+
 const page = () => {
   return (
     <div>

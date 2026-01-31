@@ -9,7 +9,7 @@ export default function CTASection() {
     <section className="relative w-full z-40 py-14  bg-[#181818] overflow-hidden items-center flex">
     
       
-      <div className="max-w-[1400px] mx-auto px-6 w-full relative z-10 flex flex-col md:flex-row justify-between items-start md:items-end gap-10">
+      <div className="max-w-[1400px] mx-auto px-10 w-full relative z-10 flex flex-col md:flex-row justify-between items-start md:items-end gap-10">
         {/* Left Text */}
         <div className="max-w-3xl">
             <h2 className="text-start text-4xl md:text-6xl lg:text-[2rem] tracking-tight leading-[1.1] font-switzer font-bold text-white mb-6">
