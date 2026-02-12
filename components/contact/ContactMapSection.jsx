@@ -4,7 +4,7 @@ import React from "react";
 
 export default function ContactMapSection() {
   return (
-    <section className="w-full bg-white  pb-26 px-6 lg:px-26">
+    <section className="w-full   pb-26 px-6 lg:px-26">
       <div className="max-w-[1400px] mx-auto">
         {/* Header */}
         <div className="border-b border-gray-200 pb-4 mb-10">

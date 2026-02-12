@@ -32,7 +32,7 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section className="py-10 bg-white">
+    <section className="py-10  ">
       <div className="max-w-[1300px] mx-auto px-6">
     
         <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-200">

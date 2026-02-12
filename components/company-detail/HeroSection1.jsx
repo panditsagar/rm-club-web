@@ -7,8 +7,7 @@ import { FaArrowRight } from "react-icons/fa6";
 export default function HeroSection1({ company }) {
   // Fallback image if company.hero.image doesn't exist
   // Using the first feature image or a default placeholder
-  const heroImage =
-    company?.hero?.image || company?.features?.[0]?.image || "/hero/hero1.jpg";
+ 
 
   return (
     <section className="relative w-full flex flex-col">
@@ -29,8 +28,8 @@ export default function HeroSection1({ company }) {
             className="absolute inset-0 z-0 bg-gray-200"
           >
             <Image
-              src={heroImage}
-              alt={company?.name || "Company Hero"}
+              src="/about.png" // Fallback image for company hero
+              alt="Company Hero"
               fill
               className="object-cover"
               priority

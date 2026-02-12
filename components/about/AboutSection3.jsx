@@ -42,7 +42,7 @@ const contentData = [
 
 const AboutSection3 = () => {
   return (
-    <section className="w-full bg-white py-20 px-5 md:px-0">
+    <section className="w-full   py-20 px-5 md:px-0">
       <div className="max-w-[1300px] mx-auto flex flex-col gap-0">
         {/* HEADER - Matched to SecondSection.jsx */}
         <div className="flex flex-col md:flex-row justify-between items-end mb-10 border-b border-gray-200 pb-6">

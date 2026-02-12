@@ -14,7 +14,7 @@ const slides = [
     title: "A Leap Into History",
     description:
       "Bringing together the best people, ideas and technical expertise, we partner with clients to turn ambitions into action. engineering solutions that respect and coexist with our environment.",
-    image: "/hero/hero1.jpg", // Realistic Indian Rocket Launch
+    image: "/contact.png", // Realistic Indian Rocket Launch
     cta: "See Our Innovation",
     zoomDirection: "out",
   },
@@ -24,7 +24,7 @@ const slides = [
     title: "Harmony With Nature",
     description:
       "Creating eco-conscious engineering solutions that respect and coexist with our environment. Bringing together the best people, ideas and technical expertise.  ",
-    image: "/hero/wetlands.png", // Realistic Wetlands with Flamingos
+    image: "/team.png", // Realistic Wetlands with Flamingos
     cta: "Our Sustainability Goals",
     zoomDirection: "in",
   },
@@ -34,7 +34,7 @@ const slides = [
     title: "Green Infrastructure",
     description:
       "Reimagining urban spaces where modern architecture and nature thrive in perfect balance. Bringing together the best people, ideas and technical expertise. ",
-    image: "/hero/green_city.png", // Realistic Indian Smart City
+    image: "/about.png", // Realistic Indian Smart City
     cta: "View Projects",
     zoomDirection: "out",
   },
@@ -94,16 +94,27 @@ export default function Herosection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <h1 className="text-white text-5xl md:text-6xl lg:text-[4rem] font-medium font-serif leading-[1.1] mb-10 tracking-tight drop-shadow-lg">
+            <h1 className="text-white text-4xl md:text-5xl lg:text-[3.5rem] font-medium font-serif leading-[1.1] mb-8 tracking-tight drop-shadow-lg">
               {slides[currentSlide].title}
             </h1>
 
-            <p className="text-white text-lg md:text-3xl leading-[1.4] max-w-3xl mb-10 opacity-90 font-normal drop-shadow-md">
+            <p className="text-white text-lg md:text-xl leading-[1.6] max-w-2xl mb-10 opacity-90 font-normal drop-shadow-md">
               {slides[currentSlide].description}
             </p>
 
-            {/* Simple CTA if needed, kept minimal */}
-            {/* <div className="flex items-center gap-6"> ... </div> */}
+            {/* Custom Split-Pill CTA Button */}
+            <Link href="/contact" className="group flex items-center gap-0.5 w-fit">
+              {/* Left Part: Text */}
+              <div className="bg-[#3b82f6] text-white px-8 py-2.5 rounded-bl-3xl rounded-tr-2xl font-medium text-lg transition-all duration-300 group-hover:bg-[#2563eb]">
+                Get in Touch
+              </div>
+              
+              {/* Right Part: Arrow */}
+              <div className="bg-[#3b82f6] text-white p-3.5 rounded-br-2xl rounded-tl-2xl transition-all duration-300 group-hover:bg-[#2563eb] flex items-center justify-center">
+                 <FaArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" />
+              </div>
+            </Link>
+
           </motion.div>
         </div>
 

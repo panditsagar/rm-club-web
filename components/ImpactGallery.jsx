@@ -56,7 +56,7 @@ const ImpactCard = ({ title, description, image, link, isExternal }) => {
 
 export default function ImpactGallery() {
   return (
-    <section className="bg-white py-20 px-6 md:px-12 lg:px-26  ">
+    <section className=" py-20 px-6 md:px-12 lg:px-26  ">
       <div className="max-w-[1500px] mx-auto  ">
         {/* --- SECTION 1: SOCIAL IMPACT (2 Column) --- */}
         <div className="mb-20">

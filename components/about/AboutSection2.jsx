@@ -67,7 +67,7 @@ const AboutSection2 = () => {
   const lineHeight = useTransform(smoothProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <section className="relative w-full bg-white py-10 pb-30">
+    <section className="relative w-full   py-10 pb-30">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
         
       

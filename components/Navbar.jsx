@@ -104,16 +104,16 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 10, scale: 0.98 }}
                   transition={{ duration: 0.2, ease: "easeOut" }}
-                  className="absolute top-16 -left-48 w-[900px] bg-white text-gray-800   rounded-sm overflow-hidden  "
+                  className="absolute top-16 -left-90 w-[900px] bg-[#181818] text-white   rounded-sm overflow-hidden border border-white/10"
                 >
                   <div className="flex h-full">
                     {/* LEFT COLUMN: BRAND CONCEPT */}
-                    <div className="w-[32%] bg-gray-50 p-8 flex flex-col justify-between border-r border-gray-100">
+                    <div className="w-[35%] bg-white/5 p-10 flex flex-col justify-between border-r border-white/5">
                       <div>
-                        <h3 className="text-[#0054A6] font-serif text-xl font-medium mb-3 tracking-tight">
+                        <h3 className="text-[#3b82f6] font-serif text-2xl font-medium mb-4 tracking-tight">
                           The RM Ecosystem
                         </h3>
-                        <p className="text-gray-600 text-sm leading-relaxed mb-6 font-normal">
+                        <p className="text-gray-400 text-[0.9rem] leading-relaxed mb-6 font-normal">
                           A diverse network of enterprises building value across
                           industries, united by a shared vision of impact and
                           excellence.
@@ -122,7 +122,7 @@ export default function Navbar() {
                       <div>
                         <Link
                           href="/companies"
-                          className="text-xs font-bold uppercase tracking-wider text-[#0054A6] flex items-center gap-2 hover:gap-3 transition-all"
+                          className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#3b82f6] hover:gap-3 transition-all duration-300"
                         >
                           View All Ventures <FaArrowRight />
                         </Link>
@@ -130,22 +130,26 @@ export default function Navbar() {
                     </div>
 
                     {/* RIGHT COLUMN: VENTURES GRID */}
-                    <div className="w-[68%] p-8 grid grid-cols-2 gap-x-6 gap-y-4">
-                      {companiesData.map((item) => (
-                        <Link
-                          key={item.id}
-                          href={`/company/${item.id}`}
-                          className="group/item block p-4 rounded-md hover:bg-white hover:shadow-sm border border-transparent hover:border-gray-100 transition-all"
-                        >
-                          <h4 className="text-gray-900 text-[0.95rem] font-semibold group-hover/item:text-[#0054A6] transition-colors flex items-center justify-between">
-                            {item.name}
-                            <FaArrowRight className="w-3 h-3 opacity-0 group-hover/item:opacity-100 -translate-x-2 group-hover/item:translate-x-0 transition-all text-[#0054A6]" />
-                          </h4>
-                          <p className="text-xs text-gray-500 mt-1.5 font-normal line-clamp-1">
-                            {item.tagline}
-                          </p>
-                        </Link>
-                      ))}
+                    <div className="w-[65%] p-8 bg-[#181818]">
+                      <div className="grid grid-cols-2 gap-4">
+                        {companiesData.map((item) => (
+                          <Link
+                            key={item.id}
+                            href={`/company/${item.id}`}
+                            className="group/item relative flex flex-col p-4 rounded-lg hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-white/5"
+                          >
+                            <div className="flex items-center justify-between mb-1">
+                              <h4 className="text-gray-200 text-[0.95rem] font-semibold group-hover/item:text-[#3b82f6] transition-colors">
+                                {item.name}
+                              </h4>
+                              <FaArrowRight className="w-3 h-3 text-[#3b82f6] opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300" />
+                            </div>
+                            <p className="text-xs text-gray-500 font-normal line-clamp-1 group-hover/item:text-gray-400 transition-colors">
+                              {item.tagline}
+                            </p>
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </motion.div>
@@ -158,12 +162,17 @@ export default function Navbar() {
 
         {/* 3. RIGHT ACTIONS */}
         <div className="hidden lg:flex items-center gap-6">
-          <Link
-            href="/contact"
-            className="px-6 py-2.5 bg-[#0054A6] hover:bg-[#004080] text-white font-semibold text-sm rounded-sm shadow-sm transition-all uppercase tracking-wide"
-          >
-            Contact Us
-          </Link>
+        <Link href="/contact" className="group flex items-center gap-0.5 w-fit">
+              {/* Left Part: Text */}
+              <div className="bg-[#3b82f6] text-white px-8 py-2 rounded-bl-2xl rounded-tr-xl font-medium text-md transition-all duration-300 group-hover:bg-[#2563eb]">
+                Contact Us
+              </div>
+              
+              {/* Right Part: Arrow */}
+              <div className="bg-[#3b82f6] text-white p-3 rounded-br-xl rounded-tl-xl transition-all duration-300 group-hover:bg-[#2563eb] flex items-center justify-center">
+                 <FaArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
+              </div>
+            </Link>
         </div>
 
         {/* 4. MOBILE HAMBURGER */}

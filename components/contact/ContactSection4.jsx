@@ -55,7 +55,7 @@ const ContactSection4 = () => {
   };
 
   return (
-    <section className="bg-white pb-20 px-6 lg:px-26 relative z-20">
+    <section className="  pb-20 px-6 lg:px-26 relative z-20">
       <div className="max-w-[1400px] mx-auto">
         {/* Header Section */}
         <div className="mb-12">

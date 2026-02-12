@@ -25,7 +25,7 @@ export default function ContactHero() {
           >
             {/* Using an existing valid hero image */}
             <Image
-              src="/hero/hero1.jpg"
+              src="/contact.png"
               alt="Contact Us"
               fill
               className="object-cover"

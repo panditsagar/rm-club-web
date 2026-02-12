@@ -70,7 +70,7 @@ export default function Section2({ company }) {
   if (!company || !company.features) return null;
 
   return (
-    <div ref={container} className=" relative pb-20 px-5 bg-white">
+    <div ref={container} className=" relative pb-20 px-5  ">
       <div className="max-w-[1300px] mx-auto flex flex-col gap-0">
       
 

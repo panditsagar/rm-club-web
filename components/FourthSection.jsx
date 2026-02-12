@@ -67,7 +67,7 @@ export default function FourthSection() {
   const carouselItems = [...logos, ...logos];
 
   return (
-    <section className="relative w-full bg-white py-20 pb-0   ">
+    <section className="relative w-full  py-20 pb-0   ">
 
       <div className="w-full">
         <h2 className="text-primary-dark pl-5 lg:pl-25 text-start text-4xl lg:text-[2.5rem] tracking-tight leading-none font-switzer font-normal mb-10 lg:mb-16">

@@ -252,7 +252,7 @@ function TeamCard({ member, index }) {
 // --- TeamSection ---
 export default function TeamSection() {
   return (
-    <section className="relative w-full bg-white py-20 pt-0 sm:pt-20 overflow-x-clip text-primary-dark z-20  ">
+    <section className="relative w-full   py-20 pt-0 sm:pt-20 overflow-x-clip text-primary-dark z-20  ">
       
       <div className="max-w-[1400px] mx-auto  pl-10   mb-16 flex justify-between items-end">
         <h2 className="text-start text-3xl md:text-5xl lg:text-[2.5rem] tracking-tight leading-tight font-switzer font-normal max-w-xl mb-6 md:mb-0">

@@ -31,7 +31,7 @@ export default function SecondSection() {
   ];
 
   return (
-    <section className="relative z-40 w-full    bg-white pt-20  ">
+    <section className="relative z-40 w-ful pt-20  ">
       {/* CENTER WRAPPER */}
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
         

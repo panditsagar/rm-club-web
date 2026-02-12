@@ -25,7 +25,7 @@ export default function TeamHero() {
             className="absolute inset-0 z-0 bg-gray-100"
           >
             <Image
-              src="/hero/team_hero.jpg"
+              src="/team.png"
               alt="RM Club Team"
               fill
               className="object-cover"

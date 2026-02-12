@@ -92,7 +92,7 @@ export default function SevenSection() {
  
 
   return (
-    <section className="relative w-full z-30 bg-white py-10 md:py-20 pb-20 md:pb-30 text-primary-dark ">
+    <section className="relative w-full z-30  py-10 md:py-20 pb-20 md:pb-30 text-primary-dark ">
       
       {/* Header Container */}
       <div

@@ -182,7 +182,7 @@ export default function TeamSection() {
    
 
   return (
-    <section className="relative w-full bg-white py-10 pt-20  overflow-hidden text-primary-dark">
+    <section className="relative w-full   py-10 pt-20  overflow-hidden text-primary-dark">
       {/* Header Container */}
       <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-16 px-6 md:px-10">
         <h2 className="text-start text-3xl md:text-5xl lg:text-[2.5rem] tracking-tight leading-tight font-switzer font-normal max-w-xl mb-6 md:mb-0">
