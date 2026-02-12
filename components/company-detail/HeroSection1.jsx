@@ -12,44 +12,7 @@ export default function HeroSection1({ company }) {
 
   return (
     <section className="relative w-full flex flex-col">
-      {/* --- TOP SECTION: CONTENT --- */}
-      <div className="w-full bg-[#ffffff] text-[#0054A6]  pb-10 px-6 lg:px-25 flex flex-col justify-end min-h-[40vh]">
-        <div className="max-w-[1600px] mx-auto w-full">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            
-
-            <h1 className="text-primary-dark text-5xl md:text-6xl lg:text-[3.5rem] font-medium font-serif leading-[1.1] mb-4 tracking-tight">
-              {company?.name}
-            </h1>
-
-            {/* Optional Headline Description if needed in this growing header */}
-             {company?.hero?.headline && (
-              <p className="text-gray-600 text-lg md:text-xl max-w-2xl leading-relaxed  ">
-                 {company.hero.headline}
-              </p>
-             )}
-
-             {/* CTA Button (Optional in this layout, but kept for function) */}
-             {/* 
-            {company?.hero?.cta && (
-              <button className="group relative px-6 py-3 bg-primary hover:bg-primary-dark text-white transition-all duration-300 rounded-full flex items-center gap-2">
-                <span className="text-sm font-medium tracking-wide uppercase">
-                  {company.hero.cta}
-                </span>
-                <FaArrowRight className="w-3 h-3 transform group-hover:translate-x-1 transition-transform" />
-              </button>
-            )}
-            */}
-          </motion.div>
-        </div>
-      </div>
-
-      {/* --- BOTTOM SECTION: IMAGE --- */}
-      <div className="relative w-full h-[50vh] md:h-[60vh] overflow-hidden">
+      <div className="relative w-full h-[50vh] md:h-[70vh] overflow-hidden">
         <AnimatePresence>
           <motion.div
             initial={{ opacity: 0, scale: 1.1 }}
@@ -73,10 +36,45 @@ export default function HeroSection1({ company }) {
               priority
             />
             {/* Optional Subtle Overlay to ensure image doesn't clash if it has white parts */}
-            <div className="absolute inset-0 bg-black/5"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
           </motion.div>
         </AnimatePresence>
       </div>
+      {/* --- TOP SECTION: CONTENT --- */}
+      <div className="w-full bg-[#ffffff] text-[#0054A6]  pt-10 px-6 lg:px-25 flex flex-col justify-end  ">
+        <div className="max-w-[1600px] mx-auto w-full">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h1 className="text-primary-dark text-5xl md:text-6xl lg:text-[3.5rem] font-medium font-serif leading-[1.1] mb-4 tracking-tight">
+              {company?.name}
+            </h1>
+
+            {/* Optional Headline Description if needed in this growing header */}
+            {company?.hero?.headline && (
+              <p className="text-gray-600 text-lg md:text-xl max-w-2xl leading-relaxed  ">
+                {company.hero.headline}
+              </p>
+            )}
+
+            {/* CTA Button (Optional in this layout, but kept for function) */}
+            {/* 
+            {company?.hero?.cta && (
+              <button className="group relative px-6 py-3 bg-primary hover:bg-primary-dark text-white transition-all duration-300 rounded-full flex items-center gap-2">
+                <span className="text-sm font-medium tracking-wide uppercase">
+                  {company.hero.cta}
+                </span>
+                <FaArrowRight className="w-3 h-3 transform group-hover:translate-x-1 transition-transform" />
+              </button>
+            )}
+            */}
+          </motion.div>
+        </div>
+      </div>
+
+      {/* --- BOTTOM SECTION: IMAGE --- */}
     </section>
   );
 }
