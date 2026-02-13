@@ -256,7 +256,7 @@ export default function TeamSection() {
       
       <div className="max-w-[1400px] mx-auto  pl-10   mb-16 flex justify-between items-end">
         <h2 className="text-start text-3xl md:text-5xl lg:text-[2.5rem] tracking-tight leading-tight font-switzer font-normal max-w-xl mb-6 md:mb-0">
-          Meet the Minds Behind <br/> Our Innovation
+          Strategic Leaders Guiding <br />Each Venture
         </h2>
       </div>
 

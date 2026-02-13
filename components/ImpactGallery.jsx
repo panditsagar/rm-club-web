@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaArrowRight, FaExternalLinkAlt } from "react-icons/fa";
 
-const ImpactCard = ({ title, description, image, link, isExternal }) => {
+const ImpactCard = ({ title, description, image }) => {
   return (
     <div className="group relative w-full overflow-hidden h-[400px] md:h-[500px]   shadow-lg">
       {/* Background Image */}
@@ -35,20 +35,6 @@ const ImpactCard = ({ title, description, image, link, isExternal }) => {
         <p className="text-gray-200 text-sm md:text-base font-normal leading-relaxed mb-6 max-w-lg opacity-90 md:hidden block">
           {description}
         </p>
-
-        {/* Floating Button */}
-        {/* <div className="absolute bottom-8 right-8">
-          <Link
-            href={link || "#"}
-            className="flex items-center justify-center w-12 h-12   bg-white rounded-full text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-md transform translate-y-2 group-hover:translate-y-0"
-          >
-            {isExternal ? (
-              <FaExternalLinkAlt size={18} />
-            ) : (
-              <FaArrowRight size={18} />
-            )}
-          </Link>
-        </div> */}
       </div>
     </div>
   );
@@ -61,50 +47,45 @@ export default function ImpactGallery() {
         {/* --- SECTION 1: SOCIAL IMPACT (2 Column) --- */}
         <div className="mb-20">
           <h2 className="text-primary-dark text-4xl md:text-[2.5rem] font-switzer font-normal mb-10 tracking-tight  border-b border-gray-200 pb-6">
-            Social Impact
+            Community & Welfare
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <ImpactCard
-              title="Education"
-              description="Our projects in the area of education are focused on increasing access to quality education for children in rural communities."
+              title="Education & Learning"
+              description="Through Jawa Poonp, RM Club supports community-based learning initiatives focused on foundational education and rural access."
               image="/impact/education.png"
-              link="/social-impact"
               isExternal={true}
             />
             <ImpactCard
-              title="Health"
-              description="We pay special attention to the health needs of vulnerable groups—such as children, women, disabled and the aged."
+              title="Community Support"
+              description="We encourage locally driven welfare efforts that strengthen families, promote awareness, and contribute to long-term community stability."
               image="/impact/health.png"
-              link="/social-impact"
               isExternal={true}
             />
           </div>
-      
         </div>
 
         {/* --- SECTION 2: CORPORATE EXCELLENCE (Mix Grid) --- */}
         <div>
           <h2 className="text-primary-dark text-4xl md:text-[2.5rem] font-switzer font-normal mb-10 tracking-tight  border-b border-gray-200 pb-6">
-            Corporate Excellence
+            Ecosystem Strength
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {/* Large Featured Card */}
             <div className="md:col-span-2">
               <ImpactCard
-                title="Engineering Marvels"
-                description="From megastructures to microchips, we lead in nearly every sphere of business we operate in, serving customers in over 50 countries."
+                title="Multi-Sector Operations"
+                description="RM Club operates independent ventures across media, hospitality, travel, real estate, education, and commerce coordinated through a shared long-term framework."
                 image="/impact/energy.png"
-                link="/projects"
               />
             </div>
 
             {/* Smaller Card */}
             <div className="md:col-span-1">
               <ImpactCard
-                title="Diversity & Inclusion"
-                description="A team of professionals spread across the globe, woven together by a culture of trust."
+                title="Independent Leadership"
+                description="Each venture within RM Club maintains its own leadership while aligning with shared governance principles."
                 image="/impact/diversity.png"
-                link="/careers"
               />
             </div>
           </div>
@@ -114,19 +95,17 @@ export default function ImpactGallery() {
             {/* Smaller Card */}
             <div className="md:col-span-1">
               <ImpactCard
-                title="Diversity & Inclusion"
-                description="A team of professionals spread across the globe, woven together by a culture of trust."
+                title="Responsible Growth"
+                description="We prioritize structured expansion, operational clarity, and sustainability across all RM Club ventures."
                 image="/impact/diversity.png"
-                link="/careers"
               />
             </div>
             {/* Large Featured Card */}
             <div className="md:col-span-2">
               <ImpactCard
-                title="Engineering Marvels"
-                description="From megastructures to microchips, we lead in nearly every sphere of business we operate in, serving customers in over 50 countries."
+                title="Long-Term Value Creation"
+                description="RM Club focuses on building durable enterprises rooted in real demand and community relevance rather than short-term acceleration."
                 image="/impact/energy.png"
-                link="/projects"
               />
             </div>
           </div>

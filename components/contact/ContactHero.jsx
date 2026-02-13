@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function ContactHero() {
   return (
     <section className="relative w-full flex flex-col">
-       <div className="relative w-full h-[50vh] md:h-[70vh] overflow-hidden">
+      <div className="relative w-full h-[50vh] md:h-[70vh] overflow-hidden">
         <AnimatePresence>
           <motion.div
             initial={{ opacity: 0, scale: 1.1 }}
@@ -32,7 +32,7 @@ export default function ContactHero() {
               priority
             />
             {/* Subtle Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
           </motion.div>
         </AnimatePresence>
       </div>
@@ -47,19 +47,17 @@ export default function ContactHero() {
           >
             {/* Main Heading */}
             <h1 className="text-primary-dark text-4xl md:text-6xl lg:text-[3.5rem] font-medium font-serif leading-[1.1] tracking-tight  ">
-              Let's Start a Conversation About Your Future.
+              Connect With the RM Club Ecosystem.
             </h1>
 
             <p className="text-gray-600 text-lg md:text-xl max-w-2xl leading-relaxed font-normal">
-              Whether you have a question about features, pricing, or anything
-              else .
+              For partnerships or venture inquiries, contact our team.
             </p>
           </motion.div>
         </div>
       </div>
 
       {/* --- BOTTOM SECTION: IMAGE --- */}
-     
     </section>
   );
 }

@@ -4,42 +4,39 @@ import Link from "next/link";
 import { FaChevronRight } from "react-icons/fa6";
 
 const InfoCardsSection = () => {
-  const cards = [
-    {
-      id: 1,
-      title: "Markets",
-      description:
-        "Explore the markets in which we operate to see where we are turning clients’ ambitions into action.  career at RM Club could take you.",
-      
-      link: "/markets",
-      bgColor: "bg-[#002B4D]", // Slightly lighter/darker than primary-dark for depth
-    },
-    {
-      id: 2,
-      title: "Careers",
-      description:
-        "Browse our current vacancies and see where a career at RM Club could take you.  career at RM Club could take you.",
-   
-      link: "/careers",
-      bgColor: "bg-[#003366]", // The core primary-dark
-    },
-    {
-      id: 3,
-      title: "Offices",
-      description:
-        "We have offices in different locations. Find one near you.  career at RM Club could take you.",
-       
-      link: "/offices",
-      bgColor: "bg-[#002244]", // Darker shade for depth/gradient feel
-    },
-  ];
+ const cards = [
+  {
+    id: 1,
+    title: "Our Ventures",
+    description:
+      "Discover the independent businesses operating within the RM Club ecosystem across media, hospitality, travel, real estate, education, and commerce.",
+    link: "/ventures",
+    bgColor: "bg-[#002B4D]",
+  },
+  {
+    id: 2,
+    title: "How We Operate",
+    description:
+      "Each venture functions independently while benefiting from shared governance, structured oversight, and long-term strategic alignment.",
+    link: "/about",
+    bgColor: "bg-[#003366]",
+  },
+  {
+    id: 3,
+    title: "Long-Term Vision",
+    description:
+      "RM Club focuses on sustainable growth, responsible expansion, and building real-world enterprises designed to create lasting value.",
+    link: "/vision",
+    bgColor: "bg-[#002244]",
+  },
+];
 
   return (
     <section className="w-full grid grid-cols-1 md:grid-cols-3 ">
       {cards.map((card) => (
         <div
           key={card.id}
-          className={`${card.bgColor} px-8 py-16 md:px-12 md:py-26 flex flex-col  justify-between min-h-[300px] transition-colors duration-300 hover:brightness-110`}
+          className={`${card.bgColor} px-8 py-16 md:px-12 md:py-20 flex flex-col  justify-between min-h-[300px] transition-colors duration-300 hover:brightness-110`}
         >
           <div>
             <h2 className="text-white text-3xl font-serif font-medium mb-6">

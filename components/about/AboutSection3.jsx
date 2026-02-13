@@ -9,37 +9,36 @@ const contentData = [
     id: "vision",
     kicker: "Purpose-driven growth",
     title:
-      "Redefining the digital horizon. Empowering the next generation Empowering the next generation",
+      "Building a unified ecosystem across diverse sectors and industries",
     description:
-      "We envision a world where technology and humanity converge seamlessly. A future where digital tools aren't just utilities, but extensions of human creativity.",
+      "We envision RM Club as a structured network where independent ventures operate with clarity and long-term alignment. A future where growth is coordinated, sustainable, and guided by shared governance.",
     image:
-      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop", // Tech/Globe
+      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop",
     buttonLink: "#",
   },
   {
     id: "philosophy",
     kicker: "Strengthening the core",
     title:
-      "We don't just build software. Empowering the next generation Empowering the next generation",
+      "Independence supported by structure, oversight, and shared direction",
     description:
-      "At RM Club, we believe the future belongs to those who dare to blend human intuition with computational precision. How can we make technology feel less like a tool   ",
+      "At RM Club, we believe resilience comes from balance. Each venture preserves its identity while benefiting from operational discipline, strategic coordination, and long-term planning that reinforces stability.",
     image:
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop", // Team/Collaboration
+      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop",
     buttonLink: "#",
   },
   {
     id: "mission",
     kicker: "Empowering the future",
     title:
-      "Empowering the next generation. Empowering the next generation Empowering the next generation ",
+      "Creating ventures that generate enduring economic and community value",
     description:
-      "Our mission is to arm creators, thinkers, and dreamers with the tools they need to shape the future. We are building the foundation for tomorrow. technology feel less like a tool ",
+      "Our mission is to strengthen businesses through governance, accountability, and responsible expansion. We build ventures that are sustainable, aligned, and positioned for steady growth while contributing to communities.",
     image:
-      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop", // Cyber/Abstract
+      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop",
     buttonLink: "#",
   },
 ];
-
 const AboutSection3 = () => {
   return (
     <section className="w-full   py-20 px-5 md:px-0">
@@ -106,7 +105,7 @@ const AboutSection3 = () => {
                   </span>
 
                   {/* Description (Big Description) */}
-                  <p className="text-xl md:text-2xl lg:text-[2rem] font-medium text-black group-hover:text-white leading-[1.4] mb-8 max-w-xl transition-colors duration-300">
+                  <p className="text-xl md:text-2xl lg:text-[1.8rem] font-medium text-black group-hover:text-white leading-[1.4] mb-8 max-w-xl transition-colors duration-300">
                     {item.description}
                   </p>
                 </motion.div>

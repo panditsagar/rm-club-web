@@ -121,7 +121,7 @@ export default function Navbar() {
                       </div>
                       <div>
                         <Link
-                          href="/companies"
+                          href="#"
                           className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#3b82f6] hover:gap-3 transition-all duration-300"
                         >
                           View All Ventures <FaArrowRight />
@@ -162,17 +162,20 @@ export default function Navbar() {
 
         {/* 3. RIGHT ACTIONS */}
         <div className="hidden lg:flex items-center gap-6">
-        <Link href="/contact" className="group flex items-center gap-0.5 w-fit">
-              {/* Left Part: Text */}
-              <div className="bg-[#3b82f6] text-white px-8 py-2 rounded-bl-2xl rounded-tr-xl font-medium text-md transition-all duration-300 group-hover:bg-[#2563eb]">
-                Contact Us
-              </div>
-              
-              {/* Right Part: Arrow */}
-              <div className="bg-[#3b82f6] text-white p-3 rounded-br-xl rounded-tl-xl transition-all duration-300 group-hover:bg-[#2563eb] flex items-center justify-center">
-                 <FaArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
-              </div>
-            </Link>
+          <Link
+            href="/contact"
+            className="group flex items-center gap-0.5 w-fit"
+          >
+            {/* Left Part: Text */}
+            <div className="bg-[#3b82f6] text-white px-8 py-2 rounded-bl-2xl rounded-tr-xl font-medium text-md transition-all duration-300 group-hover:bg-[#2563eb]">
+              Contact Us
+            </div>
+
+            {/* Right Part: Arrow */}
+            <div className="bg-[#3b82f6] text-white p-3 rounded-br-xl rounded-tl-xl transition-all duration-300 group-hover:bg-[#2563eb] flex items-center justify-center">
+              <FaArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
+            </div>
+          </Link>
         </div>
 
         {/* 4. MOBILE HAMBURGER */}

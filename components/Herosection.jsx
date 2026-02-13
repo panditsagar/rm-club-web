@@ -10,36 +10,29 @@ import { motion, AnimatePresence } from "framer-motion";
 const slides = [
   {
     id: 1,
-    category: "Innovation",
-    title: "A Leap Into History",
+    title: "Building Ventures That Last",
     description:
-      "Bringing together the best people, ideas and technical expertise, we partner with clients to turn ambitions into action. engineering solutions that respect and coexist with our environment.",
-    image: "/contact.png", // Realistic Indian Rocket Launch
-    cta: "See Our Innovation",
+      "RM Club is a multi-venture ecosystem bringing together independent businesses across media, hospitality, travel, real estate, education, and commerce united by long-term thinking and shared governance.",
+    image: "/contact.png",
     zoomDirection: "out",
   },
   {
     id: 2,
-    category: "Sustainability",
-    title: "Harmony With Nature",
+    title: "An Ecosystem, Not Just A Company",
     description:
-      "Creating eco-conscious engineering solutions that respect and coexist with our environment. Bringing together the best people, ideas and technical expertise.  ",
-    image: "/team.png", // Realistic Wetlands with Flamingos
-    cta: "Our Sustainability Goals",
+      "Each RM Club venture operates independently while benefiting from collective experience, structured oversight, and a commitment to sustainable growth.",
+    image: "/team.png",
     zoomDirection: "in",
   },
   {
     id: 3,
-    category: "Urban Planning",
-    title: "Green Infrastructure",
+    title: "Rooted In Real-World Enterprises",
     description:
-      "Reimagining urban spaces where modern architecture and nature thrive in perfect balance. Bringing together the best people, ideas and technical expertise. ",
-    image: "/about.png", // Realistic Indian Smart City
-    cta: "View Projects",
+      "From local media and hospitality to travel and education initiatives, RM Club focuses on building practical, community-driven ventures designed for long-term value.",
+    image: "/about.png",
     zoomDirection: "out",
   },
 ];
-
 export default function Herosection() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -81,7 +74,7 @@ export default function Herosection() {
           />
           {/* Cinema Grade Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
-         </motion.div>
+        </motion.div>
       </AnimatePresence>
 
       {/* --- MAIN CONTENT LAYER --- */}
@@ -103,22 +96,22 @@ export default function Herosection() {
             </p>
 
             {/* Custom Split-Pill CTA Button */}
-            <Link href="/contact" className="group flex items-center gap-0.5 w-fit">
+            <Link
+              href="/contact"
+              className="group flex items-center gap-0.5 w-fit"
+            >
               {/* Left Part: Text */}
               <div className="bg-[#3b82f6] text-white px-8 py-2.5 rounded-bl-3xl rounded-tr-2xl font-medium text-lg transition-all duration-300 group-hover:bg-[#2563eb]">
                 Get in Touch
               </div>
-              
+
               {/* Right Part: Arrow */}
               <div className="bg-[#3b82f6] text-white p-3.5 rounded-br-2xl rounded-tl-2xl transition-all duration-300 group-hover:bg-[#2563eb] flex items-center justify-center">
-                 <FaArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" />
+                <FaArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" />
               </div>
             </Link>
-
           </motion.div>
         </div>
-
-       
 
         {/* NAVIGATION DOTS (Simpler) */}
         <div className="absolute bottom-10 right-10 flex gap-3 z-20">

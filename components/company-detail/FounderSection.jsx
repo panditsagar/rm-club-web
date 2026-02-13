@@ -34,7 +34,7 @@ export default function TeamSection({ company }) {
             className="lg:col-span-4 w-full relative"
           >
             <div className="relative aspect-[4/8] w-full max-h-[450px] overflow-hidden  mx-auto">
-              <Image
+              <Image  
                 src={company.founder.imageUrl}
                 alt={company.founder.name}
                 fill

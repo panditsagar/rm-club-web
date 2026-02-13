@@ -5,139 +5,136 @@ import { FaArrowRight } from "react-icons/fa6";
 
 export default function ThirdSection() {
   return (
-    <section className="relative z-30 w-full min-h-screen   flex flex-col justify-center    px-6 md:px-26">
+    <section className="relative z-30 w-full min-h-screen flex flex-col justify-center px-6 md:px-26">
       <div className="flex flex-col md:flex-row justify-between items-end mb-10 border-b border-gray-200 pb-6">
-        <h1 className="  text-primary-dark text-4xl md:text-5xl lg:text-[2.5rem] tracking-tight leading-tight font-switzer font-normal">
-          We envision a transformative decade ahead
+        <h1 className="text-primary-dark text-4xl md:text-5xl lg:text-[2.5rem] tracking-tight leading-tight font-switzer font-normal">
+          Building an Enduring Ecosystem
         </h1>
       </div>
+
       <div className="max-w-[1400px] w-full flex flex-col lg:flex-row gap-8 lg:gap-16 items-start">
-        {/* LEFT COLUMN - IMAGE CARDS STACK (Fixed Width) */}
+        {/* LEFT COLUMN - IMAGE CARDS STACK */}
         <div className="w-full lg:w-auto flex-none flex flex-col gap-5">
-          {/* CARD 1: Annual Report */}
           <div className="relative w-full lg:w-[380px] h-[400px] group overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-shadow duration-300">
             <img
               src="/seven/corporate.png"
-              alt="Annual Report"
+              alt="Ecosystem Overview"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            {/* Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-90" />
           </div>
 
-          {/* CARD 2: Rankings */}
           <div className="relative w-full lg:w-[380px] h-[400px] group overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-shadow duration-300">
             <img
               src="/seven/realestate.png"
-              alt="Rankings"
+              alt="Real Estate & Enterprise"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            {/* Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-90" />
           </div>
 
-          {/* CARD 3: Sustainability (NEW) */}
           <div className="relative w-full lg:w-[380px] h-[400px] group overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-shadow duration-300">
             <img
               src="/seven/community.png"
-              alt="Sustainability"
+              alt="Community Initiatives"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            {/* Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-90" />
           </div>
         </div>
 
-        {/* RIGHT COLUMN - RICH TEXT CONTENT (Flex Fill) */}
+        {/* RIGHT COLUMN - CONTENT */}
         <div className="flex-1 flex flex-col justify-start text-left pt-2">
-          {/* Intro Text */}
-          <h2 className="text-primary-dark text-2xl lg:text-3xl tracking-tight leading-[1.2] font-switzer font-normal mb-6  ">
-            At RM Club, we believe infrastructure creates opportunity for
-            everyone, improving access and sustaining
-            our planet.
+          <h2 className="text-primary-dark text-2xl lg:text-3xl tracking-tight leading-[1.2] font-switzer font-normal mb-6">
+            At RM Club, we believe structured collaboration creates long-term
+            opportunity strengthening enterprises, supporting communities, and
+            building stability across sectors.
           </h2>
 
-          <p className="text-base text-gray-600 leading-relaxed font-switzer font-normal  ">
-            We’re committed to managing our business with the utmost
-            responsibility and to always strive for better — be that reducing
-            emissions, delivering social value or creating a welcoming
-            workplace. We’re committed to managing our business with
-            the upmost responsibility and to always strive for better — be
-            that reducing emissions, delivering social value or creating a
-            welcoming workplace. We understand both the urgency of the
-            challenges facing our society and our responsibility to act in an
-            impactful and enduring way. We’re leading the change towards a more
-            sustainable and equitable future, partnering with those who want to
-            make a positive difference in the world. We’re listening to
-            clients and the communities we serve in order to improve lives and
-            livelihoods, and to create sustainable legacies for generations to
-            come. Thinking without limits is what keeps us at the
-            vanguard. Ideas have no borders, and this ethos is embedded in our
-            culture. The full scope of our global expertise is available to
-            anyone who needs it, wherever they are based. We’re trusted advisors
-            — planners, designers, engineers, consultants and program and
-            construction managers — delivering professional services spanning
-            cities, transportation, buildings, water, new energy, and the
-            environment. Working throughout the project lifecycle, we’re one
-            team driven by a common purpose to deliver a better world.
-          </p>
-          <p className="text-base text-gray-600 leading-relaxed font-switzer font-normal mb-12">
-            Thinking without limits is what keeps us at the vanguard. Ideas have
-            no borders, and this ethos is embedded in our culture. The full
-            scope of our global expertise is available to anyone who needs it,
-            wherever they are based. The full scope of our global expertise is
-            available to anyone who needs it, wherever they are based.
-            We’re trusted advisors — planners, designers, engineers, consultants
-            and program and construction managers — delivering professional
-            services spanning cities, transportation, buildings, water, new
-            energy, and the environment. Working throughout the project
-            lifecycle, we’re one team driven by a common purpose to deliver a
-            better world.
+          <p className="text-base text-gray-600 leading-relaxed font-switzer font-normal">
+            RM Club operates as a coordinated multi-venture ecosystem spanning
+            media, hospitality, travel, real estate, education, and commerce.
+            Each initiative within the ecosystem maintains its own leadership
+            and operational independence, while aligning with shared governance
+            principles that ensure clarity, accountability, and strategic
+            discipline. Our commitment is not to short-term acceleration, but to
+            sustainable growth that strengthens foundations over time.
           </p>
 
-          {/* History Section */}
-          <h3 className="ext-primary-dark text-2xl lg:text-3xl tracking-tight leading-[1.2] font-switzer font-normal  mb-4">
-           The Story Behind Our Growth
-          </h3>
           <p className="text-base text-gray-600 leading-relaxed font-switzer font-normal mb-12">
-            RM Club launched when a handful of entrepreneurs from diverse
-            industries shared a dream of creating an industry-leading ecosystem
-            dedicated to delivering a better world. Since then, we have grown
-            into a multi-faceted conglomerate acting in an impactful and
-            enduring way. Thinking without limits is what keeps us at the
-            vanguard. Ideas have no borders, and this ethos is embedded in our
-            culture. The full scope of our global expertise is available to
-            anyone who needs it, wherever they are based. The full scope of our
-            global expertise is available to anyone who needs it,
-            wherever they are based. We’re trusted advisors — planners,
-            designers, engineers, consultants and program and construction
-            managers — delivering professional services spanning cities,
-            transportation, buildings, water, new energy, and the environment.
-            
+            We approach development with responsibility and measured intent.
+            Every venture is evaluated not only on commercial performance, but
+            also on its structural resilience, operational maturity, and
+            long-term relevance. Rather than pursuing rapid expansion, we
+            prioritize durability, responsible decision-making, and ecosystem
+            stability. Through disciplined coordination and practical execution,
+            RM Club aims to create enterprises that remain adaptable and
+            community-rooted in a changing environment.
+          </p>
+          <h3 className="text-primary-dark text-2xl lg:text-3xl tracking-tight leading-[1.2] font-switzer font-normal mb-4">
+            The Story Behind Our Growth
+          </h3>
+
+          <p className="text-base text-gray-600 leading-relaxed font-switzer font-normal mb-6">
+            RM Club began when entrepreneurs from diverse industries recognized
+            the value of structured collaboration. Instead of building isolated
+            ventures, they chose to create an ecosystem that would preserve
+            independence while strengthening coordination. Early growth focused
+            on reinforcing operational discipline and aligning long-term
+            objectives before expanding into additional sectors. This measured
+            approach allowed the ecosystem to mature organically, ensuring that
+            each initiative contributed meaningfully to the broader structure.
+            Rather than scaling rapidly, RM Club prioritized clarity in
+            governance, stability in execution, and resilience in operations.
+            Foundations were strengthened before new initiatives were
+            introduced, creating a stable base for sustainable expansion.
           </p>
 
-          {/* Fast Facts Section */}
-          <h3 className="ext-primary-dark text-2xl lg:text-3xl tracking-tight leading-[1.2] font-switzer font-normal mb-4">
-            The essentials you should know before diving deeper.
+          <p className="text-base text-gray-600 leading-relaxed font-switzer font-normal mb-6">
+            As the ecosystem expanded across media, hospitality, travel, real
+            estate, education, and commerce, the balance between autonomy and
+            shared governance became the defining strength of the model. Each
+            venture retained its entrepreneurial identity while benefiting from
+            coordinated oversight and long-term strategic alignment. Growth has
+            remained deliberate and disciplined — guided by real demand,
+            responsible planning, and ecosystem cohesion rather than short-lived
+            momentum. RM Club continues to evolve through thoughtful expansion,
+            ensuring that every new initiative strengthens both its own
+            foundation and the broader network it becomes part of.
+          </p>
+
+          <h3 className="text-primary-dark text-2xl lg:text-3xl tracking-tight leading-[1.2] font-switzer font-normal mb-4">
+            What Defines RM Club
           </h3>
-          <p className="text-base text-gray-600 leading-relaxed font-switzer font-normal mb-12">
-            Thinking without limits is what keeps us at the vanguard. Ideas have
-            no borders, and this ethos is embedded in our culture. The full
-            scope of our global expertise is available to anyone who needs it,
-            wherever they are based. The full scope of our global expertise is
-            available to anyone who needs it, wherever they are based.
-            We’re trusted advisors — planners, designers, engineers, consultants
-            and program and construction managers — delivering professional
-            services spanning cities, transportation, buildings, water, new
-            energy, and the environment. Working throughout the project
-            lifecycle, we’re one team driven by a common purpose to deliver a
-            better world.  Working throughout the project lifecycle, we’re one team driven by a
-            common purpose to deliver a better world. Thinking without limits is
-            what keeps us at the vanguard.  Working throughout the project lifecycle, we’re one team driven by a
-            common purpose to deliver a better world. Thinking without limits is
-            what keeps us at the vanguard.  Working throughout the project lifecycle, we’re one team driven by a
-            common purpose to deliver a better world. Thinking without limits is
-            what keeps us at the vanguard.
+
+          <p className="text-base text-gray-600 leading-relaxed font-switzer font-normal mb-6">
+            RM Club is defined by structure, independence, and long-term
+            discipline. Each venture within the ecosystem operates with
+            autonomous leadership, ensuring entrepreneurial focus and
+            operational agility. At the same time, shared governance principles
+            provide alignment, accountability, and coordinated direction across
+            the broader network.
+          </p>
+
+          <p className="text-base text-gray-600 leading-relaxed font-switzer font-normal mb-6">
+            Strategic clarity remains central to how we function. Decisions are
+            guided by measured planning rather than momentum, and expansion is
+            approached responsibly rather than reactively. This balance between
+            independence and coordination allows RM Club to remain adaptable
+            while maintaining structural stability.
+          </p>
+
+          <p className="text-base text-gray-600 leading-relaxed font-switzer font-normal mb-6">
+            We emphasize long-term value creation over short-term acceleration.
+            Ventures are evaluated not only for commercial performance, but also
+            for operational strength, community relevance, and ecosystem
+            contribution. Sustainable growth, financial prudence, and
+            disciplined execution form the foundation of our decision-making.
+            Ultimately, RM Club is defined by its ability to combine
+            entrepreneurial initiative with institutional oversight fostering
+            innovation while preserving stability. Through this balanced
+            framework, the ecosystem continues to evolve in a deliberate,
+            responsible, and enduring manner.
           </p>
         </div>
       </div>

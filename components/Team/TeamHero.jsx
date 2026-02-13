@@ -31,7 +31,7 @@ export default function TeamHero() {
               className="object-cover"
               priority
             />
-                     <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
           </motion.div>
         </AnimatePresence>
       </div>
@@ -45,11 +45,11 @@ export default function TeamHero() {
           >
             {/* Main Heading with Word Rotator */}
             <h1 className="text-primary-dark text-4xl md:text-6xl lg:text-[3.5rem] font-medium font-serif leading-[1.1] tracking-tight max-w-5xl">
-              Every Step Forward Begins With the.
+              Leadership Drives Sustainable Growth.
             </h1>
 
             <p className="text-gray-600 text-lg md:text-xl max-w-2xl leading-relaxed font-normal">
-              A collective and operators turning signals into scalable outcomes.
+               Founders aligning ventures through structure and discipline.
             </p>
           </motion.div>
         </div>

@@ -6,44 +6,44 @@ import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 const faqs = [
   {
-    question: "What is RM Club AI and how does it work?",
+    question: "What is RM Club?",
     answer:
-      "RM Club AI is an advanced data analytics platform that helps businesses tackle data bottlenecks, streamline analysis, and make smarter decisions through automated insights and intuitive reporting.",
+      "RM Club is a structured multi-venture ecosystem operating across media, hospitality, travel, real estate, commerce, education, and community initiatives. Each venture functions independently while aligning under a shared governance framework.",
   },
   {
-    question: "Which apps can I integrate?",
+    question: "How does RM Club operate?",
     answer:
-      "RM Club AI supports 50+ integrations, including Slack, HubSpot, Zendesk, Salesforce, Google Workspace, WhatsApp, Zapier, and more.",
+      "RM Club follows a coordinated model where independent ventures maintain operational autonomy while benefiting from centralized oversight, strategic alignment, and long-term planning discipline.",
   },
   {
-    question: "How does RM Club AI automate tasks?",
+    question: "Is RM Club a holding company?",
     answer:
-      "Our platform uses intelligent agents to automate repetitive data entry, report generation, and notification workflows, freeing up your team to focus on strategic initiatives.",
+      "RM Club functions as an ecosystem platform rather than a traditional holding entity. It provides governance structure, strategic direction, and coordination across ventures while preserving independent leadership.",
   },
   {
-    question: "Is my data secure with RM Club AI?",
+    question: "Which sectors does RM Club operate in?",
     answer:
-      "Yes, we prioritize security with enterprise-grade encryption, SOC 2 compliance, and regular security audits to ensure your data remains protected at all times.",
+      "The ecosystem spans hospitality, media platforms, travel initiatives, real estate development, commerce operations, education programs, and community-driven ventures.",
   },
   {
-    question: "What kind of support do you offer?",
+    question: "Does RM Club support new ventures?",
     answer:
-      "We offer 24/7 customer support via chat and email, along with a comprehensive knowledge base and dedicated account managers for enterprise plans.",
+      "New initiatives may be considered when aligned with long-term ecosystem objectives, operational discipline, and sustainable growth principles.",
   },
   {
-    question: "How does RM Club AI automate tasks?",
+    question: "How can I collaborate with RM Club?",
     answer:
-      "Our platform uses intelligent agents to automate repetitive data entry, report generation, and notification workflows, freeing up your team to focus on strategic initiatives.",
+      "Partnership and collaboration inquiries can be submitted through the contact page. Opportunities are evaluated based on alignment with ecosystem strategy and governance standards.",
   },
   {
-    question: "Is my data secure with RM Club AI?",
+    question: "Is RM Club focused on long-term growth?",
     answer:
-      "Yes, we prioritize security with enterprise-grade encryption, SOC 2 compliance, and regular security audits to ensure your data remains protected at all times.",
+      "Yes. The ecosystem prioritizes structured expansion, financial prudence, and sustainable scaling over rapid short-term acceleration.",
   },
   {
-    question: "What kind of support do you offer?",  
+    question: "Where can I learn more about individual ventures?",
     answer:
-      "We offer 24/7 customer support via chat and email, along with a comprehensive knowledge base and dedicated account managers for enterprise plans.",
+      "Detailed information about each initiative is available under the Our Ventures section, outlining leadership, operations, and sector focus.",
   },
 ];
 
