@@ -20,7 +20,7 @@ export default function Home() {
       {/* ================= CONTENT ================= */}
       <section className="content">
         <SecondSection />
-        <ImpactGallery />
+        {/* <ImpactGallery /> */}
         <ThirdSection />
         <FourthSection />
        

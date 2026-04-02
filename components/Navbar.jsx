@@ -167,12 +167,12 @@ export default function Navbar() {
             className="group flex items-center gap-0.5 w-fit"
           >
             {/* Left Part: Text */}
-            <div className="bg-[#3b82f6] text-white px-8 py-2 rounded-bl-2xl rounded-tr-xl font-medium text-md transition-all duration-300 group-hover:bg-[#2563eb]">
+            <div className="bg-[#3b82f6] text-white px-8 py-2  font-medium text-md transition-all duration-300 group-hover:bg-[#2563eb]">
               Contact Us
             </div>
 
             {/* Right Part: Arrow */}
-            <div className="bg-[#3b82f6] text-white p-3 rounded-br-xl rounded-tl-xl transition-all duration-300 group-hover:bg-[#2563eb] flex items-center justify-center">
+            <div className="bg-[#3b82f6] text-white p-3  transition-all duration-300 group-hover:bg-[#2563eb] flex items-center justify-center">
               <FaArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
             </div>
           </Link>
