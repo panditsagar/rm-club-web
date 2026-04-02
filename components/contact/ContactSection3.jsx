@@ -83,7 +83,7 @@ export default function FourthSection() {
                   className="group relative flex items-center cursor-pointer justify-center w-[150px] h-[140px] sm:w-[260px] sm:h-[250px] shrink-0 border-r border-gray-200 transition-all duration-300 hover:bg-white"
                 >
                   {/* LOGO CONTENT */}
-                  <div className="group-hover:translate-y-[-5px] transition-transform duration-300">
+                  <div className="group-hover:translate-y-[-5px] transition-transform duration-300 font-serif">
                     {item.content}
                   </div>
  

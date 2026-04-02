@@ -101,12 +101,12 @@ export default function Herosection() {
               className="group flex items-center gap-0.5 w-fit"
             >
               {/* Left Part: Text */}
-              <div className="bg-[#3b82f6] text-white px-8 py-2.5  font-medium text-lg transition-all duration-300 group-hover:bg-[#2563eb]">
+              <div className="bg-[#4F55F1] font-serif text-white px-8 py-2.5  font-medium text-lg transition-all duration-300 group-hover:bg-[#2563eb]">
                 Get in Touch
               </div>
 
               {/* Right Part: Arrow */}
-              <div className="bg-[#3b82f6] text-white p-3.5   transition-all duration-300 group-hover:bg-[#2563eb] flex items-center justify-center">
+              <div className="bg-[#4F55F1] text-white p-3.5   transition-all duration-300 group-hover:bg-[#2563eb] flex items-center justify-center">
                 <FaArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" />
               </div>
             </Link>

@@ -78,15 +78,15 @@ export default function Navbar() {
             onMouseEnter={() => setIsOpen(true)}
             onMouseLeave={() => setIsOpen(false)}
           >
-            <button className="flex items-center gap-1 hover:text-[#0054A6] transition-colors focus:outline-none">
-              <span>Our Ventures</span>
+            <button className="flex items-center gap-1 cursor-pointer hover:text-[#0054A6] transition-colors focus:outline-none">
+              <span className="font-serif text-lg">Businesses</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={2}
                 stroke="currentColor"
-                className={`w-3 h-3 transition-transform duration-300 ${isOpen ? "rotate-180 text-[#0054A6]" : ""}`}
+                className={`w-4 h-4 transition-transform duration-300 ${isOpen ? "rotate-180 text-[#0054A6]" : ""}`}
               >
                 <path
                   strokeLinecap="round"
@@ -104,7 +104,7 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 10, scale: 0.98 }}
                   transition={{ duration: 0.2, ease: "easeOut" }}
-                  className="absolute top-16 -left-90 w-[900px] bg-[#181818] text-white   rounded-sm overflow-hidden border border-white/10"
+                  className="absolute top-18 -left-90 w-[900px] bg-[#181818] text-white   rounded-sm overflow-hidden border border-white/10"
                 >
                   <div className="flex h-full">
                     {/* LEFT COLUMN: BRAND CONCEPT */}
@@ -167,12 +167,12 @@ export default function Navbar() {
             className="group flex items-center gap-0.5 w-fit"
           >
             {/* Left Part: Text */}
-            <div className="bg-[#3b82f6] text-white px-8 py-2  font-medium text-md transition-all duration-300 group-hover:bg-[#2563eb]">
+            <div className="bg-[#4F55F1] font-serif text-white text-lg px-8 py-2  font-medium text-md transition-all duration-300 group-hover:bg-[#2563eb]">
               Contact Us
             </div>
 
             {/* Right Part: Arrow */}
-            <div className="bg-[#3b82f6] text-white p-3  transition-all duration-300 group-hover:bg-[#2563eb] flex items-center justify-center">
+            <div className="bg-[#4F55F1] font-serif text-white p-3.5  transition-all duration-300 group-hover:bg-[#2563eb] flex items-center justify-center">
               <FaArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
             </div>
           </Link>
@@ -232,9 +232,9 @@ export default function Navbar() {
             <div className="flex flex-col w-full border-b border-white/10 pb-4">
               <button
                 onClick={() => setIsMobileDropdownOpen(!isMobileDropdownOpen)}
-                className="text-2xl font-bold flex items-center justify-between w-full hover:text-[#0054A6] transition-colors"
+                className="text-lg font-serif  flex items-center justify-between w-full hover:text-[#0054A6] transition-colors"
               >
-                Our Ventures
+                Businesses
                 <motion.svg
                   animate={{ rotate: isMobileDropdownOpen ? 180 : 0 }}
                   xmlns="http://www.w3.org/2000/svg"
@@ -301,7 +301,7 @@ export default function Navbar() {
 function NavLink({ href, children }) {
   return (
     <Link href={href} className="relative group py-2">
-      <span className="group-hover:text-[#0054A6] transition-colors">
+      <span className="group-hover:text-[#0054A6] transition-colors font-serif text-lg" >
         {children}
       </span>
       <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#0054A6] transition-all duration-300 group-hover:w-full"></span>
