@@ -1,21 +1,20 @@
 import React from "react";
 import ContactHero from "@/components/contact/ContactHero";
+import ContactConnectSection from "@/components/contact/ContactConnectSection";
 import ContactFormSection from "@/components/contact/ContactFormSection";
 import ContactMapSection from "@/components/contact/ContactMapSection";
-import TeamHero2 from "@/components/Team/TeamHero2";
+import OfficeLocationsSection from "@/components/contact/OfficeLocationsSection";
 import CTASection from "@/components/CTASection";
-import ContactSection3 from "@/components/contact/ContactSection3";
-import ContactSection4 from "@/components/contact/ContactSection4";
-const page = () => {
+ const page = () => {
   return (
     <div>
       <ContactHero />
+      <ContactConnectSection />
       <ContactFormSection />
       <ContactMapSection />
+      <OfficeLocationsSection />
       {/* ================= CONTENT ================= */}
       <section className="content">
-        <ContactSection3 />
-        <ContactSection4 />
         <CTASection />
       </section>
     </div>

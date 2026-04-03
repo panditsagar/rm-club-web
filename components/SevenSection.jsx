@@ -52,9 +52,9 @@ const insights = [
 // --- InsightCard with Responsive Width ---
 function InsightCard({ item }) {
   return (
-    <div className="group flex flex-col cursor-pointer shrink-0 relative w-full">
+    <div className="group flex flex-col cursor-pointer shrink-0 relative w-full ">
       {/* Main Container */}
-      <div className="relative w-full h-[460px] bg-gray-100 overflow-hidden shadow-md group-hover:shadow-2xl transition-all duration-300">
+      <div className="relative w-full h-[500px]  overflow-hidden shadow-md group-hover:shadow-2xl transition-all duration-300">
         
         {/* IMAGE BACKGROUND */}
         <div
@@ -69,7 +69,7 @@ function InsightCard({ item }) {
         <div className="absolute inset-0 bg-[#0054A6]/90 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-in-out z-10"></div>
         
         {/* CONTENT */}
-        <div className="absolute inset-0 p-8 pb-32 flex flex-col justify-end items-start text-start z-20 transition-all duration-500 translate-y-[28%] group-hover:translate-y-0">
+        <div className="absolute inset-0 p-8 pb-40 flex flex-col justify-end items-start text-start z-20 transition-all duration-500 translate-y-[28%] group-hover:translate-y-0">
           
         
            <span className="inline-block bg-white/20 text-white text-xs font-bold px-3 py-1.5 mb-4 w-fit uppercase tracking-wider backdrop-blur-sm shadow-sm opacity-100 group-hover:opacity-100 transition-opacity">
@@ -92,13 +92,13 @@ export default function SevenSection() {
  
 
   return (
-    <section className="relative w-full z-30  py-10 md:py-20 pb-20 md:pb-30 text-primary-dark ">
+    <section className="relative w-full z-30  py-10 md:py-20 pb-20  text-primary-dark bg-[#F2F4FA]">
       
       {/* Header Container */}
       <div
         className="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-start md:items-end mb-8 md:mb-16 px-6 md:px-10"
       >
-        <h2 className="text-start text-3xl md:text-5xl lg:text-[2.5rem] tracking-tight leading-tight font-switzer font-normal max-w-xl mb-6 lg:mb-0">
+        <h2 className="text-[#0f172a] text-4xl md:text-5xl font-bold tracking-tight mb-6 lg:mb-0">
           Ecosystem Updates
         </h2>
 

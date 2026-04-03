@@ -1,61 +1,72 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
 export default function TeamHero() {
   return (
-    <section className="relative w-full flex flex-col">
-      {/* --- TOP SECTION: CONTENT --- */}
-      <div className="relative w-full h-[50vh] md:h-[70vh] overflow-hidden">
-        <AnimatePresence>
-          <motion.div
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              opacity: { duration: 1.5, ease: "easeInOut" },
-              scale: {
-                duration: 20.0, // Slow, continuous zoom (Ken Burns)
-                ease: "linear",
-                repeat: Infinity,
-                repeatType: "mirror",
-              },
-            }}
-            className="absolute inset-0 z-0 bg-gray-100"
-          >
-            <Image
-              src="/team.png"
-              alt="RM Club Team"
-              fill
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
-          </motion.div>
-        </AnimatePresence>
-      </div>
-      <div className="w-full   text-[#0054A6] pt-10  px-6 lg:px-25 flex flex-col justify-end ">
+    <section className="relative w-full h-[50vh] min-h-[400px] md:h-[75vh] flex flex-col justify-end overflow-hidden bg-[#0a1118]">
+      {/* --- BACKGROUND IMAGE & OVERLAY --- */}
+      <AnimatePresence>
+        <motion.div
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            opacity: { duration: 1.5, ease: "easeInOut" },
+            scale: {
+              duration: 20.0,
+              ease: "linear",
+              repeat: Infinity,
+              repeatType: "mirror",
+            },
+          }}
+          className="absolute inset-0 z-0"
+        >
+          <Image
+            src="/team.png"
+            alt="RM Club Team"
+            fill
+            className="object-cover"
+            priority
+          />
+          {/* Deep dark gradient exactly like the reference image (darker on left) */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#030712] via-[#030712]/80 to-transparent"></div>
+        </motion.div>
+      </AnimatePresence>
+
+      {/* --- FOREGROUND CONTENT (On Top of Image) --- */}
+      <div className="relative z-10 w-full px-6 md:px-16 lg:px-24 pb-12 md:pb-20">
         <div className="max-w-[1400px] mx-auto w-full">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="flex flex-col gap-6"
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex flex-col "
           >
-            {/* Main Heading with Word Rotator */}
-            <h1 className="text-primary-dark text-4xl md:text-6xl lg:text-[3.5rem] font-medium font-serif leading-[1.1] tracking-tight max-w-5xl">
+            {/* Main Heading -> correctly layered over the Hero Background */}
+            <h1 className="text-white text-5xl md:text-6xl lg:text-[3rem]  font-bold tracking-tight mb-6">
               Leadership Drives Sustainable Growth.
             </h1>
 
-            <p className="text-gray-600 text-lg md:text-xl max-w-2xl leading-relaxed font-normal">
-               Founders aligning ventures through structure and discipline.
-            </p>
+            {/* Dashed Divider exactly like reference image */}
+            <div className="w-full   border-t border-dashed border-[#334155]/80 mb-4"></div>
+
+            {/* Breadcrumb Navigation matching reference image */}
+            <div className="flex items-center gap-3 text-sm md:text-base font-serif tracking-wide">
+              <Link
+                href="/"
+                className="text-[#a8b1bd] hover:text-white transition-colors text-sm"
+              >
+                Home
+              </Link>
+              <span className="text-[#a8b1bd] text-lg">»</span>
+              <span className="text-white ">Our Team</span>
+            </div>
           </motion.div>
         </div>
       </div>
-
-      {/* --- BOTTOM SECTION: IMAGE --- */}
     </section>
   );
 }

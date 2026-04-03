@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   FaCheckCircle,
   FaExclamationCircle,
-  FaPaperPlane,
 } from "react-icons/fa";
 
 const ContactForm = () => {
@@ -63,178 +62,144 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="w-full bg-[#E9EDEE]   border border-gray-100 p-6 sm:p-10 lg:p-10 relative overflow-hidden">
-      <div className="mb-8 text-center md:text-left">
-        <h2 className="text-3xl font-serif font-bold text-primary-dark mb-2">
-          Send us a Message
-        </h2>
-        <p className="text-gray-500">
-          We'd love to hear from you. Fill out the form below.
-        </p>
+    <div className="w-full h-full flex flex-col pt-12 md:pt-10 pb-0">
+      
+      {/* Top Header Row */}
+      <div className="flex justify-between items-start w-full px-8 md:px-12 mb-10">
+        <div className="flex items-center gap-2 text-white/90 uppercase tracking-[0.15em] text-sm font-medium">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="13 17 18 12 13 7"></polyline>
+            <polyline points="6 17 11 12 6 7"></polyline>
+          </svg>
+          <span className="pt-0.5">Contact Us</span>
+        </div>
+        
       </div>
 
-      <form onSubmit={handleSubmit} className="relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-          <div className="flex flex-col gap-4">
-            <label
-              htmlFor="firstName"
-              className="text-primary-dark text-sm font-medium ml-1"
-            >
-              First Name*
-            </label>
+      <div className="mb-10 text-left px-8 md:px-12">
+        <h2 className="text-[38px] md:text-[44px] font-bold text-white mb-2 leading-[1.2] tracking-tight">
+          Have Questions?<br />
+          Get In Touch!
+        </h2>
+      </div>
+
+      <form onSubmit={handleSubmit} className="flex flex-col flex-1 relative z-10 w-full mt-2">
+        <div className="px-8 md:px-12 flex flex-col gap-4 mb-6">
             <input
               type="text"
-              id="firstName"
               name="firstName"
-              placeholder="John"
+              placeholder="First Name"
               value={formData.firstName}
               onChange={handleChange}
-              className="w-full bg-gray-50 border border-gray-200 px-4 py-3.5 text-gray-800   focus:outline-none focus:border-primary focus:ring-1 focus:ring-[#0054A6] transition-all duration-300 placeholder:text-gray-400"
+              className="w-full bg-transparent border border-white/60 px-4 py-4 text-white focus:outline-none focus:border-white transition-all duration-300 placeholder:text-white/80"
               required
             />
-          </div>
-          <div className="flex flex-col gap-4">
-            <label
-              htmlFor="lastName"
-              className="text-primary-dark text-sm font-medium ml-1"
-            >
-              Last Name*
-            </label>
             <input
               type="text"
-              id="lastName"
               name="lastName"
-              placeholder="Doe"
+              placeholder="Last Name"
               value={formData.lastName}
               onChange={handleChange}
-              className="w-full bg-gray-50 border border-gray-200 px-4 py-3.5 text-gray-800   focus:outline-none focus:border-primary focus:ring-1 focus:ring-[#0054A6] transition-all duration-300 placeholder:text-gray-400"
+              className="w-full bg-transparent border border-white/60 px-4 py-4 text-white focus:outline-none focus:border-white transition-all duration-300 placeholder:text-white/80"
               required
             />
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-          <div className="flex flex-col gap-4">
-            <label
-              htmlFor="email"
-              className="text-primary-dark text-sm font-medium ml-1"
-            >
-              Email Address*
-            </label>
             <input
               type="email"
-              id="email"
               name="email"
-              placeholder="john@example.com"
+              placeholder="Email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full bg-gray-50 border border-gray-200 px-4 py-3.5 text-gray-800   focus:outline-none focus:border-primary focus:ring-1 focus:ring-[#0054A6] transition-all duration-300 placeholder:text-gray-400"
+              className="w-full bg-transparent border border-white/60 px-4 py-4 text-white focus:outline-none focus:border-white transition-all duration-300 placeholder:text-white/80"
               required
             />
-          </div>
-          <div className="flex flex-col gap-4">
-            <label
-              htmlFor="phone"
-              className="text-primary-dark text-sm font-medium ml-1"
-            >
-              Phone Number*
-            </label>
             <input
               type="tel"
-              id="phone"
               name="phone"
-              placeholder="+1 (555) 000-0000"
+              placeholder="Phone Number / Subject"
               value={formData.phone}
               onChange={handleChange}
-              className="w-full bg-gray-50 border border-gray-200 px-4 py-3.5 text-gray-800  focus:outline-none focus:border-primary focus:ring-1 focus:ring-[#0054A6] transition-all duration-300 placeholder:text-gray-400"
+              className="w-full bg-transparent border border-white/60 px-4 py-4 text-white focus:outline-none focus:border-white transition-all duration-300 placeholder:text-white/80"
             />
-          </div>
-        </div>
+            <textarea
+              name="message"
+              placeholder="Message"
+              value={formData.message}
+              onChange={handleChange}
+              rows="4"
+              className="w-full bg-transparent border border-white/60 px-4 py-4 text-white focus:outline-none focus:border-white transition-all duration-300 resize-none placeholder:text-white/80"
+              required
+            ></textarea>
 
-        <div className="flex flex-col gap-4 mb-8">
-          <label
-            htmlFor="message"
-            className="text-primary-dark text-sm font-medium ml-1"
-          >
-            Message*
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            placeholder="Tell us about your project or inquiry..."
-            value={formData.message}
-            onChange={handleChange}
-            rows="5"
-            className="w-full bg-gray-50 border border-gray-200 px-4 py-3.5 text-gray-800  focus:outline-none focus:border-primary focus:ring-1 focus:ring-[#0054A6] transition-all duration-300 resize-none placeholder:text-gray-400"
-            required
-          ></textarea>
+            {/* Checkbox */}
+            <div className="flex items-center gap-3 mt-1 mb-2">
+               <input type="checkbox" required className="w-4 h-4 cursor-pointer accent-[#5B55FA] bg-white border-none" />
+               <p className="text-[14px] font-medium text-white">I agree that my submitted data is being collected and stored.</p>
+            </div>
         </div>
 
         {/* FEEDBACK MESSAGES */}
-        <AnimatePresence mode="wait">
-          {status === "success" && (
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0 }}
-              className="mb-6 p-4 bg-green-50 border border-green-200   flex items-center gap-3 text-green-700"
-            >
-              <FaCheckCircle className="shrink-0" />
-              <p className="text-sm font-medium">
-                Message sent successfully! We'll get back to you shortly.
-              </p>
-            </motion.div>
-          )}
+        <div className="px-8 md:px-12">
+            <AnimatePresence mode="wait">
+              {status === "success" && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  className="mb-6 p-4 bg-white/20 border border-white/40 text-white flex items-center gap-3"
+                >
+                  <FaCheckCircle className="shrink-0" />
+                  <p className="text-sm font-medium">Message sent successfully!</p>
+                </motion.div>
+              )}
 
-          {status === "error" && (
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0 }}
-              className="mb-6 p-4 bg-red-50 border border-red-200   flex items-center gap-3 text-red-700"
-            >
-              <FaExclamationCircle className="shrink-0" />
-              <p className="text-sm font-medium">{errorMessage}</p>
-            </motion.div>
-          )}
-        </AnimatePresence>
+              {status === "error" && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  className="mb-6 p-4 bg-red-500/20 border border-red-500/40 text-white flex items-center gap-3"
+                >
+                  <FaExclamationCircle className="shrink-0" />
+                  <p className="text-sm font-medium">{errorMessage}</p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+        </div>
 
+        {/* Spacer to push button to absolute bottom */}
+        <div className="flex-1"></div>
+
+        {/* Submit Button touching the very bottom! */}
         <button
           disabled={status === "submitting" || status === "success"}
           className={`
-            relative w-full px-6 py-4  font-bold text-lg uppercase tracking-wider
-            flex items-center justify-center gap-2 overflow-hidden group transition-all duration-300 cursor-pointer
+            w-full py-4.5 px-8 md:px-12 font-semibold text-[16px] cursor-pointer text-white flex items-center justify-between transition-colors
             ${
               status === "success"
-                ? "bg-green-600 text-white cursor-default"
-                : "  text-[#0054A6] hover:text-white hover:bg-[#0054A6]  border border-[#0054A6]  "
+                ? "bg-green-500 cursor-default"
+                : "bg-[#5B55FA] hover:bg-[#4E48D6]"
             }
             ${status === "submitting" ? "opacity-80 cursor-wait" : ""}
           `}
         >
           {status === "submitting" ? (
-            <>
+            <span className="flex items-center gap-2">
               <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
               <span>Sending...</span>
-            </>
+            </span>
           ) : status === "success" ? (
-            <>
-              <FaCheckCircle /> Sent
-            </>
+             <span className="flex items-center gap-2">
+               <FaCheckCircle /> <span className="pt-0.5">Sent Successfully</span>
+             </span>
           ) : (
             <>
-              <span>Send Message</span>
-              <FaPaperPlane className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              <span className="pt-0.5 tracking-wide">Send Message</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
             </>
           )}
         </button>
-
-        <p className="text-center text-sm text-gray-400 mt-6 font-switzer">
-          By submitting this form you agree to our{" "}
-          <span className="text-primary hover:text-primary-dark underline cursor-pointer transition-colors font-medium">
-            Privacy Policy
-          </span>
-        </p>
       </form>
     </div>
   );

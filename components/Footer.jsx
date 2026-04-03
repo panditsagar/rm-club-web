@@ -8,7 +8,7 @@ import { FaXTwitter } from "react-icons/fa6";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#181818] text-white pt-16 pb-8 border-t-2 border-[#0054A6] font-switzer">
+    <footer className="bg-[#181818] text-white pt-16 pb-8 border-t border-[#bdbfc1] font-switzer">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
         
         {/* TOP ROW: LOGO & LINKS */}

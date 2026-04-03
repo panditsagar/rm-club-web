@@ -48,8 +48,8 @@ export default function Navbar() {
     <div
       className={`fixed top-0 left-0 w-full z-[100] font-switzer transition-all duration-300 ${
         showDarkNav
-          ? "bg-black/60 backdrop-blur-lg shadow-lg py-2"
-          : "bg-transparent py-2 border-b border-white/20"
+          ? "bg-black/60 backdrop-blur-lg shadow-lg py-4"
+          : "bg-transparent py-4 border-b border-white/20"
       }`}
     >
       <nav className="w-full px-6 lg:px-20 flex items-center justify-between relative z-50">
@@ -78,8 +78,8 @@ export default function Navbar() {
             onMouseEnter={() => setIsOpen(true)}
             onMouseLeave={() => setIsOpen(false)}
           >
-            <button className="flex items-center gap-1 cursor-pointer hover:text-[#0054A6] transition-colors focus:outline-none">
-              <span className="font-serif text-lg">Businesses</span>
+            <button className="flex items-center gap-1 cursor-pointer hover:text-[#4F55E4] transition-colors focus:outline-none">
+              <span className="font-serif  text-[1rem]">Businesses</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -167,12 +167,12 @@ export default function Navbar() {
             className="group flex items-center gap-0.5 w-fit"
           >
             {/* Left Part: Text */}
-            <div className="bg-[#4F55F1] font-serif text-white text-lg px-8 py-2  font-medium text-md transition-all duration-300 group-hover:bg-[#2563eb]">
+            <div className="bg-[#4F55F1] font-serif text-white text-lg px-8 py-2.5  font-medium text-md transition-all duration-300 group-hover:bg-[#2563eb]">
               Contact Us
             </div>
 
             {/* Right Part: Arrow */}
-            <div className="bg-[#4F55F1] font-serif text-white p-3.5  transition-all duration-300 group-hover:bg-[#2563eb] flex items-center justify-center">
+            <div className="bg-[#4F55F1] font-serif text-white p-4  transition-all duration-300 group-hover:bg-[#2563eb] flex items-center justify-center">
               <FaArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
             </div>
           </Link>
@@ -232,7 +232,7 @@ export default function Navbar() {
             <div className="flex flex-col w-full border-b border-white/10 pb-4">
               <button
                 onClick={() => setIsMobileDropdownOpen(!isMobileDropdownOpen)}
-                className="text-lg font-serif  flex items-center justify-between w-full hover:text-[#0054A6] transition-colors"
+                className="text-lg font-serif  flex items-center justify-between w-full hover:text-[#4F55E4] transition-colors"
               >
                 Businesses
                 <motion.svg
@@ -301,10 +301,10 @@ export default function Navbar() {
 function NavLink({ href, children }) {
   return (
     <Link href={href} className="relative group py-2">
-      <span className="group-hover:text-[#0054A6] transition-colors font-serif text-lg" >
+      <span className="group-hover:text-[#4F55F1] transition-colors font-serif text-[1rem]" >
         {children}
       </span>
-      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#0054A6] transition-all duration-300 group-hover:w-full"></span>
+      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#4F55E4] transition-all duration-300 group-hover:w-full"></span>
     </Link>
   );
 }

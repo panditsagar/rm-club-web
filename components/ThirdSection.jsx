@@ -5,9 +5,9 @@ import { FaArrowRight } from "react-icons/fa6";
 
 export default function ThirdSection() {
   return (
-    <section className="relative z-30 w-full min-h-screen flex flex-col justify-center px-6 md:px-26">
+    <section className="relative z-30 w-full min-h-screen flex flex-col justify-center px-6 md:px-26 pt-10">
       <div className="flex flex-col md:flex-row justify-between items-end mb-10 border-b border-gray-200 pb-6">
-        <h1 className="text-primary-dark text-4xl md:text-5xl lg:text-[2.5rem] tracking-tight leading-tight font-switzer font-normal">
+        <h1 className="text-[#0f172a] text-4xl md:text-5xl font-bold tracking-tight">
           Building an Enduring Ecosystem
         </h1>
       </div>
