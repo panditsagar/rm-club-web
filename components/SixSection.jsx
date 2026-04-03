@@ -10,32 +10,28 @@ const teamMembers = [
     id: 1,
     name: "Emily Tran",
     role: "Managing Director",
-    image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop",
-    isCircle: true,
+    image: "/team/sarita.webp",
+     isCircle: true,
   },
   {
     id: 2,
     name: "Rachel Lee",
     role: "Vice President",
-    image:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=600&auto=format&fit=crop",
+      image: "/team/sanjay.webp",
     isCircle: true,
   },
   {
     id: 3,
     name: "James Nguyen",
     role: "Senior Advisor Associate",
-    image:
-      "https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=600&auto=format&fit=crop",
+   image: "/team/prakash.webp",
     isCircle: true,
   },
   {
     id: 4,
     name: "Daniel Kim",
     role: "Vice President",
-    image:
-      "https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?q=80&w=600&auto=format&fit=crop",
+       image: "/team/prakash.webp",
     isCircle: true,
   },
 ];
