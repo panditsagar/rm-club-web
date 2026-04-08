@@ -22,7 +22,7 @@ export default function TeamSection({ company }) {
 
   return (
     <section className="  py-12 lg:py-16">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-20">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* --- Left Column: Image (5 cols) --- */}
           <motion.div

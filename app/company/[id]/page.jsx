@@ -5,8 +5,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import { companiesData } from "@/lib/constants";
 import HeroSection1 from "@/components/company-detail/HeroSection1";
-import Section2 from "@/components/company-detail/Section2";
-import CTASection from "@/components/CTASection";
+ import CTASection from "@/components/CTASection";
 import Section3 from "@/components/company-detail/Section3";
 import FounderSection from "@/components/company-detail/FounderSection";
 import GallerySection from "@/components/company-detail/GallerySection";
@@ -30,7 +29,7 @@ export default function App() {
       {/* ================= CONTENT ================= */}
       <section className="relative z-20  ">
         <Section3 company={company} />
-        <Section2 company={company}  />
+       
         
         <FounderSection company={company} />
         <GallerySection company={company} />
