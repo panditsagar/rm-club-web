@@ -10,7 +10,7 @@ const teamMembers = [
     id: 1,
     name: "Emily Tran",
     role: "Managing Director",
-    image: "/team/sarita.webp",
+    image: "/team/ceo.png",
      isCircle: true,
   },
   {
@@ -71,22 +71,14 @@ export default function SixSection() {
               <div className="flex-1 w-full relative overflow-hidden">
                 <div
                   className={`absolute inset-0 w-full h-full transition-all duration-[700ms] ease-[cubic-bezier(0.4,0,0.2,1)]
-                    ${
-                      member.isCircle
-                        ? "[clip-path:circle(110px_at_50%_50%)] group-hover:[clip-path:circle(150%_at_50%_50%)]"
-                        : "[clip-path:circle(150%_at_50%_50%)]"
-                    }
+                  
                   `}
                 >
                   <img
                     src={member.image}
                     alt={member.name}
                     className={`w-full h-full object-cover transition-transform duration-[700ms] ease-[cubic-bezier(0.4,0,0.2,1)]
-                      ${
-                        member.isCircle
-                          ? "scale-110 group-hover:scale-100"
-                          : "scale-100 group-hover:scale-105"
-                      }
+                   
                     `}
                   />
                 </div>
